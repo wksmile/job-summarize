@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFC</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<body>
+<!--BFC垂直方向边距重叠-->
+    <section id="margin">
+        <style>
+            #margin {
+                background: pink;
+                overflow: hidden;
+            }
+            p {
+                margin: 5px auto 25px;
+                background: red;
+            }
+        </style>
+        <p>1</p>
+        <div style="overflow: hidden">
+            <p>2</p>
+        </div>
+        <p>3</p>
+    </section>
+<!--BFC不与float重叠-->
+    <section id="layout">
+        <style media="screen">
+            #layout {
+                background: red;
+            }
+            #layout .left {
+                float: left;
+                width: 100px;
+                height: 100px;
+                background: pink;
+            }
+            #layout .right {
+                height: 110px;
+                background: #ccc;
+            }
+        </style>
+        <div class="left"></div>
+        <div class="right"></div>
+    </section>
+<!--BFC子元素即使是float也会参与高度计算-->
+    <section id="float">
+        <style media="screen">
+            #float {
+                overflow: auto;
+                background: red;
+            }
+            #float .float {
+                float: left;
+                font-size: 30px;
+            }
+        </style>
+        <div class="float">我是浮动元素</div>
+    </section>
+</body>
+</html>
