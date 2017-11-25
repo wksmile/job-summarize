@@ -11,7 +11,7 @@
     }
 </style>
 <body>
-<!--BFC垂直方向边距重叠-->
+<!--BFC垂直方向边距不会重叠-->
     <section id="margin">
         <style>
             #margin {
@@ -46,7 +46,7 @@
                 background: #ccc;
             }
         </style>
-        <div class="left"></div>
+        <div class="left"></div>  <!--加上overflow:hidden-->
         <div class="right"></div>
     </section>
 <!--BFC子元素即使是float也会参与高度计算-->
