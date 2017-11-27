@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>头尾固定的自适应内容布局</title>
+    <style type="text/css">
+        * {
+            margin:0;
+            padding:0;
+        }
+        html{
+            padding:100px 0;
+            overflow:hidden;
+        }
+        html,body {
+            height:100%;
+            width:100%;
+        }
+
+        .wrap {
+            background:#FF8C00;
+            width:100%;
+            overflow:auto;
+            position:absolute;
+            left:0;
+            top:100px;
+            bottom:100px;
+            height:100%;
+        }
+        .top {
+            height:100px;
+            width:100%;
+            left:0;
+            top:0;
+            background:#6B8E23;
+            position: absolute;
+        }
+        .footer {
+            height:100px;
+            width:100%;
+            background: #EE4063;
+            position: absolute;
+            bottom:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">固定头部100px;</div>
+    <div class="wrap">
+        中间自适应部分<br>
+    </div>
+    <div class="footer">固定尾部100px</div>
+</body>
+</html>
