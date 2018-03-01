@@ -12,43 +12,44 @@
 </style>
 <body>
 <!--BFC垂直方向边距不会重叠-->
-    <section id="margin">
-        <style>
-            #margin {
-                background: pink;
-                overflow: hidden;
-            }
-            p {
-                margin: 5px auto 25px;
-                background: red;
-            }
-        </style>
-        <p>1</p>
-        <div style="overflow: hidden">
-            <p>2</p>
-        </div>
-        <p>3</p>
-    </section>
+    <!--<section id="margin">-->
+        <!--<style>-->
+            <!--#margin {-->
+                <!--background: pink;-->
+                <!--overflow: hidden;-->
+            <!--}-->
+            <!--p {-->
+                <!--margin: 15px auto 25px;-->
+                <!--background: red;-->
+            <!--}-->
+        <!--</style>-->
+        <!--<p>1</p>-->
+        <!--<div style="overflow: hidden">-->
+            <!--<p>2</p>-->
+        <!--</div>-->
+        <!--<p>3</p>-->
+        <!--<p>4</p>-->
+    <!--</section>-->
 <!--BFC不与float重叠-->
-    <section id="layout">
-        <style media="screen">
-            #layout {
-                background: red;
-            }
-            #layout .left {
-                float: left;
-                width: 100px;
-                height: 100px;
-                background: pink;
-            }
-            #layout .right {
-                height: 110px;
-                background: #ccc;
-            }
-        </style>
-        <div class="left"></div>  <!--加上overflow:hidden-->
-        <div class="right"></div>
-    </section>
+    <!--<section id="layout">-->
+        <!--<style media="screen">-->
+            <!--#layout {-->
+                <!--background: red;-->
+            <!--}-->
+            <!--#layout .left {-->
+                <!--float: left;-->
+                <!--width: 100px;-->
+                <!--height: 100px;-->
+                <!--background: pink;-->
+            <!--}-->
+            <!--#layout .right {-->
+                <!--height: 110px;-->
+                <!--background: #ccc;-->
+            <!--}-->
+        <!--</style>-->
+        <!--<div class="left"></div>-->
+        <!--<div class="right"></div>  &lt;!&ndash;加上overflow:hidden&ndash;&gt;-->
+    <!--</section>-->
 <!--BFC子元素即使是float也会参与高度计算-->
     <section id="float">
         <style media="screen">

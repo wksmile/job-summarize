@@ -11,12 +11,12 @@
 
  1. 标准模型的宽和高就是content，IE模型宽和高还包括padding和border。
  2. box-sizing:content-box/border-box   content-box指标准模型，border-box指IE模型
- 3. （1）dom.style.width/height 只能取到内联样式的宽和高，style标签和外链的样式取不到
+ 4. （1）dom.style.width/height 只能取到内联样式的宽和高，style标签和外链的样式取不到
       （2）dom.currentStyle.width/height 取到的是最终渲染后的宽和高，只有IE支持
       （3）window.getComputedStyle(dom).width/height  同（2）但是多浏览器支持
       （4）dom.getBoundingClientRect().width/height同（3），除此可以取到相对于视窗的上下左右的距离
  5. 根据盒模型解释边距重叠
-    例如boxModel.html中id为sec的示例中，父元素的高度是多少。100px和110x都可能，要看盒模型是什么？这里是100px，但是给sec加上overflow:hidden后父元素的高度变成110px，这是因为给父级元素创建了BFC。
+    例如boxModel.html中id为sec的示例中，父元素的高度是多少。100px，这里是100px，但是给sec加上overflow:hidden后父元素的高度变成110px，这是因为给父级元素创建了BFC。
     
     
 ### 知识点补充
