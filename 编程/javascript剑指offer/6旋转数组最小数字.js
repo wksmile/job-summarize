@@ -27,7 +27,7 @@ function minNumber(rotateArray) {
     }
     var index = parseInt(Math.floor((rotateArray.length)/2))
     var left = rotateArray.slice(0,index);
-    var right = rotateArray.slice(indx);
+    var right = rotateArray.slice(index);
     var recuArray;
     if(rotateArray[index-1]<rotateArray[0]) {
         recuArray = left;

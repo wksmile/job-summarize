@@ -21,3 +21,5 @@ jQuery源码有没有看过，它的核心架构是什么？事件委托是怎�
 
 用到jQuery很可能用到模板引擎。jQuery的事件委托，事件代理，jQuery的延迟的delay方法
 
+JQuery的通知插件
+

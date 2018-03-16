@@ -60,7 +60,7 @@ console.log(numberOf2(2));
 
 // 题目： 用一条语句判断一个整数是不是2的整数次方。   此方法负数不适用
 function isTwo(n) {
-    return n!=1 && (n&(n-1))==0;
+    return n!==1 && (n&(n-1))==0;
 }
 
 console.log('isTwo:', isTwo(1));

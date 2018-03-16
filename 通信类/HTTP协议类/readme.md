@@ -51,3 +51,23 @@
 5. HTTP/1.1要求服务器端支持管线化，但并不要求服务器端也对响应进行进行管线化处理，只是要求管线化的请求不失败即可（了解）
 6. 由于上面提到的服务器端问题，开启管线化很可能并不会带来大幅度的性能提升，而且很多服务器端和代理程序对管线化支持并不太好，因此现代浏览器如Chrome和Firefox默认并未开启管线化支持；
 
+##### http缓存策略？
+
+
+##### http断点续传？
+1. Range,用于请求头中，指定第一个字节的位置和最后一个字节的位置，一般格式：`Range:(unit=first byte pos)-[last byte pos]`
+2. Content-Range,用于响应头中，在发出带 Range 的请求后，服务器会在 Content-Range 头部返回当前接受的范围和文件总大小。
+3. 返回的响应内容
+
+
+    HTTP/1.1 200 Ok（不使用断点续传方式） 
+    HTTP/1.1 206 Partial Content（使用断点续传方式）
+
+**增强校验**
+终端发起续传请求时，URL 对应的文件内容在服务器端已经发生变化，此时续传的数据肯定是错误的。如何解决这个问题了？显然此时需要有一个标识文件唯一性的方法。
+
+`If-Range:Etag|HTTP-Date`If-Range 可以使用 Etag 或者 Last-Modified 返回的值。当没有 ETage 却有 Last-modified 时，可以把 Last-modified 作为 If-Range 字段的值。判断服务器目标内容是否发生了变化
+
+[参考](http://blog.csdn.net/liang19890820/article/details/53215087)
+
+##### hybrid了解吗？与native通信这块了解吗

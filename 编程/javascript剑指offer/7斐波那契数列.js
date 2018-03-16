@@ -1,5 +1,5 @@
 function fbonacci(n) {
-    if(typeof n != 'number' || n<1 || n%1!=0) return;
+    if(typeof n !== 'number' || n<1 || n%1!==0) return;
     if(n===1) return 1;
     if(n===2) return 2;
     var n1=1,n2=2,result=0;
@@ -12,3 +12,4 @@ function fbonacci(n) {
 }
 
 console.log(fbonacci(5));
+

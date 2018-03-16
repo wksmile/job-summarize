@@ -1,0 +1,1 @@
+[参考:深入响应式原理](http://www.infoq.com/cn/articles/Vue.js-code?utm_source=infoq&utm_campaign=user_page&utm_medium=link)

@@ -8,3 +8,7 @@
 
 * 当state中的数据类型为引用类型类如对象时就会出现问题。（具体看原文）
 
+##### 用redux的原因？解决了哪些问题？
+[为什么react要用redux](http://blog.csdn.net/u010632868/article/details/74937904)
+
+[为什么使用redux](http://blog.csdn.net/haoaiqian/article/details/78625200)

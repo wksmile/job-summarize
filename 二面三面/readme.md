@@ -1,3 +1,6 @@
+# 面试题
+[连接](https://segmentfault.com/a/1190000011635556)
+
 ## 面试技巧
 - 知识面要广
 - 理解要深刻（比如了解浏览器的特性，了解js引擎）
@@ -20,11 +23,12 @@
 - 设么叫Repaint?
 - 布局Layout?
     
-##### 什么是DOCTYPE及作用？DTD是一系列的语法规则，用来定义xml或html的文件类型。浏览器会使用它来判断文档类型，决定使用何种协议来解析，以及切换浏览器模式。DOCTYPE是用来声明文档类型和DTD规范的，一个主要的用途便是文件的合法性验证。如果文件代码不合法，那么浏览器解析时便会出一些差错。
+##### 什么是DOCTYPE及作用？
+> DTD是一系列的语法规则，用来定义xml或html的文件类型。浏览器会使用它来判断文档类型，决定使用何种协议来解析，以及切换浏览器模式。DOCTYPE是用来声明文档类型和DTD规范的，一个主要的用途便是文件的合法性验证。如果文件代码不合法，那么浏览器解析时便会出一些差错。
 
 - HTML5-----<!DOCTYPE html>
-- HTML 4.01 Strict该DTD包含所有HTML元素和属性，但不包括展示型的和弃用的元素<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">(这个不用记)
-- HTML 4.01 Transitional 该DTD包含所有HTML元素和属性，包括展示性的和弃用的元素<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">（这个不用记）
+- HTML 4.01 Strict(严格模式)该DTD包含所有HTML元素和属性，但不包括展示型的和弃用的元素<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">(这个不用记)
+- HTML 4.01 Transitional （松散模式）该DTD包含所有HTML元素和属性，包括展示性的和弃用的元素<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">（这个不用记）
 
 ##### 浏览器渲染过程
  
@@ -33,7 +37,7 @@
 ##### 重排Reflow
 > 定义:DOM结构中的各个元素都有自己的盒子（模型），这些都需要浏览器根据各种样式来计算并根据计算结果将元素放到它该出现的位置，这个过程称为reflow
 
-> 触发Reflow
+<b>触发Reflow</b>
 - 当你增加，删除，修改DOM节点时，会导致Reflow或Repaint
 - 当你移动DOM的位置，或是搞个动画的时候
 - 当你修改css样式的时候
@@ -90,8 +94,8 @@
     
 2. 异步加载的区别
     
-    - defer是在HTML解析完成之后才会执行，如果是多个，按照加载的顺序依次执行
-    - async是在加载完成后立即执行，如果是多个，执行顺序和加载顺序无关
+    - defer是在HTML解析完成之后才会执行，DOMContentLoaded事件触发执行之前。如果是多个，按照加载的顺序依次执行
+    - async是在加载完成后立即执行，如果是多个，执行顺序和加载顺序无关（IE不支持async，只支持defer）
     
 ##### 浏览器缓存
 1. 缓存的分类
@@ -139,4 +143,34 @@
 1. 采用Ajax通信的方式上报
 2. 利用Image对象上报（用的更多）
 
+##### 浏览器缓存机制？
+现代前端技术解析P48
 
+##### 移动端300ms点击延迟解决方案？
+1. 禁用缩放
+
+
+    `<meta name="viewport" content="user-scalable=no">
+     <meta name="viewport" content="initial-scale=1,maximum-scale=1">`
+     
+2. 更改默认的视口宽度
+
+
+    <meta name="viewport" content="width=device-width">
+    
+它没有完全禁用缩放，而只是禁用了浏览器默认的双击缩放行为，但用户仍然可以通过双指缩放操作来缩放页面。
+
+3. 方案三：CSS touch-action
+
+**当前如何避免延迟**
+1. 指针事件的 polyfill
+2. FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库
+
+##### 如果要你去实现一个前端模板引擎，你会怎么做
+
+##### 一个静态资源要上线，里面有各种资源依赖，你如何平稳上线
+
+##### 去除代码里面所有的空格和换行，你怎么做？
+
+
+##### let暂时性死区

@@ -15,7 +15,6 @@ function find(target, matrix) {
     }
     return found;
 }
-
 /******************************测试**********************/
 var matrix = [
     [1,2,8,9],
@@ -23,5 +22,5 @@ var matrix = [
     [4,7,10,13],
     [6,8,11,15]
 ]
-
 console.log(find('er',matrix));
+

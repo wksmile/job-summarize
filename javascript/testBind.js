@@ -1,3 +1,4 @@
+// 实现bind函数
 Function.prototype.testBind = function(that){
   var _this = this,
     args = Array.prototype.slice.apply(arguments,[1]),
@@ -26,4 +27,5 @@ var obj = {value:'ok'}
 var fun_new = test.testBind(obj,{value:'also ok'})  // 这里是绑定bind时候传进去的参数
 var after_new = new fun_new();
 after_new.shuchu();
+
 

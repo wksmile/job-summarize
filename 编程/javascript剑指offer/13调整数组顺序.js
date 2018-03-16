@@ -4,7 +4,7 @@
 function reOrderArray(array) {
     var arr1=[],arr2=[];
     array.map(function (a) {
-        a%2===0?arr1.push(a):arr2.push(a);
+        return a%2===0?arr1.push(a):arr2.push(a);
     })
     return arr2.concat(arr1);
 }
