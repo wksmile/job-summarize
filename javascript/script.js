@@ -40,3 +40,59 @@ if (!Array.prototype.map) {
     return A;
   };
 }
+
+
+// dom树的深度遍历,
+function interator(node) {
+  console.log(node)
+  var children = node.children
+  if(children.length){
+    for(var i=0;i<children.length;i++){
+      console.log(children[i])
+    }
+  }
+}
+
+// dom树的广度遍历,模拟一个队列的形式
+function interator(node) {
+  var arr = []
+  arr.push(node)
+  while (arr.length>0){
+    node = arr.shift()
+    console.log(node)
+    var children = node.children;
+    if(node.children.length>0){
+      for(var i=0;i<children.length;i++){
+        node.push(children[i])
+      }
+    }
+  }
+}
+
+// 先序遍历
+var preOrder = function (node) {
+  if (node) {
+    console.log(node.value);
+    preOrder(node.left);
+    preOrder(node.right);
+  }
+}
+
+// 中序遍历
+var inOrder = function (node) {
+  if (node) {
+    inOrder(node.left);
+    console.log(node.value);
+    inOrder(node.right);
+  }
+}
+
+// 后序遍历
+var postOrder = function (node) {
+  if (node) {
+    postOrder(node.left);
+    postOrder(node.right);
+    console.log(node.value);
+  }
+}
+

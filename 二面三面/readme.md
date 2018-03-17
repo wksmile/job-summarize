@@ -174,3 +174,25 @@
 
 
 ##### let暂时性死区
+[参考阮一峰es6指南](http://es6.ruanyifeng.com/#docs/let#%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA)
+
+暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。
+
+##### 如何实现图片滚动懒加载？
+这里看懂可以说是自己的实现
+[参考1](http://www.zyy1217.com/2017/03/16/%E9%AB%98%E6%80%A7%E8%83%BD%E6%BB%9A%E5%8A%A8%20scroll%20%E5%8F%8A%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96/)
+
+[参考2](http://www.zyy1217.com/2017/03/20/js%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/)
+
+##### 深度遍历dom树的代码？
+
+##### 原生JS实现一个类型百度搜索的自动完成控件。
+[参考链接](https://github.com/fyuanfen/fyuanfen.github.io/tree/master/searchlist)
+
+
+
+
+
+
+
+

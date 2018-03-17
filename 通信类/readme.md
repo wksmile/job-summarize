@@ -120,3 +120,31 @@
 8. JS引擎解析过程（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）
 9. 其它（可以拓展不同的知识模块，如跨域，web安全，hybrid模式等等内容）
 
+##### HTTP有几种请求头？option请求头的作用?
+[参考](https://www.cnblogs.com/cp168168/p/7923227.html)
+
+OPTIONS请求方法的主要用途有两个：
+
+1、获取服务器支持的HTTP请求方法；也是黑客经常使用的方法。
+
+2、用来检查服务器的性能。例如：AJAX进行跨域请求时的预检，需要向另外一个域名的资源发送一个HTTP OPTIONS请求头，用以判断实际发送的请求是否安全。
+
+
+##### nginx的好处？nginx和node的比较?
+nginx:
+更快 | 高扩展性，跨平台 | 高可靠性 | 低内存消耗 | 热部署 | 最自由的BSD许可协议
+
+Nginx的性能比Node.js的HTTP模块要好很多。但Nginx考量的是面向客户端， 后端业务方面依然是受具体业务影响。而Node.js则可以利用异步I/O来实现业务并行，以提升效率。
+
+
+##### websocket的工作原理和机制？
+Websocket是应用层第七层上的一个应用层协议，它必须依赖 HTTP 协议进行一次握手 ，握手成功后，数据就直接从 TCP 通道传输，与 HTTP 无关了。WebSocket是类似Socket的TCP长连接的通讯模式，一旦WebSocket连接建立后，后续数据都以帧序列的形式传输。
+
+”Upgrade：websocket”参数值表明这是WebSocket类型请求，“Sec-WebSocket-Key”是WebSocket客户端发送的一个base64编码的密文，要求服务端必须返回一个对应加密的“Sec-WebSocket-Accept”应答，否则客户端会抛出“Error during WebSocket handshake”错误，并关闭连接。
+
+[参考](http://www.6gdown.com/softedupage/59485.html)
+
+##### socket如何实现通信？
+
+
+

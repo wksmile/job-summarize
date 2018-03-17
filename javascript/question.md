@@ -50,3 +50,26 @@
 3. 使用 requestAnimationFrame 来写动画
 4. 使用 Web Worker 来处理复杂的计算
 5. 避免在 scroll 或 touchmove 这类事件的回调中修改样式,会强制重新计算样式
+
+##### 给定一个元素获取它相对于视图窗口的坐标
+
+##### offsetHeight, scrollHeight, clientHeight分别代表什么
+1. clientHeight和clientWidth用于描述元素内尺寸，是指 元素内容+内边距 大小，不包括边框（IE下实际包括）、外边距、滚动条部分
+
+2. clientTop和clientLeft返回内边距的边缘和边框的外边缘之间的水平和垂直距离，也就是左，上边框宽度
+
+3. offsetHeight和offsetWidth用于描述元素外尺寸，是指 元素内容+内边距+边框，不包括外边距和滚动条部分
+
+4. offsetTop和offsetLeft表示该元素的左上角（边框外边缘）与已定位的父容器（offsetParent对象）左上角的距离
+
+5. offsetParent对象是指元素最近的定位（relative,absolute）祖先元素，递归上溯，如果没有祖先元素是定位的话，会返回null
+
+6. `var x = window.scrollX;` //以像素为单位，返回水平轴上document已经被卷去的宽度,同pageXOffset 
+
+7. `var y = window.scrollY;` //以像素为单位，返回垂直方向上document被卷曲的高度，同pageYOffset 
+
+8. scrollWidth //返回元素的宽度（包括元素宽度、内边距和溢出尺寸，不包括边框和外边距），无溢出的情况，与clientWidth相同
+
+9. scrollHeigh//返回元素的高度（包括元素高度、内边距和溢出尺寸，不包括边框和外边距），无溢出的情况，与clientHeight相同
+
+[参考](https://www.cnblogs.com/ifworld/p/7605954.html)

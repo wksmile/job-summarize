@@ -31,11 +31,16 @@
     
 !!100 可以看到输出true
 
-为false的值: 0, NaN, '', null, undefined, false
+为false的值: 0, NaN, '', null, undefined, false, []
 
 
 ##### 如何准确判断一个变量是数组类型
-+ 用instanceof, arr instamceof Array,typeof不能判断出数组
++ Array.isArray() // ES5支持
+
+
+    function(o){
+        return typeof o === "object" && Object.prototype.toString.call(o) === "[object Array]";
+    }
 
     
 ##### 何时使用 === 何时使用 == 
