@@ -7,7 +7,7 @@
 ##### new运算符运算的过程
 + 创建一个新对象
 + this指向这个新对象
-+ 执行代码，即对this赋值
++ 执行函数代码，即对this赋值
 + 返回this
 
 ##### 原型规则和实类
@@ -27,9 +27,9 @@
 f.__proto__ === Foo.prototype                  // true         <br>
 Foo.prototype.__proto__ === Object.prototype   // true         <br>
 f.__proto__.__proto__===Object.prototype       // true         <br>
+Object.prototype.__proto__===null              // true
 
 ##### 循环对象自身的属性
-
 
     var item
     for (item in f) {  // 会得到自身属性以及原型链上属性
@@ -52,9 +52,6 @@ f.__proto__.__proto__===Object.prototype       // true         <br>
 ##### instanceof
 - 指实例的__proto__对象是否等于该对象的原型或者原型链上的原型
     o2.__proto__.constructor === M 判断o2实例是否是由M构造函数生成
-
-##### new运算符工作原理
-TODO
 
 ##### 构造函数的扩展
 

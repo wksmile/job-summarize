@@ -24,15 +24,15 @@
 - 布局Layout?
     
 ##### 什么是DOCTYPE及作用？
-> DTD是一系列的语法规则，用来定义xml或html的文件类型。浏览器会使用它来判断文档类型，决定使用何种协议来解析，以及切换浏览器模式。DOCTYPE是用来声明文档类型和DTD规范的，一个主要的用途便是文件的合法性验证。如果文件代码不合法，那么浏览器解析时便会出一些差错。
+1. <!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器以何种模式来渲染文档。 
+2. 严格模式的排版和 JS 运作模式是  以该浏览器支持的最高标准运行。
+3. 在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
+4. DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。 
 
 - HTML5-----<!DOCTYPE html>
 - HTML 4.01 Strict(严格模式)该DTD包含所有HTML元素和属性，但不包括展示型的和弃用的元素<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">(这个不用记)
 - HTML 4.01 Transitional （松散模式）该DTD包含所有HTML元素和属性，包括展示性的和弃用的元素<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">（这个不用记）
 
-##### 浏览器渲染过程
- 
-<img src="aaa.png">
 
 ##### 重排Reflow
 > 定义:DOM结构中的各个元素都有自己的盒子（模型），这些都需要浏览器根据各种样式来计算并根据计算结果将元素放到它该出现的位置，这个过程称为reflow
@@ -52,10 +52,12 @@
 - DOM改动
 - css改动
 
-> 怎样尽量减少repaint？
+> 怎样尽量减少Reflow？
 - 使用documentFragment，一次性加入节点
 
 ## js运行机制
+[参考](https://www.cnblogs.com/MasterYao/p/5563725.html)
+
 - 如何理解JS的单线程
 - 什么是任务队列
 - 什么是Event Loop:  执行栈执行的是同步任务，什么时候去异步队列取这个任务？什么时候往这个异步队列中放这个异步任务。
@@ -64,6 +66,8 @@
 - setTimeout和setInterval
 - DOM事件
 - ES6中的Promise
+- 文件读取
+- 网络请求
 
 #### 运行机制总结
 - 理解JS的单线程的概念：一个时间内只能干一件事
@@ -136,7 +140,7 @@
 >> 可以捕获到，如上图，但是只是提示Script error,不能提供其他具体的信息。
 
 >> 解决方法：
-    1. 在客户端script标签增加crossorigin属性
+    1. 在客户端script标签增加cross-origin属性
     2. 设置服务器js资源响应头Access-Control-Allow-Origin:*
     
 ##### 上报错误的基本方式
@@ -168,10 +172,10 @@
 
 ##### 如果要你去实现一个前端模板引擎，你会怎么做
 
+
 ##### 一个静态资源要上线，里面有各种资源依赖，你如何平稳上线
 
 ##### 去除代码里面所有的空格和换行，你怎么做？
-
 
 ##### let暂时性死区
 [参考阮一峰es6指南](http://es6.ruanyifeng.com/#docs/let#%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA)

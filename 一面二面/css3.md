@@ -5,6 +5,11 @@ css动画：translate/transform/animation
 [参考:张鑫旭博客](http://www.zhangxinxu.com/wordpress/2010/11/css3-transitions-transforms-animation-introduction/)
 [参考css vs js动画](http://zencode.in/19.CSS-vs-JS%E5%8A%A8%E7%94%BB%EF%BC%9A%E8%B0%81%E6%9B%B4%E5%BF%AB%EF%BC%9F.html)
 
+requestAnimationFrame:
+1. requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+
+2. 在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的的cpu，gpu和内存使用量。
+
 ### css3中的变形处理？
 
 利用transform功能实现文字或图像的 **旋转、缩放、倾斜、移动**这四种类型的变形处理。
@@ -106,6 +111,7 @@ f12 timeline/performance 查看
 
 ##### js引擎怎么实现Class关键字？
 
+
 ##### 浏览器兼容？遇到过哪些问题？
 1. 不同浏览器的标签默认的外补丁和内补丁不同，CSS里加 *{margin:0;padding:0;}
 2. 几个img标签放在一块，有些浏览器会有默认的间距，有通配符也不起作用，解决方案：使用float属性为img布局。备注：img标签是行内属性标签，只要不超出容器高度，img会排在一行里，使用float是比较好的选择
@@ -116,4 +122,6 @@ f12 timeline/performance 查看
    
    
 ##### 用过哪些预处理器，scss？那scss有存在什么缺点吗？
+
+
 

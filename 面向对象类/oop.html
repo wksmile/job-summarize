@@ -16,14 +16,14 @@
     *  ES6中的class的声明
     * */
     class Animal2 {
-        constructor () {
+        constructor (name) {
             this.name = name;
         }
     }
     /*
     * 实例化
     * */
-    console.log(new Animal(), new Animal2());
+    console.log(new Animal(), new Animal2('dog'));
 
     /***************继承************/
     /*
@@ -43,6 +43,7 @@
     * */
     function Parent2() {
         this.name = 'parent2';
+        this.parentPlay = [1,2,3];
     }
     function Child2() {
         this.type = 'child2';
@@ -53,7 +54,8 @@
 
     var s1 = new Child2();
     var s2 = new Child2();
-    console.log(s1.play, s2.play);
+    s1.parentPlay.push(4)
+    console.log(s1.parentPlay, s2.parentPlay);
 
     /*
     * 组合继承
@@ -107,6 +109,7 @@
         this.type = 'child5';
     }
     Child5.prototype = Object.create(Parent5.prototype);  // 使子类的原型对象与父类的原型对象隔离
+    // 这里如果直接等于 new Parent5()会有一些问题：传参为undefined会可能导致误执行，如果构造函数里面有一些对象还会造成内存泄漏
     Child5.prototype.constructor = Child5;
 
     var s7 = new Child5();

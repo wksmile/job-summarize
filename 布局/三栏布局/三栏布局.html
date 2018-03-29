@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-<!--浮动法-->
+<!--浮动法，与表格布局写法类似-->
     <section class="layout float">
         <style media="screen">
             .layout.float .left {
@@ -77,6 +77,11 @@
     </style>
     <article class="left-center-right">
         <!--负外边距法主体部分div必须放在前面-->
+        <!--布局理解：当不考虑margin值的时候，body,left,right都是float:left,body独占一行，宽度为100%也就是父容器的宽度，left,right在第二行。
+            left,right在第二行是因为一行放不下去了，所以换行，我们也可以这样想：其实body,left,right是在一行的。
+            然后left设置float:-100%,100%的父容器宽度等于body的宽度，left向左移动一个父容器的宽度，就靠在了body的左边，此时right在body外面。
+            然后right设置float:-300px,300px位right的宽度，即right向左移自己的宽度，然后就靠在了body的右边。
+        -->
         <div class="center">
             <div class="body">
                 <h1>负外边距布局解决方案</h1>

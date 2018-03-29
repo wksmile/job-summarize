@@ -5,6 +5,8 @@
 - DOM2,element.addEventListener('click',function(){},false)
 - DOM3增加了一些事件类型,element.addEventListener('keyup',function(){},false)
 
+false参数表示事件句柄在冒泡阶段执行，true表示在捕获阶段执行
+
 ##### DOM事件模型，即事件冒泡，捕获等？
 - 捕获：从上到下
 - 冒泡：从当前元素向上
@@ -36,5 +38,7 @@
 
 ##### 捕获事件的应用
 事件代理
+
+
 
 

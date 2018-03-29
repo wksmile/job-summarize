@@ -55,23 +55,40 @@ npm常见命令，它是怎么用的，它的script使用
 
 1. HTML模板 vs JSX
 2. reatc状态state对象不可变，需要用到setState函数，vue状态直接由data属性管理
-3. 
 
 [参考1](http://caibaojian.com/vue-vs-react.html)
 [参考2](http://chping.website/2016/11/28/Vue%E5%92%8CReact%E5%AF%B9%E6%AF%94/)
 
 ##### 用vue/react的原因，解决了哪些问题
 
-##### vue数据双向绑定的底层实现?
 
 ##### 回调函数，Promise,async/await三者的区别，以及为什么用Promise，然后又变成了async/await
 
+
 #####  MongoDB性能问题
+
 
 ##### 前端测试和web压力测试
 
-##### virtual dom的实现，diff算法
 
-##### babel是如何将es6代码编译成es5的
+##### 怎么获取真正的dom？
+1. dom上有ref属性，然后 this.refs.[refName] 就会返回这个真实的 DOM 节点
+2. 在事件回调中e.target可以取到事件触发的节点
+3. ReactDOM.findDOMNode(this.refs.[refName])
+4. .....更好的方法  [参考](https://doc.react-china.org/docs/refs-and-the-dom.html)
+
+this.refs:  ref添加到Compoennt上获取的是Compoennt实例，添加到原生HTML上获取的是DOM。
+当给 HTML 元素添加 ref 属性时，ref 回调接收了底层的 DOM 元素作为参数
+当 ref 属性用于使用 class 声明的自定义组件时，ref 的回调接收的是已经加载的 React 实例
+
+ReactDOM.findDOMNode: 当参数是DOM，返回值就是该DOM（这个没啥卵用）；当参数是Component获取的是该Component render方法中的DOM
+
+##### 页面的SPA应用？
+[将前端网站打造成页面应用SPA](https://segmentfault.com/a/1190000002920768)
+
+##### 单向数据流
+[重新诠释flux架构](http://stylechen.com/ballade-reinterpreted-flux.html)
+[Flux: Actions and the Dispatcher](https://segmentfault.com/a/1190000002530862)
+
 
 

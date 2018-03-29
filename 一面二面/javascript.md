@@ -1,12 +1,15 @@
 ##### javascript数组去重？
-1.
-
+1. set集合法
 
     var arr = [1,2,3,3,2]
     var arrset = new Set(arr)
     var arrNoAgain = Array.from(arrset)
 
 [javascript数组去重](https://github.com/mqyqingfeng/Blog/issues/27)
+
+2. 双重循环
+3. indexof
+4. sort排序后前后比较
 
 ##### eval是做什么用的，有什么安全问题?
 **定义和用法**

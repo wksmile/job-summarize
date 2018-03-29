@@ -24,14 +24,5 @@ var vin = [4,7,2,1,5,3,8,6];
 
 console.log(reConstructBinaryTree(pre,vin));
 
-function restructorTree(pre, mid) {
-  if(pre[0]===0||mid[0]===0) return null;
-  var index = mid.indexOf(pre[0])
-  var left=mid.slice(0,index),
-    right=mid.slice(index);
-  return {
-    val:pre[0],
-    left:restructorTree(pre.slice(1,index+1),left),
-    right:restructorTree(pre.slice(index+1),right)
-  }
-}
+
+

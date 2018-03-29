@@ -5,46 +5,34 @@
     <title>demo</title>
     <style>
         #div{
-            width: 400px;
-            height: 400px;
-            background-color: red;
-        }
-        #divchild{
-            width: 200px;
-            height: 200px;
-            background-color: blue;
-            color: #FFF;
-        }
-        #divconsole{
-            height: 400px;
-            width: 100%;
-            background-color: #000;
-            color: #FFF;
+            width:800px;
+            height:400px;
+            border:10px solid #000;
+            position:absolute;
+            left:0;
+            top:0;
+            background-color:rgba(130,6,500,.9);
         }
     </style>
 </head>
-<body ontouchstart = "return false;"> <!-- ontouchstart屏蔽弹出菜单，消除可能的菜单影响原因 -->
-<div id='div'>
-    <div id='divchild'>长按测试</div>
+<body> <!-- ontouchstart屏蔽弹出菜单，消除可能的菜单影响原因 -->
+<div id="div">
+
 </div>
-<br /><br /><br />
-<div id='divconsole'>显示结果：<br /></div>
 <script>
-  function divconsole(str){
-    var text = document.createTextNode(str);
-    document.getElementById('divconsole').appendChild(text);
+  center();
+  var div= document.getElementById('div');
+  function center(){
+    var vw = document.documentElement.clientWidth;
+    var vh = document.documentElement.clientHeight;
+    var offset_W = div.offsetWidth;
+    var offset_H = div.offsetHeight;
+    var scrollTop = document.body.scrollTop;
+    div.style.left = (vw - offset_W) / 2 + "px";
+    div.style.top = (vh - offset_H) / 2 + scrollTop + "px";
   }
-  window.onload = function(){
-    var div = document.getElementById('div');
-    var child = document.getElementById('divchild');
-    div.addEventListener('touchstart',function(e){
-      child.remove();
-      divconsole('触发了touchstart...');
-    });
-    div.addEventListener('touchend',function(e){
-      divconsole('触发了touchend...');
-    });
-  }
+  window.addEventListener("scroll",center);
+  window.onresize = center;
 </script>
 </body>
 </html>

@@ -23,19 +23,7 @@
 - 事件的触发条件？
 - 事件的触发顺序？
 
-
-    var xhr = new (window.XMLHttpRequest || ActiveXObject)('Microsoft.XMLHTTP');
-    
-    xhr.open('get','www.baidu.com',false);
-    xhr.onreadystatechange = function () {
-      if(xhr.readyState === 4) {
-        if((xhr.status>=200 && xhr.status <300) || xhr.status === 304) {
-          // 请求成功
-        } else {
-          // 请求失败
-        }
-      }
-    }
+> ajax的代码实现参见script.js
     
 [ajax的jQuery实现及jsonp实现](https://www.cnblogs.com/xujiazheng/p/6253461.html)
 
@@ -57,57 +45,18 @@
 
 + CORS为什么就支持跨域通信？需要浏览器服务器支持。浏览器会拦截ajax请求，如果浏览器觉得ajax请求是跨域的它会在http头中加上Origin字段。  [参考阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
+**CORS跨域**：
+它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。CORS需要浏览器和服务器同时支持。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息。
 
 [参考](https://github.com/wengjq/Blog/issues/2)
 
-##### 为什么TCP连接要经过三次握手，四次断开？
+**CORS与JSPON比较**
+JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。
 
-[参考1](https://www.zhihu.com/question/24853633)
-[参考2](https://www.cnblogs.com/zhoudayang/p/6012257.html)
-[参考3](https://www.cnblogs.com/qiaoconglovelife/p/5733056.html)
+##### 父域与子域是否算跨域？如果ip相同是否算跨域？
+父域子域域名不同就算跨域了。但是在子域登录的帐户可以访问父域的共享资源（当然得有授权）而不需在父域登录，因为子域与父域是相互信任的，只要通过了子域的验证也就通过了父域的验证，反之亦然。
 
-必要性：TCP通过三次握手建立可靠的（确保收到）的全双工通信。
-1. 第一次握手和第二次握手（ACK部分）建立了从客户端到服务器传送数据的可靠连接；
-2. 第二次握手（SYN部分）和第三次握手建立了从服务器到客户端传送数据的可靠连接；
-3. 由于我们期望建立全双工连接，所以两个方向的通信都是需要的，于是合并了服务器发送的ACK和SYN。
-4. 第三次握手的必要性：防止已失效的请求报文段突然又传送到了服务端而造成连接的误判。
-
-四次断开，为保证单向通信的可行性
-1. 主动断开方发送FIN时，被动断开方要回复ACK，意思是“我收到你的FIN了”；
-2. 主动断开方发送FIN并不意味着立即关闭TCP连接，而是告诉对方自己没有更多的数据要发送了，只有当对方发完自己的数据再发送FIN后，才意味着关闭TCP连接；
-3. 被动断开方收到FIN并回复ACK后，此时TCP处于“半关闭”状态，为保证被动断开方可以继续发送数据，所以第二个FIN并不会伴随ACK发送，所以比连接时多一个报文段。
-
-**三次握手四次挥手的过程**
-[链接](http://blog.csdn.net/jungle_hello/article/details/51465119)
-
-##### HTTPS通信过程
-1. 客户端向服务器发送协议版本号、客户端生成的**随机数**、以及客户端支持的加密算法
-2. 服务器返回确认双方使用的加密方法，并给出数字证书、以及一个服务器生成的**随机数**（证书其实就是一对公钥和私钥，只用于加密解密对话秘钥随机数）
-3. 客户端确认数字证书有效，然后生成一个新的**随机数**，并使用数字证书中的公钥加密这个随机数发给服务端
-4. 服务端使用私钥解密客户端发来的随机数
-5. 服务器和客户端根据约定的加密方法，使用前面的三个随机数生成‘对话秘钥’用来加密接下来的整个过程
-
-[参考](https://github.com/youngwind/blog/issues/108)
-
-##### http状态码有哪些？
-**概述**
-
-- 1XX 信息性状态码  接收的请求正在处理
-- 2XX 成功状态码    请求正常处理完毕
-- 3XX 重定向状态码  需要进行附加操作以完成请求
-- 4XX 客户端错误状态码 服务器无法处理请求
-- 5XX 服务器错误状态码 服务器处理请求出错
-
-**重要的状态码**
-101,200,301,302,304,307，401,404,500
-
-+ 101,协议升级，websocket升级和HTTP2升级可加进来,HTTP2的好处与HTTP1的比较   
-+ 301,永久重定向
-+ 302,临时重定向
-+ 304，协商缓存，引进浏览器缓存知识，强制缓存，协商缓存...
-+ 307，hsts跳转。原本的用法是用于让post请求的跳转去新的post请求，但也用于hsts跳转。
-
-[参考](http://hpoenixf.com/%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83%E4%B9%8Bhttp%E7%8A%B6%E6%80%81%E7%A0%81%E6%9C%89%E5%93%AA%E4%BA%9B.html#more)
+一个ip可以对应多个域名，因此域名相同也可能跨域
 
 ##### 从浏览器输入url到显示页面的过程
 1. 从浏览器接收url到开启网络请求线程（这一部分可以展开浏览器的机制以及进程与线程之间的关系）
@@ -120,15 +69,6 @@
 8. JS引擎解析过程（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）
 9. 其它（可以拓展不同的知识模块，如跨域，web安全，hybrid模式等等内容）
 
-##### HTTP有几种请求头？option请求头的作用?
-[参考](https://www.cnblogs.com/cp168168/p/7923227.html)
-
-OPTIONS请求方法的主要用途有两个：
-
-1、获取服务器支持的HTTP请求方法；也是黑客经常使用的方法。
-
-2、用来检查服务器的性能。例如：AJAX进行跨域请求时的预检，需要向另外一个域名的资源发送一个HTTP OPTIONS请求头，用以判断实际发送的请求是否安全。
-
 
 ##### nginx的好处？nginx和node的比较?
 nginx:
@@ -137,14 +77,61 @@ nginx:
 Nginx的性能比Node.js的HTTP模块要好很多。但Nginx考量的是面向客户端， 后端业务方面依然是受具体业务影响。而Node.js则可以利用异步I/O来实现业务并行，以提升效率。
 
 
-##### websocket的工作原理和机制？
-Websocket是应用层第七层上的一个应用层协议，它必须依赖 HTTP 协议进行一次握手 ，握手成功后，数据就直接从 TCP 通道传输，与 HTTP 无关了。WebSocket是类似Socket的TCP长连接的通讯模式，一旦WebSocket连接建立后，后续数据都以帧序列的形式传输。
+##### cookies和session的区别？
+1. cookie数据存放在客户的浏览器上，session数据放在服务器上。
+2. cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗
+   考虑到安全应当使用session。
+3. session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能
+   考虑到减轻服务器性能方面，应当使用COOKIE。
+4. 单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
+5. 所以个人建议：
+   将登陆信息等重要信息存放为SESSION
+   其他信息如果需要保留，可以放在COOKIE中
 
-”Upgrade：websocket”参数值表明这是WebSocket类型请求，“Sec-WebSocket-Key”是WebSocket客户端发送的一个base64编码的密文，要求服务端必须返回一个对应加密的“Sec-WebSocket-Accept”应答，否则客户端会抛出“Error during WebSocket handshake”错误，并关闭连接。
+**cookies的一些属性**
+[参考](https://www.cnblogs.com/tzyy/p/4151291.html)
 
-[参考](http://www.6gdown.com/softedupage/59485.html)
+- **name** cookie的名称
+- **value** cookie的值
+- **domain** 可以访问此cookie的域名。子域名可以读取父级域名的cookies，反之不可以。
+- **path** 可以访问此cookie的页面路径
+- **expires/Max-Age** cookie超时时间。不设置的话默认值是Session，意思是cookie会和session一起失效,当浏览器关闭(不是浏览器标签页，而是整个浏览器) 后，此cookie失效。
+- **Size** cookie大小
+- **http** cookie的httponly,为true表示不能通过document.cookie来访问此cookie
+- **secure** 设置是否只能通过https来传递此cookie
 
-##### socket如何实现通信？
+**cookie有哪些编码方式**
+- URL编码
 
+**session具体是怎么存储数据的**:
+每次我们访问一个页面，如果有开启session，也就是有session_start() 时，就会自动生成一个session_id 来标注是这次会话的唯一ID，同时也会自动往cookie里写入一个名字为PHPSESSID的变量，它的值正是session_id，当这次会话没结束，再次访问的时候，服务器会去读取这个PHPSESSID的cookie是否有值有没过期，如果能够读取到，则继续用这个session_id，如果没有，就会新生成一个session_id，同时生成PHPSESSID这个cookie。由于默认生成的这个PHPSESSID cookie是会话，也就是说关闭浏览器就会过期掉，所以，下次重新浏览时，会重新生成一个session_id。
+
+好，这个是session_id，就用来标识绑定一个用户的，既然session_id生成了。那么当我们往session里面写入数据，是如何保存的，答案是保存在服务器的临时目录里
+
+**向客户端写入cookies**
+服务端返回响应头："Set-Cookie: 'name=value;domain=.domain.com;path=/;expires=Sat, 11 Jun 2016 11:29:42 GMT;HttpOnly;secure'"
+
+##### 长连接？短连接？长轮询？短轮询？
+HTTP协议是基于请求/响应模式的，因此只要服务端给了响应，本次HTTP连接就结束了。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接这一说，HTTP没有这个说法。
+
+**长连接**：
+服务器和客户端都设置了`keep-alive`的约定。HTTP1.1默认都已设置。所以HTTP1.1默认都打开了TCP长连接。HTTP1.0不支持长连接。
+
+长连接时多个HTTP请求可以复用同一个TCP连接。
+
+长连接并不是永久连接的。如果一段时间内（具体的时间长短，是可以在header当中进行设置的，也就是所谓的超时时间），这个连接没有HTTP请求发出的话，那么这个长连接就会被断掉。
+
+长连接适用于涉及消息推送，请求频繁的场景（直播，流媒体）。连接建立后，在该连接下的所有请求都可以重用这个长连接管道，避免了频繁了连接请求，提升了效率。
+
+**短连接**：
+短连接，及连接只保持在数据传输过程，请求发起，连接建立，数据返回，连接关闭。它适用于一些实时数据请求，配合轮询来进行新旧数据的更替。
+
+**短轮询**：
+短轮询去服务端查询的时候，不管库存量有没有变化，服务器就立即返回结果了。
+
+**长轮询**：
+长轮询中，服务器如果检测到库存量没有变化的话，将会把当前请求挂起一段时间（这个时间也叫作超时时间，一般是几十秒）。在这个时间里，服务器会去检测库存量有没有变化，检测到变化就立即返回，否则就一直等到超时为止。
+
+减少客户端请求次数
 
 

@@ -1,12 +1,3 @@
-##### vue数据双向绑定底层实现？
-[实现双向绑定mvvm](https://segmentfault.com/a/1190000006599500)
-
-电脑 G/PROJECT/mvvm
-
-##### vue虚拟DOM？
-
-##### vue的nextTick的原理？
-
 ##### vue.js组件间通信
 **父子组件间通信**
 1. 使用`props`，父组件可以使用props向子组件通信
@@ -21,5 +12,29 @@
 **非父子组件兄弟组件之间的数据传递**
 1. 有时候，非父子关系的两个组件之间也需要通信。在简单的场景下，可以使用一个空的 Vue 实例作为事件总线：
 
-> 当数据足够复杂时用vuex进行数据管理
+2. 当数据足够复杂时用vuex进行数据管理
+
+
+##### vuex
+- state: Vuex 使用单一状态树——是的，用一个对象就包含了全部的应用层级状态。`this.$store.state.count`获取属性
+- getter: 需要从 store 中的 state 中派生出一些状态，例如对列表进行过滤并计数。getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
+- mutation: 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。mutation 必须是同步函数。因为异步执行的代码导致状态改变不可追溯。
+- action提交的是mutation，而不是直接变更状态，action可以包含任意异步操作。
+
+
+##### vue-resource 解决跨域问题
+1. 在vue项目下的 config/index.js 文件里面配置代理proxyTable:
+2. Vue.http.options.xhr = { withCredentials: true }
+   //或是
+   this.$http.jsonp('...', { credentials: true })
+
+##### vue性能优化
+
+- v-show,v-if,频繁切换中使用v-show,敏感信息用v-if
+- 列表加上key值，diff算法有优化
+- updated钩子函数上做优化
+- keep-alive把组件保存在浏览器内存中，实现路由快速切换
+
+
+
 

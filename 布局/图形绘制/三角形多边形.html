@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--参考(http://www.jb51.net/css/41448.html)-->
+
+<!--使用border实现三角形-->
+<!--三角形的底为border的两倍，border-bottom为三角形的高。border-bottom为下三角，border-top为上三角-->
+<style>
+    #triangle01{
+        width: 0;
+        height: 0;
+        border: 70px solid transparent;
+        border-bottom: 50px solid blue;
+    }
+</style>
+<div id="triangle01"></div>
+
+<br>
+
+<!--使用radius实现椭圆-->
+<style>
+    #triangle02 {
+        width: 200px;
+        height: 100px;
+        background: red;
+        border-radius: 100px / 50px;
+    }
+</style>
+<div id="triangle02"></div>
+
+<br>
+
+<!--使用border实现左上三角-->
+<style>
+    #triangle03 {
+        width: 0;
+        height: 0;
+        border-top: 100px solid red;
+        border-right: 100px solid transparent;
+    }
+</style>
+<div id="triangle03"></div>
+
+<br>
+
+<!--使用transform实现平行四边形-->
+<style>
+    #triangle04 {
+        width: 150px;
+        height: 100px;
+        margin-left:20px;
+        transform: skew(20deg);
+        background: red;
+    }
+</style>
+<div id="triangle04"></div>
+
+<!--使用border实现梯形-->
+<style>
+    #triangle05 {
+        border-bottom: 100px solid red;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        height: 0;
+        width: 100px;
+    }
+</style>
+<div id="triangle05"></div>
+</body>
+</html>

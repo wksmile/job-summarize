@@ -24,7 +24,6 @@
 // console.log(bubbleSort([9,1,5,8,3,7,4,6,2]));
 
 
-
  /**选择排序**/
  // 在时间复杂度上表现最稳定的排序算法之一，因为无论什么数据进去都是O(n²)的时间复杂度。。。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。
 // 时间复杂度 O(n2)/2
@@ -69,7 +68,28 @@ function insertionSort(arr) {
 //  console.log(insertionSort([9,1,5,8,3,7,4,6,2]));
 
 
- /**希尔排序**/
+ /*希尔排序*/
+ /*希尔排序是插入排序的一种更高效率的实现。希尔排序的核心在于间隔序列的设定。*/
+ function shellSort(arr) {
+   var len = arr.length,
+     temp,
+     gap = 1;
+   while(gap < len/3) {          //动态定义间隔序列
+     gap =gap*3+1;
+   }
+   for (gap; gap> 0; gap = Math.floor(gap/3)) {
+     for (var i = gap; i < len; i++) {
+       temp = arr[i];
+       for (var j = i-gap; j > 0 && arr[j]> temp; j-=gap) {
+         arr[j+gap] = arr[j];
+       }
+       arr[j+gap] = temp;
+     }
+   }
+   return arr;
+ }
+
+/*归并排序*/
 function mergeSort(arr) {
    var len=arr.length;
    if(len<2) return;
@@ -123,4 +143,56 @@ var quickSort = function (arr) {
    // 使用递归不断重复这个过程，就可以得到排序后的数组。
    return quickSort(left).concat([pivot],quickSort(right))
 }
+
+
+/*堆排序*/
+// 堆排序可以说是一种利用堆的概念来排序的选择排序。分为两种方法：
+ // 大顶堆：每个节点的值都大于或等于其子节点的值，在堆排序算法中用于升序排列
+// 小顶堆：每个节点的值都小于或等于其子节点的值，在堆排序算法中用于降序排列
+// O(nlogn)  不稳定
+
+ var len;    //因为声明的多个函数都需要数据长度，所以把len设置成为全局变量
+
+ function buildMaxHeap(arr) {   //建立大顶堆
+   len = arr.length;
+   for (var i = Math.floor(len/2); i &gt;= 0; i--) {
+     heapify(arr, i);
+   }
+ }
+
+ function heapify(arr, i) {     //堆调整
+   var left = 2 * i + 1,
+     right = 2 * i + 2,
+     largest = i;
+
+   if (left < len && arr[left] > arr[largest]) {
+     largest = left;
+   }
+
+   if (right < len && arr[right] > arr[largest]) {
+     largest = right;
+   }
+
+   if (largest != i) {
+     swap(arr, i, largest);
+     heapify(arr, largest);
+   }
+ }
+
+ function swap(arr, i, j) {
+   var temp = arr[i];
+   arr[i] = arr[j];
+   arr[j] = temp;
+ }
+
+ function heapSort(arr) {
+   buildMaxHeap(arr);
+
+   for (var i = arr.length-1; i > 0; i--) {
+     swap(arr, 0, i);
+     len--;
+     heapify(arr, 0);
+   }
+   return arr;
+ }
 

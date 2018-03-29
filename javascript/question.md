@@ -2,6 +2,7 @@
 
 ##### 模版用过没有？&*%、%￥(没听懂，应该是一些模板)字符串怎么解析成模板的？特别是带逻辑的那一块?
 
+
 ##### 手写用setTimeout模拟setInterval?
 [setTimeout与setInterval区别](http://blog.csdn.net/baidu_24024601/article/details/51862488) 
 
@@ -40,18 +41,12 @@
 12. 方法和闭包变量回收
 13. for..in循环是性能杀手，通过该方法遍历对象属性进行拷贝非常低效。
 
-#### 性能优化？
-[参考](https://github.com/wy-ei/notebook/issues/34)
-[参考](https://github.com/wksmile/blog/issues/3)
-[参考](https://jinlong.github.io/2013/06/24/better-performance-with-requestanimationframe/)
-
-1. 对于scroll和touchmove这类高频事件用debounce消抖或throttle节流（在underscore或lodash中可以找到这两个函数）。
-2. 多个dom的插入删除移动考虑使用fragment，尽量减少dom操作（每次修改了 DOM 或者其样式之后都要进行 DOM树的构建，CSSOM 的重新计算，进而得到新的渲染树。）
-3. 使用 requestAnimationFrame 来写动画
-4. 使用 Web Worker 来处理复杂的计算
-5. 避免在 scroll 或 touchmove 这类事件的回调中修改样式,会强制重新计算样式
-
 ##### 给定一个元素获取它相对于视图窗口的坐标
+getBoundingClientRect 
+返回的是调用该方法的元素的TextRectangle对象，该对象具有
+top、left、right、bottom
+四个属性，分别代表该元素上、左、右、下四条边界相对于浏览器窗口左上角（注意，不是文档区域的左上角）的偏移像素值。
+
 
 ##### offsetHeight, scrollHeight, clientHeight分别代表什么
 1. clientHeight和clientWidth用于描述元素内尺寸，是指 元素内容+内边距 大小，不包括边框（IE下实际包括）、外边距、滚动条部分
