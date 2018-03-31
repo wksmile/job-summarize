@@ -4,29 +4,7 @@
 
 > node提供了四个定时器setTimeout(),setInterval(),setImmediate(),process.nextTick(),其前两是语言标准，后两个是node都有的
 
-```$xslt
-setTimeout(()=>{
-  console.log(1)
-},0);
-
-setImmediate(()=>{
-  console.log(2)
-});
-
-Promise.resolve().then(()=>{
-  console.log(4)
-});
-
-process.nextTick(()=>{
-  console.log(3)
-});
-
-(()=>{
-  console.log(5)
-})();
-```
-
-上面输出结果为：5 3 4 1 2
+代码参见`readme.md`
 
 执行顺序：
 1. 同步任务总比异步任务更早执行，先执行同步任务
@@ -52,6 +30,25 @@ process.nextTick(()=>{
 - app.use 加载用于处理http請求的middleware（中间件），当一个请求来的时候，会依次被这些 middlewares处理。
 
 ##### 讲讲Express？
+**Express和koa**：
+Express：主要基于Connect中间件框架，回调函数，功能丰富，随取随用，并且框架自身封装了大量便利的功能，比如路由、视图处理等等。
+koa：主要基于co中间件框架，框架自身并没集成太多功能，大部分功能需要用户自行require中间件去解决，但是由于其基于ES6 generator特性的中间件机制，解决了长期诟病的“callback hell”和麻烦的错误处理的问题
+
+##### node.js了解
+- 基于Google V8引擎，系统真正执行的代码是用C++写的
+- 单线程，非阻塞，异步IO和事件驱动
+- 事件循环：node.js会把所有的异步操作使用事件机制解决，有个线程在不断地循环检测事件队列。
+
+适用场景：高并发、I/O密集、少量业务逻辑的场景。如RESTful API,聊天，单页app
+
+**node.js与javascript的关系**：
+参见图片：node与js关系图
+
+##### 面向过程和面向对象的区别
+**面向过程**：面向过程就是分析出解决问题所需的步骤。采用自顶向下、分而治之的方法，将整个程序按功能划分为几个可独立编程的子过程模块，每一子模块完成指定的子任务，主过程通过调用各子过程完来成全部处理工作。
+
+**面向对象**：面向对象则是把构成问题的事物分解成对象，抽象出对象的目的并不在于完成某个步骤，而是描述其在整个解决问题的步骤中的行为。面向对象的相关概念：类，对象，封装，继承，消息，多态性
+
 
 
 

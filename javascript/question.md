@@ -1,7 +1,5 @@
 ##### 手写一个select组件，就是点一下select出来一个列表，点击列表项select自动填充。[问题来源](https://zhuanlan.zhihu.com/p/28771824)
 
-##### 模版用过没有？&*%、%￥(没听懂，应该是一些模板)字符串怎么解析成模板的？特别是带逻辑的那一块?
-
 
 ##### 手写用setTimeout模拟setInterval?
 [setTimeout与setInterval区别](http://blog.csdn.net/baidu_24024601/article/details/51862488) 

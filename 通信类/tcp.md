@@ -44,3 +44,10 @@ TCP: 对网络通讯质量有要求的时候，比如：整个数据要准确无
 
 UDP: 当对网络通讯质量要求不高的时候，要求网络通讯速度能尽量的快，这时就可以使用UDP。 比如，日常生活中，常见使用UDP协议的应用如下： QQ语音 QQ视频
 
+
+##### CDN缓存
+[参考](https://cloud.tencent.com/document/product/228/3236?!preview=true&lang=zh)
+
+**CDN原理**：
+
+

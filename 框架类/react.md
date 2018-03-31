@@ -13,7 +13,6 @@
 
 [为什么使用redux](http://blog.csdn.net/haoaiqian/article/details/78625200)
 
-
 ##### react的性能优化
 [参考react性能优化探索实践](http://imweb.io/topic/577512fe732b4107576230b9)
 

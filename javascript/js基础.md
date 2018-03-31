@@ -1,5 +1,3 @@
-**考点 、 不变应万变 、 题目到知识再到题目**
-
 ##### typeof运算符得到的类型？
 ```$xslt
    typeof undefined    // undefined
@@ -54,6 +52,9 @@ if(obj.a == null){
 Object, Array, Boolean, Number, String, Function, Date, RegExp, Error 
 
 ##### 函数声明提前，变量声明提前？
+函数声明提前：函数名称和函数体均提前，即可以在声明一个Javascript函数之前调用。
+
+变量声明提前：变量的初始化代码仍然在原来的位置，只是声明提前。
 
 ##### 请你讲一下闭包？
 [闭包的概念及解决的问题](https://zhuanlan.zhihu.com/p/29157822)
@@ -133,13 +134,6 @@ Object, Array, Boolean, Number, String, Function, Date, RegExp, Error
 `will-change: transform;`或者 `transform: translateZ(0);`这样来将元素提升至单独的图层中。
 
 
-##### CDN缓存
-[参考](https://cloud.tencent.com/document/product/228/3236?!preview=true&lang=zh)
-
-**CDN原理**：
-
-
-
 ##### 如何理解getComputedStyle
 + getComputedStyle会获取当前元素所有最终使用的CSS属性值（最终计算后的结果），通过window.getComputedStyle等价于document.defaultView.getComputedStyle调用
 
@@ -165,13 +159,6 @@ Node.insertBefore() 方法在参考节点之前插入一个节点作为一个指
     } else {
         parentDiv.appendChild(spl);
     }
-    
-
-##### ES6箭头函数和普通函数的区别？
-1. 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。this对象的指向是可变的
-2. 不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。因为箭头函数没有this，而是引用了外层的this
-3. 不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
-4. 不可以使用yield命令，因此箭头函数不能用作 Generator 函数
 
 ##### 实现函数remove删除对象属性？（拷贝一个对象）
 1. `delete object.property`

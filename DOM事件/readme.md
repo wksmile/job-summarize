@@ -1,5 +1,3 @@
-### DOM事件类
-
 ##### DOM事件的级别？DOM2?
 - DOM0,element.onclick=function(){}
 - DOM2,element.addEventListener('click',function(){},false)

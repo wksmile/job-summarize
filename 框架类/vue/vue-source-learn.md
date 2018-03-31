@@ -29,16 +29,21 @@ Promise 的 resolve、MutationObserver排在microtask 队列，settimeout在task
 
 
 ##### 事件广播和事件派发？
+发布者订阅者模式
+
 [说说element组件库broadcast与dispatch](https://github.com/answershuto/learnVue/blob/master/docs/%E8%AF%B4%E8%AF%B4element%E7%BB%84%E4%BB%B6%E5%BA%93broadcast%E4%B8%8Edispatch.MarkDown)
 
-##### vue的template编译（和babel编译原理结合起来）
+##### vue的template编译，即使用html字符串解析出语法树（和babel编译原理结合起来）
 [Vue模板编译原理](https://github.com/berwin/Blog/issues/18)
 
-- 第一步是将 模板字符串 转换成 element ASTs（解析器）
+- 第一步是将 模板字符串 转换成 element ASTs（元素抽象语法树）
 - 第二步是对 AST 进行静态节点标记，主要用来做虚拟DOM的渲染优化（优化器）
-- 第三步是 使用 element ASTs 生成 render 函数代码字符串（代码生成器）
+- 第三步是 使用 element ASTs 生成 render 函数代码字符串（代码生成器）。
 
+render返回值是VNode节点，VNode是Vue的虚拟DOM节点。在_update的时候，经过patch与之前的VNode节点进行比较，得出差异后将这些差异渲染到真实的DOM上。
 
+##### vue计算属性的实现
+[深入浅出 - vue之State](https://github.com/berwin/Blog/issues/13)
 
 
 
