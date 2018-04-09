@@ -17,8 +17,12 @@
 ##### node.js线程进程间通信？
 基于cluster模块，事件监听
 
+每个worker进程通过使用child_process.fork()函数,当worker使用server.listen（...）函数时 ，将参数序列传递给master进程。如果master进程已经匹配workers，会将传递句柄给工人。如果master没有匹配好worker，那么会创建一个worker，再传递并句柄传递给worker。
+
 ##### 怎么保证你的node.js的进程不挂掉？为什么PM2可以保证你的进程不挂掉？
 [参考](https://www.jianshu.com/p/ac843b516fda)
+
+主进程和子进程之间通过IPC实现进程间的通信。进程间通过send方法发送信息，通过监听message事件收取信息，这和cluster模块继承的EventEmitter对象是一致的：
 
 ##### 介绍express中间件？
 [Express中间件的原理及实现](https://www.jianshu.com/p/797a4e38fe77)
@@ -49,7 +53,20 @@ koa：主要基于co中间件框架，框架自身并没集成太多功能，大
 
 **面向对象**：面向对象则是把构成问题的事物分解成对象，抽象出对象的目的并不在于完成某个步骤，而是描述其在整个解决问题的步骤中的行为。面向对象的相关概念：类，对象，封装，继承，消息，多态性
 
+##### Buffer模块是干什么的
+ Buffer 类被引入作为 Node.js API 的一部分，使其可以在 TCP 流或文件系统操作等场景中处理二进制数据流。
 
+##### utf8和gbk的区别
+UTF-8是一种针对Unicode的可变长度字符编码，又称万国码，它包含全世界所有国家需要用到的字符，是国际编码，通用性强，是用以解决国际上字符的一种多字节编码。英文使用8位/8Bit（即1个字节/1Byte），中文使用24位/24Bit（3个字节/3Byte）来编码。
+
+GBK是汉字编码标准之一
+
+##### next执行下一个中间件的原理是什么？
+[对express中next函数的一些理解](https://cnodejs.org/topic/5757e80a8316c7cb1ad35bab)
+
+next函数内部有个while循环，每次循环都会从stack中拿出一个layer，这个layer中包含了路由和中间件信息，然后就会用layer和请求的path就行匹配，如果匹配成功就会执行layer.handle_request，调用中间件函数。但如果匹配失败，就会循环下一个layer（即中间件）。
+
+app.use注册的中间件，如果path参数为空，则默认为"/"，而path为"/"的中间件默认匹配所有的请求。
 
 
 
