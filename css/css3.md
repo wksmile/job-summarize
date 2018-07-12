@@ -1,14 +1,29 @@
 **问题**：
 css动画，追问：js动画写过吗？
-css动画：translate/transform/animation
+css动画：transform/transitions/animation
 
 [参考:张鑫旭博客](http://www.zhangxinxu.com/wordpress/2010/11/css3-transitions-transforms-animation-introduction/)
 [参考css vs js动画](http://zencode.in/19.CSS-vs-JS%E5%8A%A8%E7%94%BB%EF%BC%9A%E8%B0%81%E6%9B%B4%E5%BF%AB%EF%BC%9F.html)
+[更好的逐帧动画函数-requestAnimationFrame简介](http://www.cnblogs.com/zichi/p/5208171.html)
 
 requestAnimationFrame:
 1. requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
 
 2. 在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的的cpu，gpu和内存使用量。
+
+兼容的requestAnimationFrame:
+
+    window.requestAnimFrame = (function(){
+      return  window.requestAnimationFrame       ||
+              window.webkitRequestAnimationFrame ||
+              window.mozRequestAnimationFrame    ||
+              function( callback ){
+                window.setTimeout(callback, 1000 / 60);
+              };
+    })();
+
+**settimeOut问题**：
+过度绘制，会导致丢帧
 
 ### css3中的变形处理？
 
@@ -50,11 +65,11 @@ transform:scale(0.5) rotateX(30deg) rotateY(45deg);
 
 ##### transitions
 
-> transitions功能通过将元素的某个属性值从一个属性值在指定的时间内平滑到另一个属性值来实现动画功能。
+transitions功能通过将元素的某个属性值从一个属性值在指定的时间内平滑到另一个属性值来实现动画功能。
 
     transition: property duration timing-function
     // 以上代码是以下三个属性的简写
-    transition-property(过渡的属性),transition-duration(过渡的时间),transition-timing-function(过渡的曲线方法)
+    transition-property(过渡的属性),transition-duration(过渡的时间),transition-timing-function(过渡的曲线方法,linear,ease,ease-in,ease-out,ease-in-out)
     
 除了上述三个属性外，css3还有transition-delay属性，该属性指定变换动画特效延迟多久后开始执行。使用transition功能可以同时平滑过渡多个属性值。
 
@@ -62,7 +77,7 @@ transform:scale(0.5) rotateX(30deg) rotateY(45deg);
 
 ##### animations
 
-> 使用transitions功能时只能通过指定属性的开始值与结束值，不能实现比较复杂的动画效果。而animations通过定义多个关键帧以及定义每个关键帧中元素的属性值来实现更为复杂的动画效果。
+使用transitions功能时只能通过指定属性的开始值与结束值，不能实现比较复杂的动画效果。而animations通过定义多个关键帧以及定义每个关键帧中元素的属性值来实现更为复杂的动画效果。
 
     @keyframes mycolor {
         0% {
@@ -94,31 +109,7 @@ transform:scale(0.5) rotateX(30deg) rotateY(45deg);
 
 可以在关键帧同时指定多个属性值可以实现多个属性值同时变化的动画。
 
-##### 浏览器怎么查看一个页面的回流和重绘
-f12 timeline/performance 查看
-
-##### 你觉得前端有哪些发展方向？
-1. 界面展现用户体验和可访问性方向
-2. 偏后的js/nodejs开发方向
-3. audio/video音视频等富媒体方向
-4. SVG/canvas/webGL动效创意表现与数据可视化方向
-5. 工具建设文档管理内部站建设的前端运维方向。
-6. 根据客户端不同，还可以分为PC端方向，移动端方向以及物联网方向。
-7. web游戏
-
-##### 你觉得一个前端工程的复杂度在什么地方？
-整体把握和架构
-
 ##### js引擎怎么实现Class关键字？
-
-
-##### 浏览器兼容？遇到过哪些问题？
-1. 不同浏览器的标签默认的外补丁和内补丁不同，CSS里加 *{margin:0;padding:0;}
-2. 几个img标签放在一块，有些浏览器会有默认的间距，有通配符也不起作用，解决方案：使用float属性为img布局。备注：img标签是行内属性标签，只要不超出容器高度，img会排在一行里，使用float是比较好的选择
-3. 背景透明度问题。
-   IE８以下浏览器都不支持 opacity透明度设置。
-   可以使用IE自带的“滤镜”来实现，使用filter:alpha(opacity=)来设置透明度。
-   案例：设置div元素的背景。
    
    
 ##### 用过哪些预处理器，scss？那scss有存在什么缺点吗？
