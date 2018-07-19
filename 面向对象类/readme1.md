@@ -59,3 +59,11 @@ var a={} 其实是 var a=new Onject()的语法糖             <br>
 var a=[] => var a=new Array()                     <br>
 function Foo(){}   => var Foo=new Function()      <br>
 
+##### Function.__proto__ 是什么？
+获取一个实例对象的原型，可以通过__proto__或者Object.getPrototypeOf的形式
+
+Function.__proto__ === Function.prototype   // true
+我们发现Function的原型也是Function
+
+
+
