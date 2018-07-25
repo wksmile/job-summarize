@@ -13,9 +13,7 @@ var fun_new = test.testBind(obj,{value:'also ok'})  // 这里是绑定bind时候
 var after_new = new fun_new();
 after_new.shuchu();
 
-
-
-// 完整实现
+// bind函数完整实现
 Function.prototype.testBind = function(that){
   var _this = this,
     slice = Array.prototype.slice,
@@ -127,7 +125,50 @@ function getJSON(url) {
 
 /*****************************************************************************************/
 // javascript实现对象的深拷贝
+(function ($) {
+    'use strict';
+    var types = 'Array Object String Date RegExp Function Boolean Number Null Undefined'.split(' ');
 
+    function type () {
+        return Object.prototype.toString.call(this).slice(8, -1);
+    }
+
+    for (var i = types.length; i--;) {
+        $['is' + types[i]] = (function (self) {
+            return function (elem) {
+                return type.call(elem) === self;
+            };
+        })(types[i]);
+    }
+
+    return $;
+})(window.$ || (window.$ = {}));//类型判断
+
+function copy (obj) {
+    if ($.isFunction(obj)) {
+        return new Function("return " + obj.toString())();
+    } else if (obj === null || (typeof obj !== "object")) {
+        return obj;
+    } else {
+        var name, target = $.isArray(obj) ? [] : {}, value;
+
+        for (name in obj) {
+            value = obj[name];
+
+            if (value === obj) {
+                continue;
+            }
+            if ($.isArray(value) || $.isObject(value)) {
+                target[name] = copy(value,deep);
+            } else if ($.isFunction(value)) {
+                target[name] = new Function("return " + value.toString())();
+            } else {
+                target[name] = value;
+            }
+        }
+        return target;
+    }
+}
 
 
 

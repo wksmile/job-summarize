@@ -7,9 +7,10 @@
 
 [javascript数组去重](https://github.com/mqyqingfeng/Blog/issues/27)
 
-2. 双重循环
+2. 双重循环0
 3. indexof
 4. sort排序后前后比较
+5. filter加indexof方法
 
 ##### eval是做什么用的，有什么安全问题?
 **定义和用法**
@@ -30,6 +31,8 @@
 3. 代理，请求本地，本地在请求跨域
 
 ##### js底层怎么实现的知道吗？
+[javascript-引擎工作原理](https://www.cnblogs.com/970119449blog/p/8080133.html)
+[JavaScript. The Core: 2nd Edition](http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/)
 
 ##### new关键字和不new有什么区别？
 1. new关键字是用来申请内存的。
@@ -41,5 +44,7 @@
 
 ##### 谈谈this指针的指向问题？
 [javascript的this指针](http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html)
+
+
 
 

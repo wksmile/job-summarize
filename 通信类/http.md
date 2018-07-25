@@ -20,6 +20,9 @@
 ##### HTTP方法
 - GET, POST, PUT, DELETE, HEAD
 
+HRAD: 类似于get请求，只不过返回中没有具体的内容，用户获取报头
+
+
 ##### GET和POST的区别
 - GET在浏览器回退/刷新时是无害的，而POST会再次提交请求（重要）
 - GET请求会被浏览器主动缓存，而POST不会，除非手动设置（重要）
@@ -30,6 +33,23 @@
 - GET产生的URL地址可以被收藏，而POST不可以
 - GET请求只能进行url编码，而POST支持多种编码方式
 - 对参数的数据类型，GET只接受ASCII字符，而POST没有限制
+- 多数浏览器对于POST采用两阶段发送数据的，先发送请求头，再发送请求体，即使参数再少再短，也会被分成两个步骤来发送（相对于GET），也就是第一步发送header数据，第二步再发送body部分。HTTP是应用层的协议，而在传输层有些情况TCP会出现两次连结的过程，HTTP协议本身不保存状态信息，一次请求一次响应。对于TCP而言，通信次数越多反而靠性越低，能在一次连结中传输完需要的消息是最可靠的，尽量使用GET请求来减少网络耗时。如果通信时间增加，这段时间客户端与服务器端一直保持连接状态，在服务器侧负载可能会增加，可靠性会下降。
+
+#### GET请求传参长度的误区
+*误区：我们经常说get请求参数的大小存在限制，而post请求的参数大小是无限制的*
+> Http Get方法提交的数据大小长度并没有限制，HTTP协议规范没有对URL长度进行限制。这个限制是特定的浏览器及服务器对它的限制。
+
+- 即使有长度限制，也是限制的是整个 URI 长度，而不仅仅是你的参数值数据长度。
+- HTTP 协议从未规定 GET/POST 的请求长度限制是多少
+- 不同的浏览器和WEB服务器，限制的最大长度不一样
+- 要支持IE，则最大长度为2083byte，若只支持Chrome，则最大长度 8182byte
+
+[关于 HTTP GET/POST 请求参数长度最大值的一个理解误区](https://blog.csdn.net/a460550542/article/details/72511343)
+
+#### GET和POST请求缓存方面的区别？
+- get请求类似于查找的过程，用户获取数据，可以不用每次都与数据库连接，所以可以使用缓存，前提设置了缓存
+- post不同，post做的一般是修改和删除的工作，所以必须与数据库交互，所以不能使用缓存。因此get请求适合于请求缓存资源
+
 
 ##### HTTP状态码
 
@@ -43,7 +63,7 @@
 
  管线化下的消息传递类似于：请求1->请求2->请求3->响应1->响应2->响应3，原理即是把消息打包发送回来
 
-**管线化的特点**
+**管线化的特点**：
 1. 管线化机制通过持久链接完成，仅HTTP/1.1支持此技术（重要）
 2. 只有GET和HEAD请求可以进行管线化，而POST则有所限制（重要）
 3. 初次创建连接时不应启动管线机制，因为对方（服务器）不一定支持HTTP/1.1版本的协议。（重要）
@@ -97,6 +117,11 @@
 + 302,临时重定向
 + 304，协商缓存，引进浏览器缓存知识，强制缓存，协商缓存...
 + 307，hsts跳转。原本的用法是用于让post请求的跳转去新的post请求，但也用于hsts跳转。
++ 400,请求无效
+    - 前端提交数据的字段名称和字段类型与后台的实体没有保持一致
+    - 前端提交到后台的数据应该是json字符串类型，但是前端没有将对象JSON.stringify转化成字符串。
++ 401，当前请求需要用户验证
++ 403，服务器已经得到请求，但是拒绝执行
 
 [关于HTTP307状态码](https://zhangzifan.com/http-307-code.html)
 [参考](http://hpoenixf.com/%E9%9D%A2%E8%AF%95%E5%BF%85%E8%80%83%E4%B9%8Bhttp%E7%8A%B6%E6%80%81%E7%A0%81%E6%9C%89%E5%93%AA%E4%BA%9B.html#more)
@@ -120,7 +145,7 @@ Strict-Transport-Security: max-age=expireTime [; includeSubDomains] [; preload]
 开启 HSTS 后网站可以有效防范中间人的攻击，同时也会省去网站 301/302 跳转花费的时间，大大提升安全系数和用户体验。
 
 ##### 如何避免301跳转https(在response中header)？
-
+开启hsts
 
 ##### HTTPS通信过程
 1. 客户端向服务器发送协议版本号、客户端生成的**随机数**、以及客户端支持的加密算法
@@ -131,6 +156,7 @@ Strict-Transport-Security: max-age=expireTime [; includeSubDomains] [; preload]
 
 [参考](https://github.com/youngwind/blog/issues/108)
 
+[想不通HTTPS如何校验证书合法性来看](http://xujinyang.github.io/2016/06/15/%E6%83%B3%E4%B8%8D%E9%80%9AHTTPS%E5%A6%82%E4%BD%95%E6%A0%A1%E9%AA%8C%E8%AF%81%E4%B9%A6%E5%90%88%E6%B3%95%E6%80%A7%E6%9D%A5%E7%9C%8B/)
 
 ##### HTTP有几种请求头？option请求头的作用?
 [参考](https://www.cnblogs.com/cp168168/p/7923227.html)
@@ -140,3 +166,56 @@ OPTIONS请求方法的主要用途有两个：
 1、获取服务器支持的HTTP请求方法；也是黑客经常使用的方法。
 
 2、用来检查服务器的性能。例如：AJAX进行跨域请求时的预检，需要向另外一个域名的资源发送一个HTTP OPTIONS请求头，用以判断实际发送的请求是否安全。
+
+##### Http报头Accept与Content-Type的区别
+1.Accept属于请求头， Content-Type属于实体头。 
+Http报头分为通用报头，请求报头，响应报头和实体报头。 
+请求方的http报头结构：通用报头|请求报头|实体报头 
+响应方的http报头结构：通用报头|响应报头|实体报头
+
+2.Accept代表发送端（客户端）希望接受的数据类型。 
+比如：Accept：text/xml; 
+代表客户端希望接受的数据类型是xml类型
+
+Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型。 
+比如：Content-Type：text/html; 
+代表发送端发送的数据格式是html。
+
+二者合起来， 
+Accept:text/xml； 
+Content-Type:text/html 
+即代表希望接受的数据类型是xml格式，本次请求发送的数据的数据格式是html。
+
+###### 302和303、307的区别
+[HTTP状态码302、303和307的故事](https://www.cnblogs.com/cswuyg/p/3871976.html)
+
+
+##### http和https的区别？
+[参考](https://www.cnblogs.com/wqhwe/p/5407468.html)
+
+##### http keep-alive详解
+[HTTP keep-alive详解](https://blog.csdn.net/xiaoduanayu/article/details/78386508)
+
+##### HTTP2.0
+http和https的区别，相比于http,https是基于ssl加密的http协议
+简要概括：http2.0是基于1999年发布的http1.0之后的首次更新。
+
+- 提升访问速度（可以对于，请求资源所需时间更少，访问速度更快，相比http1.0）
+- 允许多路复用：多路复用允许同时通过单一的HTTP/2连接发送多重请求-响应信息。改善了：在http1.1中，浏览器客户端在同一时间，针对同一域名下的请求有一定数量限制（连接数量），超过限制会被阻塞。
+- 二进制分帧：HTTP2.0会将所有的传输信息分割为更小的信息或者帧，并对他们进行二进制编码
+- 首部压缩
+- 服务器端推送
+- 请求优先级
+
+[HTTP 2.0 原理详细分析](https://blog.csdn.net/zhuyiquan/article/details/69257126?locationNum=4&fps=1#3-%E8%AF%B7%E6%B1%82%E4%BC%98%E5%85%88%E7%BA%A7)
+
+##### fetch发送2次请求的原因
+fetch发送post请求的时候，总是发送2次，第一次状态码是204，第二次才成功.
+原因很简单，因为你用fetch的post请求的时候，导致fetch 第一次发送了一个Options请求，询问服务器是否支持修改的请求头，如果服务器支持，则在第二次中发送真正的请求。
+
+[参考](https://segmentfault.com/q/1010000008693779)
+
+
+
+
+

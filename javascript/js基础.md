@@ -4,13 +4,14 @@
    typeof 'abc'        // string
    typeof 123          // number
    typeof true         // boolean
-   /****** typeof是只能区别上面的值类型，引用类型只能区分函数 ******/
+   typeof Symbol()     // symbol
+   /****** typeof是只能区别上面的值类型，引用类型只能区分函数，Symbol是另外一种类型，可以用typeof来区分 ******/
    typeof console.log  // function
    typeof {}           // object
    typeof []           // object
    typeof null         // object
 ```
-注意值除了new Function()返回'function'外，其他的通过构造函数构造函数String，Number,Boolean,Date,Error,Array,RegExp,Object等new出来的值typeof都是object
+注意值除了new Function()返回'function'外，其他的通过构造函数构造函数String，Number,Boolean,Date,Error,Array,RegExp,Object等new出来的值typeof都是object。注意Symbol不是构造函数，不能用new运算符
 
 ##### 可能发生值类型转换？
 + 字符串拼接
@@ -29,7 +30,7 @@
     
 !!100 可以看到输出true
 
-为false的值: 0, NaN, '', null, undefined, false, []
+为false的值: 0, NaN, '', null, undefined, false
 
 
 ##### 如何准确判断一个变量是数组类型
@@ -86,53 +87,15 @@ Object, Array, Boolean, Number, String, Function, Date, RegExp, Error
 
 ##### 回调函数，Promise,Generator,async/await三者的区别，以及为什么用Promise，然后又变成了async/await？
 
+[Async/Await替代Promise的6个理由](https://cnodejs.org/topic/58e4914e43ee7e7106c13541)
+1. 简介
+2. 错误处理更全面，promise内部错误不能抛出来，而aync可以
+3. 写法更自然，更像同步的语法
+4. 更好的调试，async每一个异步就是一条语句
 
 ##### 判断数组的方法
 1. Array.isArray函数
 2. 不存在上面函数可以用Object.prototype.toString.call(arg) === '[object Array]'来判断
-
-##### 前端性能优化？该题目请直接看现代前端技术解析P253
-[参考](http://hpoenixf.com/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89.html)
-[参考](https://github.com/wksmile/blog/issues/3)
-
-分为两个方向。从用户角度来看，一个是页面加载的很快，另一个是页面使用起来很流畅。因此，对性能优化的探索，我们可以分为页面加载时间跟页面运行效率两个方向来进行研究
-
-**网络加载优化**
-1. 减少http资源请求次数。合并静态资源，js,css代码，合并雪碧图
-2. 减少http请求大小。减少没必要的图片，js,css,html代码，对文件进行压缩(gzip压缩传输内容)。
-3. 将css，javascript放在外部文件中，避免用<style>,<script>标签直接引用。
-4. 尽量避免空的src,href,也会请求
-5. 为html指定Cache-Control或Expires。
-    cache-control可以指定public和private.public表明响应可以被任何对象（包括：发送请求的客户端，代理服务器，等等）缓存。private表明响应只能被单个用户缓存，不能作为共享缓存（即代理服务器不能缓存它）。
-6. 合理设置Etag和Last-Modified.
-7. 减少页面重定向，会延长页面内容返回的时间
-8. 使用静态资源分域存放来增加下载并行数。浏览器在同一时刻向同一域名请求下载资源是有限的。
-9. 使用静态资源CDN来存储文件
-10. 使用缓存的ajax
-11. 减少cookies大小并进行cookies隔离
-12. 使用异步js资源，script中增加defer和async
-13. 避免使用css import引用加载javascript
-
-**服务器部分优化**：
-+ dns查询时间可以使用httpdns或是dns预加载，域名收敛等手段优化。
-+ 建立连接的重点是长连接和链接复用，更好的是直接上http2。为了优化链接的环节，前端这里还需要对资源使用cdn，雪碧图，代码合并等手段。
-+ 启用hsts，要求浏览器在之后的访问使用https，减少无谓的http跳转https，同时还可以防止ssl剥离攻击，提升安全性。
-
-[参考](https://github.com/wy-ei/notebook/issues/34)
-[参考](https://github.com/wksmile/blog/issues/3)
-[参考](https://jinlong.github.io/2013/06/24/better-performance-with-requestanimationframe/)
-
-**javascript代码优化**
-1. 对于scroll和touchmove这类高频事件用debounce消抖或throttle节流（在underscore或lodash中可以找到这两个函数）。
-2. 多个dom的插入删除移动考虑使用fragment，尽量减少dom操作（每次修改了 DOM 或者其样式之后都要进行 DOM树的构建，CSSOM 的重新计算，进而得到新的渲染树。）
-3. 使用 requestAnimationFrame 来写动画
-4. 使用 Web Worker 来处理复杂的计算
-5. 避免在 scroll 或 touchmove 这类事件的回调中修改样式,会强制重新计算样式
-6. CSS 选择器在匹配的时候是由右至左进行的，因此最后一个选择器常被称为关键选择器，因为最后一个选择越特殊，需要进行匹配的次数越少。
-7. 合理处理脚本和样式表。css阻塞渲染，javascript阻塞文档解析
-
-`will-change: transform;`或者 `transform: translateZ(0);`这样来将元素提升至单独的图层中。
-
 
 ##### 如何理解getComputedStyle
 + getComputedStyle会获取当前元素所有最终使用的CSS属性值（最终计算后的结果），通过window.getComputedStyle等价于document.defaultView.getComputedStyle调用
@@ -178,12 +141,13 @@ Node.insertBefore() 方法在参考节点之前插入一个节点作为一个指
 5. `Math.round("4893.54")` // 4894 四舍五入
 6. `Number("5.5")`   // 5.5
 7. `44546.7675>>>0` // 无符号右移，44546将数字字符串返回整数部分，不是数字字符串返回0
+8. `~~'675.6576'`   // 675
 
 ##### 怎么实现拖拽？
 
 ##### 手写 Object.create函数的ployfill
 
-    Object.create=function(proto,propertiesObject){
+    Object.create = function(proto,propertiesObject){
         function F(){}
         F.prototype=proto
         return new F()
@@ -207,3 +171,6 @@ Node.insertBefore() 方法在参考节点之前插入一个节点作为一个指
 
 尾递归的实现，往往需要改写递归函数，确保最后一步只调用自身。做到这一点的方法，就是把所有用到的内部变量改写成函数的参数。
 
+##### 知道页面上某个点的坐标，如何获取该坐标上的所有元素
+document.elementFromPoint(x,y)
+返回dom节点

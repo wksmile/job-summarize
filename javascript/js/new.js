@@ -13,3 +13,24 @@ function _new(/* constructor, param, ... */) {
 
 var actor = _new(Person, "张三", 28);
 
+/***************************************************************************************/
+// js控制一次加载一张照片，加载完后再加载下一张
+var obj=new Image();
+obj.src="http://www.phpernote.com/uploadfiles/editor/201107240502201179.jpg";
+obj.onload=function(){
+    alert('图片的宽度为：'+obj.width+'；图片的高度为：'+obj.height);
+    document.getElementById("mypic").innnerHTML="<img src='"+this.src+"' />";
+}
+
+// 或者
+var obj=new Image();
+obj.src="http://www.phpernote.com/uploadfiles/editor/201107240502201179.jpg";
+obj.onreadystatechange=function(){
+    if(this.readyState=="complete"){
+        alert('图片的宽度为：'+obj.width+'；图片的高度为：'+obj.height);
+        document.getElementById("mypic").innnerHTML="<img src='"+this.src+"' />";
+    }
+}
+
+
+

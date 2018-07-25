@@ -85,6 +85,18 @@ ReactDOM.findDOMNode: 当参数是DOM，返回值就是该DOM（这个没啥卵�
 
 ##### 页面的SPA应用？
 [将前端网站打造成页面应用SPA](https://segmentfault.com/a/1190000002920768)
+[单页面应用路由实现原理：以 React-Router 为例](https://github.com/youngwind/blog/issues/109)
+
+hash方案：
+1. hash改变url不刷新页面
+2. 有`onhashchange`这样的事件监听浏览器hash值改变
+3. 问题：url上有一个#号，很不美观。解决方案：使用`history`
+
+history方案：
+1. 增加了`pushState,replaceState,onpopstate`。
+
+[在history中跳转](https://developer.mozilla.org/zh-CN/docs/Web/API/History_API)
+
 
 ##### 单向数据流
 [重新诠释flux架构](http://stylechen.com/ballade-reinterpreted-flux.html)

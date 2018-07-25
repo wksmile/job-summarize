@@ -32,6 +32,9 @@
     function Parent1() {
         this.name = 'parent1';
     }
+    Parent1.prototype.sayHi = function () {
+        console.log("say hi");
+    }
     function Child1() {
         Parent1.call(this);    //  调用父类的构造函数
         this.type = 'child1';  //  子类自己的属性
@@ -44,6 +47,9 @@
     function Parent2() {
         this.name = 'parent2';
         this.parentPlay = [1,2,3];
+    }
+    Parent2.prototype.sayHi = function () {
+        console.log("say hi");
     }
     function Child2() {
         this.type = 'child2';

@@ -1,3 +1,6 @@
+##### react源码解析
+[参考](https://juejin.im/post/5a84682ef265da4e83266cc4)
+
 ##### vue.js组件间通信
 **父子组件间通信**
 1. 使用`props`，父组件可以使用props向子组件通信
@@ -21,6 +24,7 @@
 - mutation: 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。mutation 必须是同步函数。因为异步执行的代码导致状态改变不可追溯。
 - action提交的是mutation，而不是直接变更状态，action可以包含任意异步操作。
 
+单相数据流，数据驱动
 
 ##### vue-resource 解决跨域问题
 1. 在vue项目下的 config/index.js 文件里面配置代理proxyTable:
@@ -28,13 +32,16 @@
    //或是
    this.$http.jsonp('...', { credentials: true })
 
+
 ##### vue性能优化
 
 - v-show,v-if,频繁切换中使用v-show,敏感信息用v-if
-- 列表加上key值，diff算法有优化
+- 列表加上key值，diff算法有优化。同层的节点减少删除和创建，只是移动
 - updated钩子函数上做优化
 - keep-alive把组件保存在浏览器内存中，实现路由快速切换
+- 不要在模板里面写过多的表达式与判断
+- 组件的懒加载：`const Foo = r => require.ensure([], () => r(require('./Foo.vue')), 'group-foo')`
 
-
+##### vue-cli的原理你了解吗？
 
 

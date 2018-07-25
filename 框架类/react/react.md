@@ -2,6 +2,13 @@
 [React组件生命周期](https://segmentfault.com/a/1190000006792687)
 [React组件生命周期过程说明](http://react-china.org/t/react/1740)
 
+##### react创建组件的三种方式及其区别？
+1. 函数式定义的无状态组件
+2. es5原生方式React.createClass定义的组件
+3. es6形式的extends React.Component定义的组件
+
+[React创建组件的三种方式及其区别](https://www.cnblogs.com/wonyun/p/5930333.html)
+
 ### 利用shouldComponentUpdate钩子函数优化react性能 
 
 > [原文](https://www.cnblogs.com/penghuwan/p/6707254.html)
@@ -11,11 +18,6 @@
 * 前后不改变state值的setState（理论上）和无数据交换的父组件的重渲染都会导致组件的重渲染，但你可以在shouldComponentUpdate这道两者必经的关口过滤不必要的渲染
 
 * 当state中的数据类型为引用类型类如对象时就会出现问题。（具体看原文）
-
-##### 用redux的原因？解决了哪些问题？
-[为什么react要用redux](http://blog.csdn.net/u010632868/article/details/74937904)
-
-[为什么使用redux](http://blog.csdn.net/haoaiqian/article/details/78625200)
 
 ##### react的性能优化
 [参考react性能优化探索实践](http://imweb.io/topic/577512fe732b4107576230b9)
@@ -45,7 +47,9 @@ react在每个组件生命周期更新的时候都会调用一个`shouldComponen
 
 
 ##### 项目里用到了react，为什么要选择react，react有哪些好处？
-可以从虚拟DOM、数据驱动、面向对象等等方面回答
+虚拟DOM速度快、数据驱动、面向对象、跨浏览器兼容、模块化、前后端同构的javsscript、纯粹的javascript
+
+[react的优点](https://www.jianshu.com/p/e3841ab55a68)
 
 ##### 数据驱动？
 [前端数据驱动的价值](https://div.io/topic/1574)
@@ -71,6 +75,8 @@ react在每个组件生命周期更新的时候都会调用一个`shouldComponen
 ##### 对组件化的理解？
 - 组件的封装：封装视图，数据，变化逻辑
 - 组件的复用：props传递、复用
+
+
 
 
 

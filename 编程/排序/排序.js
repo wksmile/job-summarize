@@ -2,9 +2,9 @@
  *[参考链接](https://www.cnblogs.com/dushao/p/6004883.html)
   */
 
-/**冒泡排序**/
-// 两两比较相邻记录的关键字，如果反序则交换，直到没有反序为止。
- // 时间复杂度 O(n2)/2
+/*冒泡排序*/
+// 两两比较相邻记录的关键字，如果反序则交换，直到没有反序为止
+// 时间复杂度 O(n2)/2
  function bubbleSort(arr) {
    var len = arr.length,
      flag = true;
@@ -27,7 +27,7 @@
  /**选择排序**/
  // 在时间复杂度上表现最稳定的排序算法之一，因为无论什么数据进去都是O(n²)的时间复杂度。。。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。
 // 时间复杂度 O(n2)/2
- // 每次选出最小的值放在前面
+// 每次选出最小的值放在前面
  function selectionSort(arr) {
    var len = arr.length,
      minIndex=0,temp;
@@ -68,7 +68,7 @@ function insertionSort(arr) {
 //  console.log(insertionSort([9,1,5,8,3,7,4,6,2]));
 
 
- /*希尔排序*/
+ // 希尔排序
  /*希尔排序是插入排序的一种更高效率的实现。希尔排序的核心在于间隔序列的设定。*/
  function shellSort(arr) {
    var len = arr.length,
@@ -145,7 +145,7 @@ var quickSort = function (arr) {
 }
 
 
-/*堆排序*/
+// 堆排序
 // 堆排序可以说是一种利用堆的概念来排序的选择排序。分为两种方法：
  // 大顶堆：每个节点的值都大于或等于其子节点的值，在堆排序算法中用于升序排列
 // 小顶堆：每个节点的值都小于或等于其子节点的值，在堆排序算法中用于降序排列
@@ -195,4 +195,6 @@ var quickSort = function (arr) {
    }
    return arr;
  }
+
+
 

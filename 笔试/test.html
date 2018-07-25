@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .box{
+            border-bottom:dashed 1px #030303;
+            width:400px;
+            height:400px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .box:before,.box:after{
+            content:"";
+            display: block;
+            width:400px;
+            height:400px;
+            box-sizing: border-box;
+            position: absolute;
+        }
+        .box:before{
+            border-left:dashed 1px #030303;
+            transform-origin: left bottom;
+            transform: rotate(30deg);
+        }
+        .box:after{
+            border-bottom:dashed 1px #030303;
+            transform: rotate(60deg);
+            transform-origin: right bottom;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+<body>
+<div class='box'>
+
+</div>
+</body>
+</html>

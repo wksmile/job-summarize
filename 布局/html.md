@@ -49,5 +49,24 @@ IE8/IE7/IE6支持通过 document.createElement 方法产生的标签，可以利
 
 [参考1](http://leonshi.com/2015/10/31/html5-canvas-image-compress-crop/)
 
+##### 怎样计算白屏首屏时间？
+[如何计算白屏和首屏时间](http://www.cnblogs.com/longm/p/7382163.html)
+
+**白屏时间**: 地址栏输入网址点击回车 => 浏览器出现第一个字符或者元素
+在html的head标签中插入script标签window.firstPaint = Date.now();
+计算白屏时间： 白屏时间 = firstPaint - performance.timing.navigationStart;
+不支持performance时： 白屏时间 = firstPaint - pageStartTime;
+
+**首屏时间**：地址栏输入网址点击回车 => 浏览器第一屏渲染完成
+计算首屏时间方法：
+- 首屏模块标签标记法。html的body末尾中使用内联的script标签标记当前时间。window.firstScreen = Date.now()。首屏时间： firstScreen - performance.timing.navigationStart;
+- 统计首屏内加载最慢的图片时间。此时首屏时间等于 加载最慢的图片的时间点 - performance.timing.navigationStart;
+- 自定义首屏内容计算法。
+
+##### 编写html5需要注意什么？
+[HTML及H5代码编写规范及注意要点](https://blog.csdn.net/sinat_34719507/article/details/53891959)
+[移动端H5页面注意事项](https://segmentfault.com/a/1190000012156216)
+
+##### canvas实现拖拽？
 
 

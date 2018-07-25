@@ -1,14 +1,6 @@
 # 面试题
 [连接](https://segmentfault.com/a/1190000011635556)
 
-## 面试技巧
-- 知识面要广
-- 理解要深刻（比如了解浏览器的特性，了解js引擎）
-- 内心要诚实
-- 态度要谦虚
-- 回答要灵活
-- 要学会赞美
-
 #### 面试模拟
 - 渲染机制
 - js运行机制
@@ -22,17 +14,6 @@
 - 什么叫浏览器的Reflow?
 - 设么叫Repaint?
 - 布局Layout?
-    
-##### 什么是DOCTYPE及作用？
-1. <!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器以何种模式来渲染文档。 
-2. 严格模式的排版和 JS 运作模式是  以该浏览器支持的最高标准运行。
-3. 在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
-4. DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。 
-
-- HTML5-----<!DOCTYPE html>
-- HTML 4.01 Strict(严格模式)该DTD包含所有HTML元素和属性，但不包括展示型的和弃用的元素<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">(这个不用记)
-- HTML 4.01 Transitional （松散模式）该DTD包含所有HTML元素和属性，包括展示性的和弃用的元素<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">（这个不用记）
-
 
 ##### 重排Reflow
 > 定义:DOM结构中的各个元素都有自己的盒子（模型），这些都需要浏览器根据各种样式来计算并根据计算结果将元素放到它该出现的位置，这个过程称为reflow
@@ -48,12 +29,18 @@
 
 > 定义：当各种盒子的位置，大小以及其他属性，例如颜色、字体大小等都确定下来后，浏览器于是便把这些元素都按照各自的特性绘制了一遍，于是页面的内容出现了，这个过程称为repaint
 
-> 触发Repaint
+**触发Repaint**
 - DOM改动
 - css改动
 
-> 怎样尽量减少Reflow？
-- 使用documentFragment，一次性加入节点
+**怎样尽量减少Reflow**
+- 使用documentFragment，一次性加入节点。或者用display:none对元素隐藏，在元素消失后进行相关的操作。
+- 在使用js对元素样式进行读写操作时最好将两者分开，先读后写，最好不要用js去操作样式。
+- 图片在渲染前指定大小，因为在图片加载完成后会改变宽高，严重情况会导致整个页面发生重排。
+- 页面中需要大量重排的元素单独触发渲染层，使用gpu分担cpu压力。
+
+**减少重绘**：
+- 不要每次用js获取css样式或改变样式，应该用class或者元素的style.csstest一次切换。减少重绘次数。
 
 ## js运行机制
 [参考](https://www.cnblogs.com/MasterYao/p/5563725.html)
@@ -152,14 +139,10 @@
 
 ##### 移动端300ms点击延迟解决方案？
 1. 禁用缩放
-
-
     `<meta name="viewport" content="user-scalable=no">
      <meta name="viewport" content="initial-scale=1,maximum-scale=1">`
      
-2. 更改默认的视口宽度
-
-
+2. 更改默认的视口宽度，浏览器就可以认为该网站已经对移动端做过了适配和优化，就无需双击缩放操作了。
     <meta name="viewport" content="width=device-width">
     
 它没有完全禁用缩放，而只是禁用了浏览器默认的双击缩放行为，但用户仍然可以通过双指缩放操作来缩放页面。
@@ -168,7 +151,15 @@
 
 **当前如何避免延迟**
 1. 指针事件的 polyfill
-2. FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库
+2. FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库，原理是：检测到touchend事件后，立刻出发模拟click事件，并且把浏览器300毫秒之后真正出发的事件给阻断掉
+
+**点击穿透的问题**：
+使用touchstart去代替click事件有两个不好的地方。
+1. touchstart是手指触摸屏幕就触发，有时候用户只是想滑动屏幕，却触发了touchstart事件，这不是我们想要的结果；
+2. 使用touchstart事件在某些场景下可能会出现点击穿透的现象。
+
+点击穿透：假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素，B元素被隐藏了，随后，A元素触发了click事件。
+这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟，当touchstart事件把B元素隐藏之后，隔了300ms，浏览器触发了click事件，但是此时B元素不见了，所以该事件被派发到了A元素身上。如果A元素是一个链接，那此时页面就会意外地跳转。
 
 ##### 如果要你去实现一个前端模板引擎，你会怎么做
 
@@ -193,8 +184,19 @@
 ##### 原生JS实现一个类型百度搜索的自动完成控件。
 [参考链接](https://github.com/fyuanfen/fyuanfen.github.io/tree/master/searchlist)
 
+##### web Quality(无障碍)
+能够被残障人士使用的网站才能称得上一个易用的（易访问的）网站。
+残障人士指的是那些带有残疾或者身体不健康的用户。
+使用alt属性：
 
+    <img src="person.jpg"  alt="this is a person"/>
 
+有时候浏览器会无法显示图像。具体的原因有：
+
+- 用户关闭了图像显示
+- 浏览器是不支持图形显示的迷你浏览器
+- 浏览器是语音浏览器（供盲人和弱视人群使用）
+- 如果您使用了 alt 属性，那么浏览器至少可以显示或读出有关图像的描述。
 
 
 

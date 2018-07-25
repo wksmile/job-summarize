@@ -1,3 +1,6 @@
+##### TCP七层
+详见 tcpLayer.png 图片
+
 ##### 为什么TCP连接要经过三次握手，四次断开？
 
 [参考1](https://www.zhihu.com/question/24853633)
@@ -49,5 +52,11 @@ UDP: 当对网络通讯质量要求不高的时候，要求网络通讯速度能
 [参考](https://cloud.tencent.com/document/product/228/3236?!preview=true&lang=zh)
 
 **CDN原理**：
+
+##### DNS解析流程？
+[DNS解析流程](https://www.zhihu.com/question/23042131)
+
+##### IPV4和IPV6的区别和联系？
+[IPV4和IPV6的区别](https://blog.csdn.net/zt13258579889/article/details/78885196)
 
 

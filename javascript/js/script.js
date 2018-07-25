@@ -41,7 +41,6 @@ if (!Array.prototype.map) {
   };
 }
 
-
 // dom树的深度遍历,
 function interator(node) {
   console.log(node)
@@ -96,3 +95,71 @@ var postOrder = function (node) {
   }
 }
 
+// ajax Promise的实现 -------------------------------
+// 要熟悉原生ajax实现流程，参考 https://blog.csdn.net/u013100656/article/details/78702017
+//readyState  0：请求未初始化
+//  1：服务器连接已建立
+//  2：请求已接收
+//  3：请求处理中
+//  4：请求已完成，且响应已就绪
+function getJson(url,data) {
+  return new Promise((resolve,reject)=>{
+    var xhr = new XMLHttpRequest();
+    var method = data === undefined ? 'get' : 'post';
+    if(data){
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    }
+    // FormData对象数据可以直接发送 [JavaScript FormData的详细介绍及使用](https://blog.csdn.net/liupeifeng3514/article/details/78988001)
+    var data = data === undefined ? null : JSON.stringify(data);
+    // open的第三个参数表示是否异步
+    xhr.open(method,url,true);
+    xhr.onreadystatechange = function () {
+      if(xhr.readyState == 4){
+        if((xhr.status>=200 && xhr.status<300) || xhr.status===304){
+          resolve(JSON.parse(xhr.responseText));
+        } else {
+          var resJson = { code: xhr.status, response: xhr.response }
+          reject(resJson)
+        }
+      }
+    }
+    xhr.send(data);
+  })
+}
+
+getJson('www.baidu.com').catch(function (err) {
+  console.log(err);
+})
+
+
+// 对象深度拷贝
+function getType(obj) {
+  return Object.prototype.toString.call(obj).slice(8, -1);
+}
+
+function deepClone(data){
+  var type = getType(data);
+  var obj;
+  if(type === 'Array'){
+    obj = [];
+  } else if(type === 'Object'){
+    obj = {};
+  } else if(type === 'Function'){
+    return new Function("return"+data.toString());
+  }
+  else{
+    //不再具有下一层次
+    return data;
+  }
+  if(type === 'array'){
+    for(var i = 0, len = data.length; i < len; i++){
+      obj.push(deepClone(data[i]));
+    }
+  } else if(type === 'object'){
+    for(var key in data){
+      if(obj[key]===data) continue;
+      obj[key] = deepClone(data[key]);
+    }
+  }
+  return obj;
+}

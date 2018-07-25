@@ -21,5 +21,3 @@ Babel的功能非常纯粹，以字符串的形式将源代码传给它，它就
 [你了解过Babel吗？写过Babel插件吗? 答: 没有。卒](https://cnodejs.org/topic/5a9317d38d6e16e56bb808d1)
 
 
-
-

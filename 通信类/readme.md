@@ -1,9 +1,3 @@
-### 通信类
-- 什么是同源策略及限制？
-- 前后端如何通信？有几种？
-- 如何创建Ajax?如何原生实现？
-- 什么是跨域？跨域通信的几种方式？
-
 ##### 什么是同源策略及限制？
 > 同源策略限制从一个源加载的文档或脚本如何来与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。
  
@@ -24,8 +18,16 @@
 - 事件的触发顺序？
 
 > ajax的代码实现参见script.js
-    
+
 [ajax的jQuery实现及jsonp实现](https://www.cnblogs.com/xujiazheng/p/6253461.html)
+
+- `onreadystatechange`存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数
+- `readyState`五种状态的含义。
+    + 0：请求未初始化
+    + 1：服务器连接已建立
+    + 2：请求已接收
+    + 3：请求处理中
+    + 4：请求已完成，且响应已就绪
 
 ##### 跨域通信的几种方式？(下面五种都很重要)
 **jcpiwh**
@@ -50,6 +52,8 @@
 
 [参考](https://github.com/wengjq/Blog/issues/2)
 
+[js中几种实用的跨域方法原理详解](http://www.cnblogs.com/2050/p/3191744.html)
+
 **CORS与JSPON比较**
 JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。
 
@@ -69,6 +73,7 @@ JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势�
 8. JS引擎解析过程（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）
 9. 其它（可以拓展不同的知识模块，如跨域，web安全，hybrid模式等等内容）
 
+[从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！](https://juejin.im/post/5aa5cb846fb9a028e25d2fb1)
 
 ##### nginx的好处？nginx和node的比较?
 nginx:
@@ -76,8 +81,11 @@ nginx:
 
 Nginx的性能比Node.js的HTTP模块要好很多。但Nginx考量的是面向客户端， 后端业务方面依然是受具体业务影响。而Node.js则可以利用异步I/O来实现业务并行，以提升效率。
 
-
 ##### cookies和session的区别？
+[浅谈Session与Cookie的区别与联系](https://blog.csdn.net/duan1078774504/article/details/51912868)
+
+这类问题先回答cookies和session创建的流程和关系
+
 1. cookie数据存放在客户的浏览器上，session数据放在服务器上。
 2. cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗
    考虑到安全应当使用session。
@@ -111,6 +119,23 @@ Nginx的性能比Node.js的HTTP模块要好很多。但Nginx考量的是面向�
 **向客户端写入cookies**
 服务端返回响应头："Set-Cookie: 'name=value;domain=.domain.com;path=/;expires=Sat, 11 Jun 2016 11:29:42 GMT;HttpOnly;secure'"
 
+**localStorage**
+localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；在所有同源窗口中都是共享的；
+
+
+sessionStorage和localStorage操作的api相同
+在需要存储数据页面用localStorage设置数据。
+`localStorage.setItem(key,value)`
+
+在需要引用数据的页面用localStorage获取数据,在页面间传递数据需要在同一域名下的页面
+`var name=localStorage.getItem(key);`
+
+删除数据，因为localStorage是可长期存储数据的，所以如果用完后不再需要的话，可以顺手销毁掉
+
+`localStorage.removeItem(key);`    //删除单个数据
+`localStorage.clear();`            //删除所有数据
+`localStorage.key(index);`         //得到某个索引的key
+
 ##### 长连接？短连接？长轮询？短轮询？
 HTTP协议是基于请求/响应模式的，因此只要服务端给了响应，本次HTTP连接就结束了。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接这一说，HTTP没有这个说法。
 
@@ -134,4 +159,26 @@ HTTP协议是基于请求/响应模式的，因此只要服务端给了响应，
 
 减少客户端请求次数
 
+##### 域名收敛是什么？
+[浅谈域名发散与域名收敛 ](https://github.com/chokcoco/cnblogsArticle/issues/1)
 
+**域名发散**：
+http 静态资源采用多个子域名，充分利用现代浏览器的多线程并发下载能力，保证资源最完美地分域名存储，以提供最大并行度，让客户端加载静态资源更为迅速。
+
+域名发散的原因：
+- 为了保护服务器不被强暴到崩溃，浏览器要对 max connections（最大并发数）进行限制。如果每个用户的最大并发数不限制的话，服务器的负载能力会大幅下降。
+- 防止 DDOS 攻击。
+
+**域名收敛**：
+域名收敛的意思就是建议将静态资源只放在一个域名下面，而非发散情况下的多个域名下。
+
+在移动端的 http 请求耗时中，DNS 解析占据了大部分时间。因为在增加域的同时，往往会给浏览器带来 DNS 解析的开销。所以在这种情况下，提出了域名收敛，减少域名数量可以降低 DNS 解析的成本。
+
+SPDY 协议可以完成多路复用的加密全双工通道，显著提升非wifi环境下的网络体验，域名收敛配合 SPDY 才能最大程度发挥他们的效用，达到事半功倍。SPDY 的作用就是，在不增加域名的情况下，解除最大连接数的限制。主要的特点就是多路复用，他的目的就是致力于取消并发连接上限。
+
+**SPDY**优势：
+- 多路复用，请求优化。SPDY 规定在一个 SPDY 连接内可以有无限个并行请求，即允许多个并发 HTTP 请求共用一个 TCP会话。
+- 设置优先级
+- 支持服务器推送技术
+- 压缩了HTTP头
+- 强制使用SSL协议传输
