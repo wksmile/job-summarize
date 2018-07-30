@@ -22,7 +22,7 @@
 ##### react的性能优化
 [参考react性能优化探索实践](http://imweb.io/topic/577512fe732b4107576230b9)
 
-当我们要更新某个子组件的时候,react的默认做法是调用所有组件的render，再对生成的虚拟DOM进行对比，如不变则不进行更新。这样的render和虚拟DOM的对比明显是在浪费。
+当我们要更新某个子组件的时候,react的默认做法是调用所有组件的render，调用组件的render生成新的虚拟DOM,再对生成的虚拟DOM进行对比，如不变则不进行更新。这样的render和虚拟DOM的对比明显是在浪费。
 
 **优化**
 react在每个组件生命周期更新的时候都会调用一个`shouldComponentUpdate(nextProps, nextState)`函数。
@@ -75,6 +75,9 @@ react在每个组件生命周期更新的时候都会调用一个`shouldComponen
 ##### 对组件化的理解？
 - 组件的封装：封装视图，数据，变化逻辑
 - 组件的复用：props传递、复用
+
+##### react虚拟dom的理解？
+[参考尤雨溪知乎回答](https://www.zhihu.com/question/31809713)
 
 
 
