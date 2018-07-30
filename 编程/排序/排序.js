@@ -2,6 +2,7 @@
  *[参考链接](https://www.cnblogs.com/dushao/p/6004883.html)
   */
 
+
 /*冒泡排序*/
 // 两两比较相邻记录的关键字，如果反序则交换，直到没有反序为止
 // 时间复杂度 O(n2)/2
@@ -89,7 +90,7 @@ function insertionSort(arr) {
    return arr;
  }
 
-/*归并排序*/
+/*归并排序（重点）*/
 function mergeSort(arr) {
    var len=arr.length;
    if(len<2) return;
@@ -117,9 +118,11 @@ function mergeSort(arr) {
    return arr;
  }
  // console.log(mergeSort([9,1,5,8,3,7,4,6,2]));
+ // 归并排序是稳定排序，它也是一种十分高效的排序，能利用完全二叉树特性的排序一般性能都不会太差。
+ // 而且，归并排序的最好，最坏，平均时间复杂度均为O(nlogn)。
 
 
- /**快速排序**/
+ /**快速排序（重点）**/
  // 在处理大数据量时最快的排序算法之一
  // [参考阮一峰](http://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html)
 // arr [Array]
