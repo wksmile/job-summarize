@@ -85,6 +85,8 @@ HRAD: 类似于get请求，只不过返回中没有具体的内容，用户获�
 
 `If-Range:Etag|HTTP-Date`If-Range 可以使用 Etag 或者 Last-Modified 返回的值。当没有 ETage 却有 Last-modified 时，可以把 Last-modified 作为 If-Range 字段的值。判断服务器目标内容是否发生了变化
 
+**为什么优先用Etag?**
+
 [参考](http://blog.csdn.net/liang19890820/article/details/53215087)
 
 ##### hybrid了解吗？与native通信这块了解吗

@@ -5,7 +5,13 @@
    IE８以下浏览器都不支持 opacity透明度设置。
    可以使用IE自带的“滤镜”来实现，使用filter:alpha(opacity=)来设置透明度。
    案例：设置div元素的背景。
+4. box-sizing设置不同问题
+5. 引入respond.js脚本，可以解决老版本浏览器能理解并执行媒体查询的css3指令。
+6. reset.css重置不同浏览器初始的样式
    
+[参考](https://zhuanlan.zhihu.com/p/25975404)   
+[WEB前端开发人员须知的常见浏览器兼容问题及解决技巧](https://blog.csdn.net/xustart7720/article/details/73604651/)
+[web前端面试题之 CSS浏览器兼容性](https://blog.csdn.net/Wz1135640/article/details/78192648)   
    
 ##### 浏览器怎么查看一个页面的回流和重绘
 f12 timeline/performance 查看

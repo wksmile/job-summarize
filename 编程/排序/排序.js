@@ -89,32 +89,32 @@ function insertionSort(arr) {
    return arr;
  }
 
-/*归并排序（重点）*/
+/** 归并排序（重点）**/
 function mergeSort(arr) {
-   var len=arr.length;
-   if(len<2) return;
-   var midIndex = Math.floor(len/2),
-   left=arr.slice(0,midIndex),
-   right=arr.slice(midIndex);
-   return merge(mergeSort(left),mergeSort(right));
- }
+    var len=arr.length;
+    if(len<2) return arr;
+    var midIndex = Math.floor(len/2),
+        left=arr.slice(0,midIndex),
+        right=arr.slice(midIndex);
+    return merge(mergeSort(left),mergeSort(right));
+}
 
  function merge(left, right) {
-   var arr = [];
-   while (left.length>0 && right.length>0) {
-     if (left[0] <= right[0]) {
-       arr.push(left.shift())
-     } else {
-       arr.push(right.shift())
+     var arr = [];
+     while (left.length>0 && right.length>0) {
+         if (left[0] <= right[0]) {
+             arr.push(left.shift())
+         } else {
+             arr.push(right.shift())
+         }
      }
-   }
 
-   if (left.length==0) {
-     arr.concat(right.slice(0))
-   } else if (left.length==0){
-     arr.concat(left.slice(0))
-   }
-   return arr;
+     if (left.length==0) {
+         arr.concat(right.slice(0))
+     } else if (left.length==0){
+         arr.concat(left.slice(0))
+     }
+     return arr.concat(left).concat(right);
  }
  // console.log(mergeSort([9,1,5,8,3,7,4,6,2]));
  // 归并排序是稳定排序，它也是一种十分高效的排序，能利用完全二叉树特性的排序一般性能都不会太差。

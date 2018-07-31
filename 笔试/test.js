@@ -1,21 +1,26 @@
-let wordList = [
-    ['热烈', '万分', '非常'],
-    ['欢迎', '感谢', '谢谢'],
-    ['您', '亲', '老板', '大神'],
-    ['光临', '惠顾', '支持'],
-    ['小店', '本店', '火女菜馆']
-];
-
-let M = 4;
-
-/** @example cross([[1]], [2,3]) // [[1,2], [1,3]] */
-let cross = (a1, a2) => a1.reduce((r, s1) => r.concat(a2.map(s2 => [...s1, s2])), []);
-//还可以这么写
-//let cross = (a1, a2) => [].concat(...a1.map(s1 => a2.map(s2 => [...s1, s2])));
-
-let result = wordList.slice(0, M).reduce(cross, [[]]);
-
-console.log(result);
+var arr = [ 3, 51, 5, 80, 1, 45, 405, 167, 731, 8.9, 93, 3 ]
 
 
+var quickSort = function (arr) {
+    // 检查数组的元素个数，如果小于等于1，就返回。
+    if(arr.length <= 1) return arr;
+    // 选择"基准"（pivot），并将其与原数组分离，再定义两个空数组，用来存放一左一右的两个子集。
+    var pivotIndex = Math.floor(arr.length/2);
+    // pivot基准元素
+    var pivot = arr.splice(pivotIndex,1)[0];
+    var left = [];
+    var right = [];
+    // 开始遍历数组，小于"基准"的元素放入左边的子集，大于基准的元素放入右边的子集。
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]<pivot){
+            left.push(arr[i]);
+        } else {
+            right.push(arr[i]);
+        }
+    }
+    // 使用递归不断重复这个过程，就可以得到排序后的数组。
+    return quickSort(left).concat([pivot],quickSort(right))
+}
 
+
+console.log(quickSort(arr));

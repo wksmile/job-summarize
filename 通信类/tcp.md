@@ -53,6 +53,8 @@ UDP: 当对网络通讯质量要求不高的时候，要求网络通讯速度能
 
 **CDN原理**：
 
+[CDN 之我见-CDN调度问题](https://yq.aliyun.com/articles/577708?utm_content=m_45447)
+
 ##### DNS解析流程？
 [DNS解析流程](https://www.zhihu.com/question/23042131)
 

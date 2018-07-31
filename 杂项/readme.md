@@ -95,6 +95,7 @@
             
        Expires Expires:thu,21 Jan 2017 23:39:02 GMT  //这里的时间表示服务器的绝对时间，但是是与浏览器的时间比较，下发时间的是服务器，服务器时间可能和浏览器时间不一致
        Cache-Control Cache-Control:max-age=3600 // 这里表示客户端相对时间，单位为秒
+       强缓存，在未过期时，必须更新资源路径才能发起新的请求。
     2). 协商缓存   
         
         Last-Modified(服务器下发的),If-Modified-Since（从服务器请求的时候加上） Last-Modified:wed,26 Jan 2017 00:35:11 GMT，Etag,If-None-match

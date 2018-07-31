@@ -174,3 +174,11 @@ Node.insertBefore() 方法在参考节点之前插入一个节点作为一个指
 ##### 知道页面上某个点的坐标，如何获取该坐标上的所有元素
 document.elementFromPoint(x,y)
 返回dom节点
+
+##### 为什么['1','2','3'].map(parseInt)返回[1,NaN,NaN]?
+[参考](https://blog.csdn.net/u010703975/article/details/50261441)
+
+
+
+
+
