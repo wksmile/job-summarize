@@ -23,15 +23,4 @@ function binarySearch(target, arr) {
     }
     return -1;
 }
-function birtSearch(target, arr) {
-    var start = 0,
-        end = arr.length-1;
-    while(end>=start){
-        mid = parseInt(start+(end-start)/2);
-        if(arr[mid]===target) return mid;
-        else if(target<arr[mid]) end = mid-1;
-        else start = mid+1;
-    }
-    return -1;
-}
 

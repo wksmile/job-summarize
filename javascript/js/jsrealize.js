@@ -1,7 +1,7 @@
-// by zhangxinxu welcome to visit my personal website http://www.zhangxinxu.com/
-// zxx.drag v1.0 2010-03-23
 // javascript实现拖拽
 // 被拖拽的对象如果不是绝对定位或是相对定位（position:absolute/relative），那么是不会看到效果的。
+// 【参考】(https://blog.csdn.net/gongzhuxiaoxin/article/details/52894784)
+// 【张鑫旭原版】(https://www.zhangxinxu.com/wordpress/2010/03/javascript%E5%AE%9E%E7%8E%B0%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%8B%96%E6%8B%BD%E6%95%88%E6%9E%9C/)
 var params = {
   left: 0,
   top: 0,
@@ -15,7 +15,7 @@ var getCss = function(o,key){
   return o.currentStyle? o.currentStyle[key] : document.defaultView.getComputedStyle(o,false)[key];
 };
 
-// bar触发拖拽的对象，target 被拖拽的对象
+// bar点击的对象（即点击那里可以实现拖拽，例如弹出层的标题栏），第二个是拖拽的对象（例如一个弹出层）。
 var startDrag = function(bar, target, callback){
   // 被拖拽的对象左边的距离
   if(getCss(target, "left") !== "auto"){
@@ -57,8 +57,23 @@ var startDrag = function(bar, target, callback){
       // 鼠标相对于浏览器窗口可视区域的X，Y坐标（窗口坐标），
       var nowX = e.clientX, nowY = e.clientY;
       var disX = nowX - params.currentX, disY = nowY - params.currentY;
-      target.style.left = parseInt(params.left) + disX + "px";
-      target.style.top = parseInt(params.top) + disY + "px";
+      var left = parseInt(params.left) + disX;
+      var top = parseInt(params.top) + disY;
+
+        //控制拖拽物体的范围只能在浏览器视窗内，不允许出现滚动条
+        if(left<0){
+            left=0;
+        }else if(left >window.innerWidth-target.offsetWidth){
+            left = window.innerWidth-target.offsetWidth;
+        }
+        if(top<0){
+            top=0;
+        }else if(top >window.innerHeight-target.offsetHeight){
+            top = window.innerHeight-target.offsetHeight;
+        }
+
+        target.style.left = left + "px";
+        target.style.top = top + "px";
 
       if (typeof callback == "function") {
         callback((parseInt(params.left) || 0) + disX, (parseInt(params.top) || 0) + disY);

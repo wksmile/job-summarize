@@ -1,6 +1,3 @@
-##### react源码解析
-[参考](https://juejin.im/post/5a84682ef265da4e83266cc4)
-
 ##### vue.js组件间通信
 **父子组件间通信**
 1. 使用`props`，父组件可以使用props向子组件通信

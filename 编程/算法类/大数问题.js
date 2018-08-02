@@ -17,6 +17,8 @@ function sumStrings(a,b){
   return res.replace(/^0+/,'');
 }
 
+/************************************************************************************************************************************/
+
 // JavaScript实现大整数阶乘的解决方案
 // [JavaScript实现大整数阶乘的解决方案](https://blog.csdn.net/juhaotian/article/details/48782337)
 function f(n) {

@@ -147,6 +147,23 @@ var quickSort = function (arr) {
 }
 
 
+function quickMySort(arr){
+    var len = arr.length;
+    if(len<=1) return arr;
+    var mid = arr[Math.floor(len/2)],
+        left = [],
+        right = [];
+    for(var i=0;i<len;i++){
+        if(arr[i]>mid){
+            right.push(arr[i])
+        } else {
+            left.push(arr[i])
+        }
+    }
+    return quickMySort(left).concat([mid],quickMySort(right));
+}
+
+
 // 堆排序
 // 堆排序可以说是一种利用堆的概念来排序的选择排序。分为两种方法：
  // 大顶堆：每个节点的值都大于或等于其子节点的值，在堆排序算法中用于升序排列
