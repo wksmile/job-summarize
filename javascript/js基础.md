@@ -178,7 +178,12 @@ document.elementFromPoint(x,y)
 ##### 为什么['1','2','3'].map(parseInt)返回[1,NaN,NaN]?
 [参考](https://blog.csdn.net/u010703975/article/details/50261441)
 
+##### 数组中哪些方法改变数组，哪些不改变
+改变数组的方法： shift，unshift，pop，push，reverse，sort，splice
+不改变数组方法： map,filter,forEach,some,every,concat,join,slice
 
+##### 怎么判断一个对象是否有环
+[JS怎样判断一个对象是否存在"环"](https://segmentfault.com/q/1010000010856332/a-1020000010858170)
 
 
 

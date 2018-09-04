@@ -30,7 +30,8 @@ Bom是浏览器对象。常用的Bom属性
 ##### 搜索引擎的原理，数据从哪里去取，提示信息的原理
 [搜索引擎的工作原理是什么](https://www.zhihu.com/question/19937854)
 
-
+##### v8垃圾回收怎么样进行？
+[浅谈Chrome V8引擎中的垃圾回收机制](https://www.cnblogs.com/liangdaye/p/4654734.html)
 
 
 

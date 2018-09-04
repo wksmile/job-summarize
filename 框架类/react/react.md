@@ -82,6 +82,9 @@ react在每个组件生命周期更新的时候都会调用一个`shouldComponen
 ##### react虚拟dom的理解？
 [参考尤雨溪知乎回答](https://www.zhihu.com/question/31809713)
 
+##### react中子组件怎么向父组件传值？
+[子组件向父组件传值](http://www.cnblogs.com/lixuemin/p/5754289.html)
+
 
 
 

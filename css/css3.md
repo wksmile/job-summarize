@@ -126,7 +126,8 @@ transitions功能通过将元素的某个属性值从一个属性值在指定的
 
 [响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）](https://juejin.im/post/5b39905351882574c72f2808)
 
+##### animation动画如何判断动画停止
 
-
+animation-play-state 属性样式running paused
 
 
