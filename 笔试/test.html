@@ -4,26 +4,89 @@
     <meta charset="UTF-8">
     <title>divDrag</title>
     <style type="text/css">
-        #box{position:absolute; left:100px; top:100px; padding:5px; background:#f0f3f9; font-size:12px; -moz-box-shadow:2px 2px 4px #666666; -webkit-box-shadow:2px 2px 4px #666666;}
-        #main{border:1px solid #a0b3d6; background:white;}
-        #bar{line-height:24px; background:#beceeb; border-bottom:1px solid #a0b3d6; padding-left:5px; cursor:move;}
-        #content{width:420px; height:250px; padding:10px 5px;}
+        #box{
+            position: relative;
+            height: 60px;
+        }
+        #box span {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            width: 16px;
+            height: 20px;
+            text-align: center;
+            margin: 16px 6px;
+            padding: 3px;
+            border: 1px solid #000;
+            transition: all 1s linear;
+        }
     </style>
 </head>
 <body>
 <div id="box">
-    <div id="main">
-        <div id="bar">拖拽</div>
-        <div id="content">
-            内容……
-        </div>
-    </div>
+
 </div>
-<script src="http://www.zhangxinxu.com/study/js/zxx.drag.1.0.js" type="text/javascript"></script>
+
+<button id="start">开始</button>
 <script type="text/javascript">
-    var oBox = document.getElementById("box");
-    var oBar = document.getElementById("bar");
-    startDrag(oBar, oBox);
+
+    function bubbleSort(arr) {
+        var promiseArr = [];
+        for(let i=0;i<len;i++){
+            for(let j=0;j<len-i-1;j++){
+                if(arr[j]>arr[j+1]){
+                   var pro = new Promise(function (resolve, reject) {
+                        try {
+                            var temp = arr[j],tempEle=eleArr[j]
+                            arr[j] = arr[j + 1];
+                            eleArr[j + 1].style.left = parseInt(eleArr[j + 1].style.left) - 36 + "px";
+                            arr[j + 1] = temp;
+                            eleArr[j].style.left = parseInt(eleArr[j].style.left) + 36 + "px";
+                            setTimeout(function () {
+                                eleArr[j] = eleArr[j+1];
+                                eleArr[j+1] = tempEle;
+                                resolve()
+                            }, 1009)
+                        } catch (e) {
+                            reject(e)
+                        }
+                    })
+                    promiseArr.push(pro)
+                }
+            }
+        }
+        handlePro(promiseArr);
+    }
+
+    function handlePro(proarr) {
+        var len = proarr.length;
+        if(len<1) return;
+        (proarr.shift()).then(function () {
+            handlePro(proarr)
+        })
+    }
+
+    var arr = [2,34,6,5,76,45,23];
+
+    var len = arr.length;
+
+    var span,box = document.getElementById('box');
+    var frag = document.createDocumentFragment();
+    for(var k=0;k<len;k++){
+        span = document.createElement('span');
+        span.style.left = 36*k+'px';
+        span.textContent = arr[k];
+        frag.appendChild(span);
+    }
+    box.appendChild(frag);
+    eleArr = box.children;
+    console.log(eleArr);
+
+    var btn = document.getElementById("start");
+    btn.addEventListener('click',function () {
+        bubbleSort(arr);
+    })
+
 </script>
-　　</body>
+</body>
 </html>

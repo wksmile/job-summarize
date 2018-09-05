@@ -7,3 +7,6 @@
 ##### js实现call函数，不能用apply和bind方法？
 [JavaScript深入之call和apply的模拟实现](https://juejin.im/post/5907eb99570c3500582ca23c)
 
+##### 实现一个圆周运动？
+
+

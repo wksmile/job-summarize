@@ -185,5 +185,12 @@ document.elementFromPoint(x,y)
 ##### 怎么判断一个对象是否有环
 [JS怎样判断一个对象是否存在"环"](https://segmentfault.com/q/1010000010856332/a-1020000010858170)
 
+##### settimeout中this指向？
+[谈谈setTimeout的作用域以及this的指向问题](https://www.cnblogs.com/hutaoer/p/3423782.html)
 
+settimeout中回调函数中的this指向window,在严格模式下指向undefined
 
+##### 为什么0.1+0.2不等于0.3
+因为计算机不能精确表示0.1， 0.2这样的浮点数，计算时使用的是带有舍入误差的数
+
+[为什么0.1+0.2不等于0.3](https://segmentfault.com/a/1190000012175422)
