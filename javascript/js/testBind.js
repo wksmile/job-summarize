@@ -49,7 +49,7 @@ fun_new('hello bind')   // 这里是bind返回后调用传入参数
 
 
 /****************************************************************************************/
-var lis = [1,2,3,4,5,56]
+var lis = [1,2,3,4,5,56];
 
 for(var i = 0; i < lis.length; i++) {
   lis[i].addEventListener('click', function(e) {
@@ -102,27 +102,6 @@ for(let i = 1; i < proms.length; i++) {
   }
 })()
 
-/**********************************************************************************************************/
-
-// Promise实现ajax
-function getJSON(url) {
-  return new Promise(function (resolve, reject) {
-    var xhr = new XMLHttpRequest()
-    xhr.open('get',url,true)
-    xhr.onreadystatechange = function () {
-      if(xhr.readyState === 4) {
-        if(xhr.status === 200) {
-          resolve(xhr.responseText)
-        }else {
-          var resJson = {code:xhr.status,response:xhr.response}
-          reject(resJson)
-        }
-      }
-    }
-    xhr.send()
-  })
-}
-
 /*****************************************************************************************/
 // javascript实现对象的深拷贝
 (function ($) {
@@ -154,7 +133,7 @@ function copy (obj) {
 
         for (name in obj) {
             value = obj[name];
-
+            // 循环引用
             if (value === obj) {
                 continue;
             }

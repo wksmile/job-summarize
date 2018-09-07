@@ -47,7 +47,7 @@ function interator(node) {
   var children = node.children
   if(children.length){
     for(var i=0;i<children.length;i++){
-      console.log(children[i])
+        interator(node.children[i]);
     }
   }
 }

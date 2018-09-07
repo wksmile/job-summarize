@@ -194,3 +194,9 @@ settimeout中回调函数中的this指向window,在严格模式下指向undefine
 因为计算机不能精确表示0.1， 0.2这样的浮点数，计算时使用的是带有舍入误差的数
 
 [为什么0.1+0.2不等于0.3](https://segmentfault.com/a/1190000012175422)
+
+##### forEach,for in,for of的区别？
+- forEach，循环数组，不能中断循环
+- for-in，循环"enumerable"对象，包括原型，for-in更适合遍历对象
+- for-of,遍历可迭代的对象的元素值
+

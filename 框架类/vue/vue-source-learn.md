@@ -11,8 +11,8 @@ virtual DOM是一个能够直接描述一段HTML DOM结构的javascript对象，
 创建虚拟dom往往就是将一段**DOM描述字符串**解析成虚拟DOM对象的过程，
 
 ##### vue的diff算法
-[参考](http://blog.csdn.net/m6i37jk/article/details/78140159)
-[参考](https://segmentfault.com/a/1190000008782928#articleHeader0)
+[参考1](http://blog.csdn.net/m6i37jk/article/details/78140159)
+[参考2](https://segmentfault.com/a/1190000008782928#articleHeader0)
 
 - 仅在同级的vnode间做diff
 - key值作用。不设key，newCh和oldCh只会进行头尾两端的相互比较，设key后，除了头尾两端的比较外，还会从用key生成的对象oldKeyToIdx中查找匹配的节点，所以为节点设置key可以更高效的利用dom。
@@ -45,5 +45,6 @@ render返回值是VNode节点，VNode是Vue的虚拟DOM节点。在_update的时
 ##### vue计算属性的实现
 [深入浅出 - vue之State](https://github.com/berwin/Blog/issues/13)
 
+##### vue插槽怎么实现的？
 
 

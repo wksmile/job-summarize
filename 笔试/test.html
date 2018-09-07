@@ -1,92 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>divDrag</title>
+    <meta charset="utf-8" />
+    <title></title>
     <style type="text/css">
-        #box{
-            position: relative;
-            height: 60px;
-        }
-        #box span {
-            display: inline-block;
-            position: absolute;
-            top: 0;
-            width: 16px;
-            height: 20px;
-            text-align: center;
-            margin: 16px 6px;
-            padding: 3px;
-            border: 1px solid #000;
-            transition: all 1s linear;
-        }
     </style>
 </head>
-<body>
-<div id="box">
+<body  style="height:1000px;">
+<input id="btn" type="button" value="动起来" />
+<div id="centerDiv">
 
 </div>
+<div id="ball">
 
-<button id="start">开始</button>
-<script type="text/javascript">
-
-    function bubbleSort(arr) {
-        var promiseArr = [];
-        for(let i=0;i<len;i++){
-            for(let j=0;j<len-i-1;j++){
-                if(arr[j]>arr[j+1]){
-                   var pro = new Promise(function (resolve, reject) {
-                        try {
-                            var temp = arr[j],tempEle=eleArr[j]
-                            arr[j] = arr[j + 1];
-                            eleArr[j + 1].style.left = parseInt(eleArr[j + 1].style.left) - 36 + "px";
-                            arr[j + 1] = temp;
-                            eleArr[j].style.left = parseInt(eleArr[j].style.left) + 36 + "px";
-                            setTimeout(function () {
-                                eleArr[j] = eleArr[j+1];
-                                eleArr[j+1] = tempEle;
-                                resolve()
-                            }, 1009)
-                        } catch (e) {
-                            reject(e)
-                        }
-                    })
-                    promiseArr.push(pro)
-                }
-            }
-        }
-        handlePro(promiseArr);
-    }
-
-    function handlePro(proarr) {
-        var len = proarr.length;
-        if(len<1) return;
-        (proarr.shift()).then(function () {
-            handlePro(proarr)
-        })
-    }
-
-    var arr = [2,34,6,5,76,45,23];
-
-    var len = arr.length;
-
-    var span,box = document.getElementById('box');
-    var frag = document.createDocumentFragment();
-    for(var k=0;k<len;k++){
-        span = document.createElement('span');
-        span.style.left = 36*k+'px';
-        span.textContent = arr[k];
-        frag.appendChild(span);
-    }
-    box.appendChild(frag);
-    eleArr = box.children;
-    console.log(eleArr);
-
-    var btn = document.getElementById("start");
-    btn.addEventListener('click',function () {
-        bubbleSort(arr);
-    })
-
-</script>
+</div>
 </body>
 </html>
+<script type="text/javascript">
+
+</script>
+
+

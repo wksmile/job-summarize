@@ -76,6 +76,10 @@ next函数内部有个while循环，每次循环都会从stack中拿出一个lay
 
 app.use注册的中间件，如果path参数为空，则默认为"/"，而path为"/"的中间件默认匹配所有的请求。
 
+#### Koa和express的区别？koa1和koa2的区别？
+
+
+
 
 
 

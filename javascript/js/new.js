@@ -32,5 +32,57 @@ obj.onreadystatechange=function(){
     }
 }
 
+/**********************************************函数防抖和节流**************************************************************/
+// 函数防抖及用例-----------------------模拟一段ajax请求
+function ajax(content){
+    console.log('ajax request' + content)
+}
+
+// 防抖函数
+function debounce(fun, delay) {
+    return function (args) {
+        let that = this;
+        let _args = args;
+        clearTimeout(fun.id);
+        fun.id = setTimeout(function () {
+            fun.call(that,_args)
+        },delay)
+    }
+}
+
+let inputb = document.getElementById('debouce');
+
+let debounceAjax = debounce(ajax,500);
+
+inputb.addEventListener('keyup',function (e) {
+    debounceAjax(e.target.value);
+})
+
+// 函数节流---------------不管事件触发多么频繁，总是按照我们设定的时间执行一次
+function throttle(fun, delay) {
+    let last,deferTimer;
+    return function (args) {
+        let that = this;
+        let _args = arguments;
+        let now = +new Date();
+        if(last && now < last + delay) {
+            clearTimeout(deferTimer)
+            deferTimer = setTimeout(function () {
+                last = now;
+                fun.apply(that,_args)
+            },delay)
+        } else {
+            last = now;
+            fun.apply(that,_args)
+        }
+    }
+}
+
+let throttleAjax = throttle(ajax,1000);
+
+let inputc = document.getElementById('throttle');
+inputc.addEventListener('keyup',function (e) {
+    throttleAjax(e.target.value);
+})
 
 
