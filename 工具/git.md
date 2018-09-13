@@ -21,3 +21,6 @@ git add和git stage是同义的
 
 ##### git reset、git revert 和 git checkout 有什么区别？
 共同点：用来撤销代码仓库中的某些更改。
+
+##### git rebase作用？
+

@@ -182,6 +182,7 @@ Http报头分为通用报头，请求报头，响应报头和实体报头。
 Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型。 
 比如：Content-Type：text/html; 
 代表发送端发送的数据格式是html。
+[Http Header里的Content-Type](https://www.cnblogs.com/52fhy/p/5436673.html)
 
 二者合起来， 
 Accept:text/xml； 
@@ -197,6 +198,8 @@ Content-Type:text/html
 
 ##### http keep-alive详解
 [HTTP keep-alive详解](https://blog.csdn.net/xiaoduanayu/article/details/78386508)
+
+
 
 ##### HTTP2.0
 http和https的区别，相比于http,https是基于ssl加密的http协议

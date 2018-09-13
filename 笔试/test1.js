@@ -1,17 +1,16 @@
-var jj = ['sd','rf','fdfv','rf','er','sd','fdfv','sd','sd','er'];
+var arr1 = [1,2,[3,4,[5,[6]],[[6,90]]]];
 
+function flat(input){
+    var arr = [];
+    input.forEach((item,idx)=>{
+        if(Array.isArray(item)){
+            arr=arr.concat(flat(item));
+        }else{
+            arr.push(item)
+        }
 
-function getArrayNumber(arr) {
-    var len = arr.length,
-        result = {},
-        value = ''
-    for(var i=0;i<len;i++){
-      value = arr[i];
-      if(!result[value]) result[value]=[i];
-      else result[value].push(i);
-    }
-    return result;
+    })
+    return arr
 }
 
-console.log(getArrayNumber(jj));
-
+console.log(flat(arr1));

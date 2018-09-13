@@ -47,11 +47,10 @@
  // console.log(selectionSort([9,1,5,8,3,7,4,6,2]));
 
 
-/**插入排序**/
-// O(n2)/4
+/***插入排序***/
+//  O(n2)/4
 function insertionSort(arr) {
-  var len=arr.length,
-    preIndex,current;
+  var len=arr.length, preIndex,current;
   for(var i=1;i<len;i++){
     preIndex=i-1;
     current=arr[i];
@@ -108,7 +107,6 @@ function mergeSort(arr) {
              arr.push(right.shift())
          }
      }
-
      if (left.length==0) {
          arr.concat(right.slice(0))
      } else if (left.length==0){
@@ -144,23 +142,6 @@ var quickSort = function (arr) {
    }
    // 使用递归不断重复这个过程，就可以得到排序后的数组。
    return quickSort(left).concat([pivot],quickSort(right))
-}
-
-
-function quickMySort(arr){
-    var len = arr.length;
-    if(len<=1) return arr;
-    var mid = arr[Math.floor(len/2)],
-        left = [],
-        right = [];
-    for(var i=0;i<len;i++){
-        if(arr[i]>mid){
-            right.push(arr[i])
-        } else {
-            left.push(arr[i])
-        }
-    }
-    return quickMySort(left).concat([mid],quickMySort(right));
 }
 
 

@@ -89,6 +89,13 @@
     - async是在加载完成后立即执行，如果是多个，执行顺序和加载顺序无关（IE不支持async，只支持defer）
     
 ##### 浏览器缓存
+
+[写给后端程序员的HTTP缓存原理介绍--怎样决定一个资源的Cache-Control策略呢](https://www.cnblogs.com/feng9exe/p/8083237.html)
+
+[关于ETAG的工作原理](http://www.maixj.net/wz/http-etag-1191)
+
+[浏览器缓存之Expires Etag Last-Modified max-age详解](https://www.cnblogs.com/guojiao1600/p/5110971.html)
+
 1. 缓存的分类
     
     1). 强缓存：在有效时间内不从服务器请求，若下面两者都从服务器下发了，应该以cache-control为准
@@ -96,10 +103,11 @@
        Expires Expires:thu,21 Jan 2017 23:39:02 GMT  //这里的时间表示服务器的绝对时间，但是是与浏览器的时间比较，下发时间的是服务器，服务器时间可能和浏览器时间不一致
        Cache-Control Cache-Control:max-age=3600 // 这里表示客户端相对时间，单位为秒
        强缓存，在未过期时，必须更新资源路径才能发起新的请求。
-    2). 协商缓存   
+
+    2). 协商缓存
         
         Last-Modified(服务器下发的),If-Modified-Since（从服务器请求的时候加上） Last-Modified:wed,26 Jan 2017 00:35:11 GMT，Etag,If-None-match
-        
+
 ## 错误监控类
 - 前端错误的分类
 - 错误的捕获方式
@@ -199,6 +207,8 @@
 - 浏览器是语音浏览器（供盲人和弱视人群使用）
 - 如果您使用了 alt 属性，那么浏览器至少可以显示或读出有关图像的描述。
 
+##### 前端单页面应用和多页面应用的区别？
+[你要懂的单页面应用和多页面应用](http://www.bslxx.com/a/mianfeivueke/houtaichanpinguanli/2017/1121/1447.html)
 
 
 

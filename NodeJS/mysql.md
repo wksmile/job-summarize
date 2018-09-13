@@ -33,4 +33,9 @@ MongoDB不指定_id插入 > MySQL不指定主键插入 > MySQL指定主键插入
 
 **MySQL**:
 
+##### 文件系统存储数据,与数据库系统存储数据的差别？
+[参考](https://www.cnblogs.com/gswang/p/7586540.html)
+
+##### 数据库的设计思想大概是什么样的？
+
 

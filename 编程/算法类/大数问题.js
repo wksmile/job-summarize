@@ -32,7 +32,7 @@ function f(n) {
   }
   return a.reverse().join("");
 }
-console.log(f(1000));
+console.log(f(10));
 
 
 

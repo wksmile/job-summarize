@@ -33,5 +33,17 @@ Bom是浏览器对象。常用的Bom属性
 ##### v8垃圾回收怎么样进行？
 [浅谈Chrome V8引擎中的垃圾回收机制](https://www.cnblogs.com/liangdaye/p/4654734.html)
 
+##### 前后端分离怎么做？
+[实现前后端分离的心得](http://blog.jobbole.com/111624/)
+
+[前后端分离实践](https://segmentfault.com/a/1190000009329474?_ea=2038402)
+
+##### 哪些逻辑处理适合放在前端，哪些适合放在后端？
+[前后端到底怎么分？（一段代码逻辑到底该放在前端还是后台？）](https://blog.csdn.net/qq_35120986/article/details/80947175)
+
+##### localStorage的使用以及同源策略？
+[localStorage使用总结](https://www.cnblogs.com/st-leslie/p/5617130.html)
+
+[浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 
 

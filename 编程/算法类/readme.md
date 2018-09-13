@@ -10,8 +10,6 @@
 > 阿里云，金融对算法要求比较高
 
 ##### 排序
-
-<img src="./alcom.png">
  
 - 快速排序：https://segmentfault.com/a/1190000009426421
 - 选择排序：https://segmentfault.com/a/1190000009366805

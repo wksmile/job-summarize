@@ -102,5 +102,6 @@ history方案：
 [重新诠释flux架构](http://stylechen.com/ballade-reinterpreted-flux.html)
 [Flux: Actions and the Dispatcher](https://segmentfault.com/a/1190000002530862)
 
+##### mvvm和mvc的区别？
 
 

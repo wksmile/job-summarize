@@ -11,3 +11,7 @@
 [HTML5实现简单圆周运动示例](https://www.cnblogs.com/tianma3798/p/6288861.html)
 
 [原生js如何做一个圆周运动](https://blog.csdn.net/jiang7701037/article/details/78927880)
+
+##### 实现一个数组的flat函数
+[Array的flat()实现方式](http://www.cnblogs.com/xpcool/p/9503983.html)
+
