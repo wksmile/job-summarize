@@ -48,6 +48,8 @@ react在每个组件生命周期更新的时候都会调用一个`shouldComponen
 [参考](https://zhuanlan.zhihu.com/p/20328570)
 [参考](https://zhuanlan.zhihu.com/p/25882602)
 
+[为何说setState方法是异步的](https://segmentfault.com/a/1190000007454080)
+
 
 ##### 项目里用到了react，为什么要选择react，react有哪些好处？
 虚拟DOM速度快、数据驱动、面向对象、跨浏览器兼容、模块化、前后端同构的javsscript、纯粹的javascript

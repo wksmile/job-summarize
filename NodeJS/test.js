@@ -1,7 +1,7 @@
 
 setTimeout(()=>{
   console.log(1)
-});
+},13);
 
 setImmediate(()=>{
   console.log(2)
@@ -11,6 +11,8 @@ Promise.resolve().then(()=>{
   console.log(4)
 }).then(()=>{
   console.log(6)
+}).then(()=>{
+  console.log(7);
 })
 
 process.nextTick(()=>{

@@ -65,4 +65,7 @@ serialize()      输出序列化表单的值
 ##### 简单的实现一个promise
 [实现一个完美符合Promise/A+规范的Promise](https://github.com/forthealllight/blog/issues/4)
 
+[手把手教你实现一个完整的 Promise](https://www.cnblogs.com/huansky/p/6064402.html)
+
+
 

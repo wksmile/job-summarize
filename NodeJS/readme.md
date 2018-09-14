@@ -14,6 +14,9 @@
 
 总的顺序为：同步任务 -> process.nextTick() -> 微任务 -> 异步任务
 
+javascript中宏任务和微任务：
+[这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
+
 ##### node.js线程进程间通信？
 基于cluster模块，事件监听
 

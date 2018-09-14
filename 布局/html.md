@@ -57,11 +57,15 @@ IE8/IE7/IE6支持通过 document.createElement 方法产生的标签，可以利
 计算白屏时间： 白屏时间 = firstPaint - performance.timing.navigationStart;
 不支持performance时： 白屏时间 = firstPaint - pageStartTime;
 
+移动端的白屏的解决与优化方案：[移动端白屏的解决与优化方案](http://guoyan2900.iteye.com/blog/2187519)
+
 **首屏时间**：地址栏输入网址点击回车 => 浏览器第一屏渲染完成
 计算首屏时间方法：
 - 首屏模块标签标记法。html的body末尾中使用内联的script标签标记当前时间。window.firstScreen = Date.now()。首屏时间： firstScreen - performance.timing.navigationStart;
 - 统计首屏内加载最慢的图片时间。此时首屏时间等于 加载最慢的图片的时间点 - performance.timing.navigationStart;
 - 自定义首屏内容计算法。
+
+首屏时间优化： [浅谈自己知道的首屏加载时间的优化策略](https://blog.csdn.net/clark_fitz817/article/details/79513046)
 
 ##### 编写html5需要注意什么？
 [HTML及H5代码编写规范及注意要点](https://blog.csdn.net/sinat_34719507/article/details/53891959)
