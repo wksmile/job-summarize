@@ -14,6 +14,8 @@
 
 总的顺序为：同步任务 -> process.nextTick() -> 微任务 -> 异步任务
 
+宏任务和微任务都有自己的异步任务队列。
+
 javascript中宏任务和微任务：
 [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
 

@@ -130,4 +130,7 @@ transitions功能通过将元素的某个属性值从一个属性值在指定的
 
 animation-play-state 属性样式running paused
 
-
+##### css加载，js加载，以及渲染的关系？
+- css加载不会阻塞DOM树的解析
+- css加载会阻塞DOM树的渲染
+- css加载会阻塞后面js语句的执行

@@ -4,20 +4,33 @@
     <meta charset="utf-8" />
     <title></title>
     <style type="text/css">
+
     </style>
 </head>
-<body  style="height:1000px;">
-<input id="btn" type="button" value="动起来" />
-<div id="centerDiv">
+<body>
+<img src="pic.jpg">
 
-</div>
-<div id="ball">
+<script type="text/javascript">
+var cvs = document.createElement('canvas');
+var img = document.getElementsByTagName("img")[0];
+var width = img.width;
+var height = img.height;
+cvs.width = width;
+cvs.height = height;
 
-</div>
+var ctx = cvs.getContext("2d");
+var destX = 0;
+var destY = 0;
+ctx.drawImage(img,destX,destY);
+
+document.body.appendChild(cvs);
+
+var imageData = ctx.getImageData(0,150,200,200);
+
+cvs.width = 200;
+cvs.height = 200;
+
+ctx.putImageData(imageData,0,0);
+</script>
 </body>
 </html>
-<script type="text/javascript">
-
-</script>
-
-
