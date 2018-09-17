@@ -88,6 +88,9 @@ react在每个组件生命周期更新的时候都会调用一个`shouldComponen
 [子组件向父组件传值](http://www.cnblogs.com/lixuemin/p/5754289.html)
 
 
+#### diff算法的时间复杂度？
+
+
 
 
 

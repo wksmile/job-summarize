@@ -210,6 +210,8 @@
 ##### 前端单页面应用和多页面应用的区别？
 [你要懂的单页面应用和多页面应用](http://www.bslxx.com/a/mianfeivueke/houtaichanpinguanli/2017/1121/1447.html)
 
+##### 两个人同时编辑一个文件出现冲突种情况怎么处理？
+
 
 
 
