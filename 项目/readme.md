@@ -58,4 +58,6 @@ es6模块import
 
 http://kain.site/
 
+## 问题
+- isNaN
 

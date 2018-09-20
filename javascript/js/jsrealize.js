@@ -58,7 +58,7 @@ var startDrag = function(bar, target, callback){
       var nowX = e.clientX, nowY = e.clientY;
       var disX = nowX - params.currentX, disY = nowY - params.currentY;
       var left = parseInt(params.left) + disX;
-      var top = parseInt(params.top) + disY;
+      var top = parseInt(params.top) + disY
 
         //控制拖拽物体的范围只能在浏览器视窗内，不允许出现滚动条
         if(left<0){

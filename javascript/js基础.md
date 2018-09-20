@@ -182,6 +182,8 @@ document.elementFromPoint(x,y)
 改变数组的方法： shift，unshift，pop，push，reverse，sort，splice
 不改变数组方法： map,filter,forEach,some,every,concat,join,slice
 
+和String对象方法做对比，string方法都不改变字符串
+
 ##### 怎么判断一个对象是否有环
 [JS怎样判断一个对象是否存在"环"](https://segmentfault.com/q/1010000010856332/a-1020000010858170)
 

@@ -1,10 +1,11 @@
  /*
  *[参考链接](https://www.cnblogs.com/dushao/p/6004883.html)
+ *  参考： https://www.cnblogs.com/beli/p/6297741.html
   */
 
 /*冒泡排序*/
 // 两两比较相邻记录的关键字，如果反序则交换，直到没有反序为止
-// 时间复杂度 O(n2)/2
+// 时间复杂度 O(n2) 空间复杂度O(1)   稳定
  function bubbleSort(arr) {
    var len = arr.length,
      flag = true;
@@ -26,7 +27,7 @@
 
  /**选择排序**/
  // 在时间复杂度上表现最稳定的排序算法之一，因为无论什么数据进去都是O(n²)的时间复杂度。。。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。
-// 时间复杂度 O(n2)/2
+// 时间复杂度 O(n2)  空间复杂度O(1)   不稳定
 // 每次选出最小的值放在前面
  function selectionSort(arr) {
    var len = arr.length,
@@ -46,9 +47,9 @@
  }
  // console.log(selectionSort([9,1,5,8,3,7,4,6,2]));
 
-
 /***插入排序***/
 //  O(n2)/4
+ // 时间复杂度O(n2)   空间复杂度O(1)   稳定
 function insertionSort(arr) {
   var len=arr.length, preIndex,current;
   for(var i=1;i<len;i++){
@@ -56,8 +57,8 @@ function insertionSort(arr) {
     current=arr[i];
     // 当current小于前面一个数，将curent的前面所有数与curent比较（注意此时current左边已经排好序），找出current应该放的位置，然后放在适合的位置
     while(preIndex>=0 && arr[preIndex]>current){
-      arr[preIndex+1] = arr[preIndex]
-      preIndex--
+      arr[preIndex+1] = arr[preIndex];
+      preIndex--;
     }
     // 将current放在适合的位置
     arr[preIndex+1] = current
@@ -89,6 +90,7 @@ function insertionSort(arr) {
  }
 
 /** 归并排序（重点）**/
+//  时间复杂度O(nlogn)   空间复杂度O(n)   稳定
 function mergeSort(arr) {
     var len=arr.length;
     if(len<2) return arr;
@@ -122,6 +124,7 @@ function mergeSort(arr) {
  /**快速排序（重点）**/
  // 在处理大数据量时最快的排序算法之一
  // [参考阮一峰](http://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html)
+ // 阮一峰快速排序存在一定问题，参考实现： https://blog.csdn.net/LXY224/article/details/79535269
 // arr [Array]
 var quickSort = function (arr) {
   // 检查数组的元素个数，如果小于等于1，就返回。

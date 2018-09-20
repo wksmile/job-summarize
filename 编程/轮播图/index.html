@@ -122,29 +122,54 @@
             })(i)
         }
 
-        // 鼠标拖拽滑动---------------------------------------------------------------------------------------------
-    var mouseClickFlag = false,
-        mousePosition = {
-            x:0,
-            y:0
-        }
+    // 鼠标拖拽滑动---------------------------------------------------------------------------------------------
+    var params = {
+        left: 0,
+        currentX: 0,
+        flag: false
+    }
+
+    // 获取dom对象o的key属性
+    // Element.currentStyle是一个与window.getComputedStyle方法功能相同的属性。这个属性实现在旧版本的IE浏览器中.
+    var getCss = function(o,key){
+        return o.currentStyle? o.currentStyle[key] : document.defaultView.getComputedStyle(o,false)[key];
+    };
+
     list.onmousedown = function (e) {
+        params.flag = true;
         e.preventDefault();
-        mousePosition.x = e.clientX;
-        mousePosition.y = e.clientY;
-        mouseClickFlag = true;
+        params.left = getCss(list,"left");
+        params.currentX = e.clientX;
+        console.log(params)
     }
-    list.mousemove = function (e) {
-        if(mouseClickFlag) {
-            var offsetX = e.clientX - mousePosition.x;
-            if(Math.abs(offsetX) > 30) {
-                console.log("cg300px啦");
+    list.onmousemove = function (event) {
+        var e = event ? event : window.event;
+        if(params.flag) {
+            //console.log("hahahahha ");
+            var nowX = e.clientX,
+                disX = nowX - params.currentX,
+                left = parseInt(params.left) + disX;
+            if(Math.abs(disX)>300) {
+                console.log("wollllllllllll");
+                left = disX>0 ? params.left+600 : params.left-600;
             }
+            if(left>0){
+                left = 0;
+            } else if(left < -3600){
+                left = -3600;
+            }
+            list.style.left = left+"px";
+        }
+        if(event.preventDefault){
+            event.preventDefault();
         }
     }
-    list.mouseup = function (e) {
-        mouseClickFlag = false;
+    list.onmouseup = function (e) {
+        console.log("wo up la")
+        params.flag = false;
     }
+
+
 </script>
 </body>
 </html>

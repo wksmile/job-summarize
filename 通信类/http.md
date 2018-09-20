@@ -162,6 +162,7 @@ Strict-Transport-Security: max-age=expireTime [; includeSubDomains] [; preload]
 
 ##### HTTP有几种请求头？option请求头的作用?
 [参考](https://www.cnblogs.com/cp168168/p/7923227.html)
+[http请求详解](https://blog.csdn.net/qq_33020901/article/details/70146044)
 
 OPTIONS请求方法的主要用途有两个：
 
@@ -213,6 +214,9 @@ http和https的区别，相比于http,https是基于ssl加密的http协议
 - 请求优先级
 
 [HTTP 2.0 原理详细分析](https://blog.csdn.net/zhuyiquan/article/details/69257126?locationNum=4&fps=1#3-%E8%AF%B7%E6%B1%82%E4%BC%98%E5%85%88%E7%BA%A7)
+
+**怎么启用HTTP2.0**
+[HTTP2.0 介绍以及ngnix、tomcat下如何配置](https://blog.csdn.net/qq_16320025/article/details/79495469)
 
 ##### fetch发送2次请求的原因
 fetch发送post请求的时候，总是发送2次，第一次状态码是204，第二次才成功.

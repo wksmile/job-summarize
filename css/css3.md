@@ -1,5 +1,5 @@
 **问题**：
-css动画，追问：js动画写过吗？
+css动画，追问：js动画写过吗?
 css动画：transform/transitions/animation
 
 [参考:张鑫旭博客](http://www.zhangxinxu.com/wordpress/2010/11/css3-transitions-transforms-animation-introduction/)

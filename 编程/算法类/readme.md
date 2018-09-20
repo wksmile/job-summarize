@@ -55,4 +55,8 @@
 
 代码参考 `others.js`
 
+##### js实现优先队列
+[JavaScript队列、优先队列与循环队列](https://blog.csdn.net/q1056843325/article/details/53121917)
+
+
 
