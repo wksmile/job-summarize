@@ -54,10 +54,10 @@
     <meta name="keywords" content="关键词1，关键词2" />
     < meta name="description" content="描述1，描述2" />
     
-3. 前景图片<img />添加alt属性
-4. <title>标题，概括强调 
-5. <a>标签：页内链接，要加 “title” 属性加以说明，让访客和 “蜘蛛” 知道。而外部链接，链接到其他网站的，则需要加上 el="nofollow" 属性, 告诉 “蜘蛛” 不要爬，因为一旦“蜘蛛”爬了外部链接之后，就不会再回来了。
-6. 表格应该使用<caption>表格标题标签
+3. 前景图片img添加alt属性
+4. title标题，概括强调
+5. a标签：页内链接，要加 “title” 属性加以说明，让访客和 “蜘蛛” 知道。而外部链接，链接到其他网站的，则需要加上 el="nofollow" 属性, 告诉 “蜘蛛” 不要爬，因为一旦“蜘蛛”爬了外部链接之后，就不会再回来了。
+6. 表格应该使用caption表格标题标签
 7. 重要内容不要用js输出
 8. 尽量少用iframe框架
 9. 后端渲染。[前后端渲染和同构渲染](https://blog.csdn.net/qizhiqq/article/details/70904799)

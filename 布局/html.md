@@ -7,6 +7,7 @@
 5. 在CSS3中唯一引入的伪元素是 ::selection.鼠标选中的元素
 6. 媒体查询，多栏布局
 7. border-image
+8. 动画:animation,transition,transform等。
 
 
 ##### html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？

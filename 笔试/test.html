@@ -4,33 +4,27 @@
     <meta charset="utf-8" />
     <title></title>
     <style type="text/css">
-
+        .container {
+            display: grid;
+            grid-template-rows: 100px;
+            grid-template-columns: 1fr 1fr 2fr;
+        }
+        .item {
+            background-color: #cccccc;
+        }
     </style>
 </head>
 <body>
-<img src="pic.jpg">
+<div class="container">
+    <div class="item"></div>
+    <div class="item">
+        <p class="sub-item"></p>
+    </div>
+    <div class="item"></div>
+</div>
 
 <script type="text/javascript">
-var cvs = document.createElement('canvas');
-var img = document.getElementsByTagName("img")[0];
-var width = img.width;
-var height = img.height;
-cvs.width = width;
-cvs.height = height;
 
-var ctx = cvs.getContext("2d");
-var destX = 0;
-var destY = 0;
-ctx.drawImage(img,destX,destY);
-
-document.body.appendChild(cvs);
-
-var imageData = ctx.getImageData(0,150,200,200);
-
-cvs.width = 200;
-cvs.height = 200;
-
-ctx.putImageData(imageData,0,0);
 </script>
 </body>
 </html>

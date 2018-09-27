@@ -46,4 +46,5 @@ Bom是浏览器对象。常用的Bom属性
 
 [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 
-
+##### 浏览器内核以及区别？
+[参考](https://blog.csdn.net/weixin_38399962/article/details/80108079)

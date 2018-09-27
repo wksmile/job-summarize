@@ -1,4 +1,5 @@
-##### 手写一个select组件，就是点一下select出来一个列表，点击列表项select自动填充。[问题来源](https://zhuanlan.zhihu.com/p/28771824)
+##### 手写一个select组件，就是点一下select出来一个列表，点击列表项select自动填充。
+[问题来源](https://zhuanlan.zhihu.com/p/28771824)
 
 ##### 手写用setTimeout模拟setInterval?
 [setTimeout与setInterval区别](http://blog.csdn.net/baidu_24024601/article/details/51862488) 

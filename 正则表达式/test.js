@@ -1,5 +1,14 @@
-var parse_url = /^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
-console.log(parse_url.test(421126199110285131));
-
-
-
+function parseQuery(url) {
+    var queryObj = {};
+    var reg = /[?&]([^?&#]+)=([^#&]*)/g;
+    var querys = url.match(reg);
+    if(querys){
+        for(var i in querys){
+            var query = querys[i].split("=");
+            var key = query[0].substr(1),
+                value = query[1];
+            queryObj[key]?queryObj[key]=[].concat(queryObj[key],value):queryObj[key]=value;
+        }
+    }
+    return queryObj[key];
+}

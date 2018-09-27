@@ -38,4 +38,7 @@ MongoDB不指定_id插入 > MySQL不指定主键插入 > MySQL指定主键插入
 
 ##### 数据库的设计思想大概是什么样的？
 
+##### mysql数据库分表原理？
+[MySQL面试题(六)数据库的分库分表原理详解](https://blog.csdn.net/weixin_38399962/article/details/80108079)
+
 

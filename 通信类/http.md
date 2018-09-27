@@ -18,10 +18,16 @@
 >> 状态行，响应头，空行，响应体
 
 ##### HTTP方法
-- GET, POST, PUT, DELETE, HEAD
+- GET, POST, PUT, DELETE, HEAD, TRACE
 
 HRAD: 类似于get请求，只不过返回中没有具体的内容，用户获取报头
 
+
+##### post 和 put的区别？
+- put 幂等，每次相同的提交影响的结果相同,只是简单的更新资源
+- post 非幂等，多次提交结果不同，post每一次提交创建一次
+[理解POST和PUT的区别，顺便提下RESTful](https://www.cnblogs.com/ximenxiazi/p/5850273.html)
+[HTTP中post和put的根本区别和优势](https://www.zhihu.com/question/48482736)
 
 ##### GET和POST的区别
 - GET在浏览器回退/刷新时是无害的，而POST会再次提交请求（重要）
@@ -224,7 +230,9 @@ fetch发送post请求的时候，总是发送2次，第一次状态码是204，�
 
 [参考](https://segmentfault.com/q/1010000008693779)
 
-
+###### 表单上传的集中方式？
+[WEB前端上传图片的几种方法](https://www.cnblogs.com/gongyue/p/7686359.html)
+[前端上传文件的方法总结](https://www.cnblogs.com/soraly/p/8441589.html)
 
 
 
