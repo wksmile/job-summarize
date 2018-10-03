@@ -55,6 +55,31 @@ function trim(str){
     return str.replace(/^\s+|\s+$/gm,"")
 }
 
+// indexOf和lastIndexOf实习
 
+/******************************************************************************************************/
+function fnc1(){
+    console.log(a)
+    var a = 1
+}
+fnc1()  // 输出 undefined
+
+
+function fnc2(){
+    console.log(a)
+    var a = 1
+}
+var a = 1
+fnc2()   // 输出 undefined
+// es5都是函数作用域，变量提升都是提升到当前作用域顶部
+
+function fnc3() {
+    let a=1;
+    if(true){
+      let a=2;
+      console.log(a);
+    }
+}
+fnc3()  // 输出2，let不允许在*相同*作用域内，重复声明同一个变量。
 
 

@@ -1,3 +1,7 @@
+### 收藏（有空自己实现一遍）
+[打造自己的JavaScript武器库](https://segmentfault.com/a/1190000011966867)
+
+
 ##### fetch的实现？
 [fetch的实现原理解析](https://blog.csdn.net/mapbar_front/article/details/79775185)
 
@@ -22,4 +26,7 @@
 ##### 实现轮播图？
 
 ##### 实现转盘抽奖？
+
+
+
 

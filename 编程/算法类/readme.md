@@ -42,7 +42,7 @@
 1. Sa中元素的个数小于k，则Sb中的第k-|Sa|个元素即为第k大数；
 2. Sa中元素的个数大于等于k，则返回Sa中的第k大数。
 
- 利用快排的partion思想T(n)= 2T(n/2)+ O(1)时间复杂度为O(n)   
+ 利用快排的partion思想T(n)= 2T(n/2)+ O(1)时间复杂度为O(n)
  该方法只有当我们可以修改输入的数组时可用，位于数组左边的k个数字就是最小的k个数字（但这k个数字不一定是排序的），位于第k个数右边的数字都比第k个数字大
 
 ##### 求最长公共子序列？
@@ -58,5 +58,8 @@
 ##### js实现优先队列
 [JavaScript队列、优先队列与循环队列](https://blog.csdn.net/q1056843325/article/details/53121917)
 
+##### 二叉树找出给定两个节点的最近公共父节点
+[查找两个节点最低祖先节点](https://blog.csdn.net/beitiandijun/article/details/41970417)
 
-
+##### 如何判断两个链表是否相交并求出相交点
+[如何判断两个链表是否相交并求出相交点](https://blog.csdn.net/dawn_after_dark/article/details/73864643)
