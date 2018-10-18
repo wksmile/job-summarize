@@ -49,6 +49,7 @@ csrf攻击的具体流程是什么样的，为什么B网站的请求会带上A�
 1. 判断顶层视口的域名和本页面的域名是否一致，不一致就跳转到我方的网页 ``top.location.hostname !== self.location.hostname``
 2. 通过配置 nginx 发送 X-Frame-Options 响应头，这样浏览器就会阻止嵌入网页的渲染。[参考](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/X-Frame-Options)
 
+
 #### SQL注入
 页面提交的数据到服务器后端，在服务器端未进行数据验证就将数据直接拼到SQL语句中执行，因此产生于预期不同的现象。
 

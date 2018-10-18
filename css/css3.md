@@ -1,4 +1,4 @@
-**问题**：
+**问题**：;
 css动画，追问：js动画写过吗?
 css动画：transform/transitions/animation
 
@@ -122,7 +122,7 @@ transitions功能通过将元素的某个属性值从一个属性值在指定的
 1. 子元素的height或width中使用百分比，是相对于子元素的直接父元素，width相对于父元素的width，height相对于父元素的height。
 2. 子元素的top和bottom如果设置百分比，则相对于直接非static定位(默认定位)的父元素的高度。left和right相对于width。
 3. padding和margin如果设置百分比，无论垂直方向或者是水平方向都是相对于直接父元素的width
-4. border-radius设置百分比，则是相对于**自身的宽度**，类似还有translate,background-size等属性
+4. border-radius设置百分比，则是相对于**自身的宽度和高度**，类似还有translate,background-size等属性都是相对于自身的宽度和高度
 
 [响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）](https://juejin.im/post/5b39905351882574c72f2808)
 

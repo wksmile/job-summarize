@@ -62,7 +62,7 @@ absolute文档流：浏览器对重绘和重排做了一些优化处理，如果
 
 + `align-content:flex-start | flex-end | center | space-between | space-around | stretch;` // 定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
 
-**项目上的属性**
+**项目上的属性**:
 
 - `order:<integer>` 定义项目的排列顺序。数值越小，排列越靠前，默认为0。
 

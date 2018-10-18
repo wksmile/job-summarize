@@ -26,6 +26,7 @@
 ##### 实现轮播图？
 
 ##### 实现转盘抽奖？
+[HTML5 Canvas实现转盘抽奖](https://www.cnblogs.com/givebest/p/5296335.html)
 
 
 

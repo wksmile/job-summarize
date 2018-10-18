@@ -45,6 +45,3 @@
 ##### 谈谈this指针的指向问题？
 [javascript的this指针](http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html)
 
-
-
-

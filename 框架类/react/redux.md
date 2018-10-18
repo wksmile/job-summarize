@@ -8,5 +8,3 @@
 
 [为什么使用redux](http://blog.csdn.net/haoaiqian/article/details/78625200)
 
-
-

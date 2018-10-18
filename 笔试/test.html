@@ -1,30 +1,408 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <style type="text/css">
-        .container {
-            display: grid;
-            grid-template-rows: 100px;
-            grid-template-columns: 1fr 1fr 2fr;
+    <title>【Sadlay】博客 - CSDN</title>
+    <meta content="CSDN提供最新最全的Sadlay信息，主要包含:Sadlay博客、Sadlay论坛,Sadlay问答、Sadlay资源了解最新最全的Sadlay就上CSDN个人信息中心" name="description" />
+    <meta content="Sadlay" name="keywords" />
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <meta charset="utf-8">
+    <meta name="referrer"content="always">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <!--<base href="//me.csdn.net/">-->
+    <!--虚拟路径 当前页面对应的静态资源根目录-->
+    <script>
+        var CFG={
+            STATIC_URL : "//me.csdn.net/",                                //静态资源根目录  对应本地服务的dist目录
+            STATIC_GLOBAL_URL : "https://csdnimg.cn/release/me/",                  //老版静态资源根目录
+            STATIC_GLOBAL_COMBO_URL : "https://g.csdnimg.cn/",      //新版静态资源根目录
+            PROJECT_URL : "//me.csdn.net/",                              //基础路径 当前项目部署根目录
+            API_URL : "//me.csdn.net/",                                      //默认API接口根目录
+            API_MY_URL : "//me.csdn.net/"                                 //API
         }
-        .item {
-            background-color: #cccccc;
-        }
-    </style>
+    </script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/pubfooter/css/pub_footer_1.0.3.css">
+    <link href="https://csdnimg.cn/release/me/pc/css/home-3faa3ef2f4.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <div class="item"></div>
-    <div class="item">
-        <p class="sub-item"></p>
+
+
+<div class="my_wrap">
+    <div class="my_wrap_l">
+        <div class="my_wrap_tab J_tabSwitch">
+            <div class="my_chanel_bar clearfix">
+                <div class="my_chanel_list clearfix">
+                    <a class="tab_item cur" href="/Sadlay"><label><span>博客</span></label></a>
+                    <a class="tab_item " href="/bbs/Sadlay"><label><span>帖子</span></label></a>
+                </div>
+            </div>            <div class="my_chanel_con">
+            <!--博客内容-->
+            <div class="tab_page my_tab_page">
+                <ul class="mod_my_t clearfix">
+                    <li>
+                        <span>129</span>
+                        <strong>访问</strong>
+                    </li>
+                    <li>
+                        <span>9</span>
+                        <a href="https://blog.csdn.net/Sadlay?t=1" target="_blank"><strong>原创</strong></a>
+                    </li>
+                    <li>
+                        <span>0</span>
+                        <strong>转发</strong>
+                    </li>
+                    <li>
+                        <span>1514397</span>
+                        <strong>排名</strong>
+                    </li>
+                    <li>
+                        <span>0</span>
+                        <strong>评论</strong>
+                    </li>
+                    <li>
+                        <span>0</span>
+                        <strong>获赞</strong>
+                    </li>
+                </ul>
+                <div class="my_tab_page_con">
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/82952163" target="_blank">
+                                问题：使用@Autowired无法注入Bean对象</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                问题
+                                在公司的一个项目开发时，遇到了一个类的属性无法注入的问题
+                                public class DemoController extends BaseController implements BussinessProcessHandler {
+
+                                @Autowired
+                                DemoApi demoApi;
+
+                                public void demo() {
+                                demoA...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>18</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-10-06 16:50:08</div>
+                        </dd>
+                    </dl>
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/82940956" target="_blank">
+                                问题：SpringBoot静态资源被拦截</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                问题
+                                今天做springboot项目中的拦截器的demo时发现静态资源被拦截，出现302错误。
+                                302 redirect: 302 代表暂时性转移(Temporarily Moved )。
+                                意思就是你访问网址A，但是网址A因为服务器端的拦截器或者其他后端代码处理的原因，会被重定向到网址B。
+                                静态资源被HandlerInterceptor拦截了！
+                                原因
+                                在网上找了半天发现是springboot2.0...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>6</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-10-04 22:11:08</div>
+                        </dd>
+                    </dl>
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/82934690" target="_blank">
+                                Linux服务器部署MySQL和创建用户及授权</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                部署mysql
+                                两种linux系统，商业版本以Redhat为代表，开源社区版则以debian为代表
+                                1.Ubuntu（debian系）
+                                1.1安装
+                                sudo apt-get install mysql-server
+                                sudo apt-get install mysql-client
+                                sudo apt-get install libmysqlclient-dev
+
+                                1.2修改root密码
+                                cd et...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>6</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-10-03 22:59:23</div>
+                        </dd>
+                    </dl>
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/82593756" target="_blank">
+                                设计模式——简单工厂模式与反射</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                一、定义
+
+                                简单工厂模式(Simple Factory Pattern)：又称为静态工厂方法(Static Factory Method)模式，它属于类创建型模式。在简单工厂模式中，可以根据参数的不同返回不同类的实例。简单工厂模式专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。
+
+                                二、UML
+
+                                1. 工厂（Creator）角色
+
+                                简单工厂模式的核心，它负责实现创...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>22</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-09-10 18:11:05</div>
+                        </dd>
+                    </dl>
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/81707851" target="_blank">
+                                设计模式——装饰模式</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                需求
+
+                                具体应用场景有很多，比如穿衣打扮等需要各种组合的场景。这里以食堂点餐举例。
+                                很多人肯定吃过食堂里米饭+各种菜组合的盖饭，菜包括宫保鸡丁、鱼香肉丝和番茄鸡蛋等等。不同的菜有不同的价格，那么如何在程序里得到具体点了什么菜和最终的价格呢？
+                                第一时间想到肯定是继承。
+
+
+                                定义米饭的父类。
+                                对于不同的菜分别继承米饭这个父类，例如宫保鸡丁米饭，鱼香肉丝米饭等等。
+                                对于组合的菜再分别继承米饭这个父类...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>16</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-08-15 18:17:44</div>
+                        </dd>
+                    </dl>
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/81201347" target="_blank">
+                                删除eclipse启动提示工作空间</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                因为换电脑，把之前电脑的eclipse拷贝到了新电脑，但是打开的时候提示选择工作空间里存在已经失效旧电脑的工作空间目录，如下图
+
+                                删除步骤如下
+
+
+                                打开eclipse的根目录
+                                configuration 》.settings里找到org.eclipse.ui.ide.prefs文件
+                                右键记事本打开，删除失效的目录
+
+                                删除上图标红的失效目录，这样再次启动eclipse工作空间提示中就没...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>7</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-07-25 14:16:11</div>
+                        </dd>
+                    </dl>
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/80721874" target="_blank">
+                                循环两个集合筛选交集和补集</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                最近项目中在做人员的编辑过程中，由于人员和岗位是一对多关系，而权限绑定着岗位ID，不可以直接失效再做插入，需要对编辑后的岗位集合和数据库中原先的岗位集合根据组织编码需要去循环比对做判断。
+                                假设A集合（编辑后的岗位集合），B集合（数据库中岗位集合）。
+                                A没有，B有，删除
+                                A有，B没有，新增
+                                A和B都有，更新
+                                public int[] updatePtPostList(String s...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>30</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-06-17 23:39:47</div>
+                        </dd>
+                    </dl>
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/80721722" target="_blank">
+                                Spring-Boot学习1（hello world）</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                一、spring boot入门
+                                1、Spring boot简介
+                                简化spring开发的一个框架；
+                                整个spring技术栈的一个大整合；
+                                J2EE开发的一站式解决方案
+                                2、SpringBoot优点
+                                快速创建独立运行的Spring项目以及主流框架集成
+                                使用嵌入式的Servlet容器，应用无需打包成WAR包
+                                starters自动依赖与版本控制
+                                大量的自动配置...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>13</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-06-17 23:09:36</div>
+                        </dd>
+                    </dl>
+                    <dl class="tab_page_list">
+                        <dt>
+                            <h3><a href="https://blog.csdn.net/Sadlay/article/details/80716013" target="_blank">
+                                欢迎使用CSDN-markdown编辑器啊</a>
+                            </h3>
+                        </dt>
+                        <dd>
+                            <p class="tab_page_intro">
+                                欢迎使用Markdown编辑器写博客
+
+                                本Markdown编辑器使用StackEdit修改而来，用它写博客，将会带来全新的体验哦：
+
+
+                                Markdown和扩展Markdown简洁的语法
+                                代码块高亮
+                                图片链接和图片上传
+                                LaTex数学公式
+                                UML序列图和流程图
+                                离线写博客
+                                导入导出Markdown文件
+                                丰富的快捷键
+
+                                快捷键
+
+                                `
+
+                                ##
+
+                                加粗    Ctrl + B
+                                斜体   ...</p>
+                        </dd>
+                        <dd class="tab_page_con_b clearfix">
+                            <div class="tab_page_b_l fl">
+                                <label>
+                                    <em>9</em>次阅读
+                                </label>
+                            </div>
+                            <div class="tab_page_b_r fr">2018-06-16 23:31:10</div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
-    <div class="item"></div>
+    <div class="my_wrap_r">
+        <!--mod_person-->
+        <!--mod_person-->
+        <div class="my_person">
+            <dl class="my_person_t clearfix">
+                <dt>
+                    <img class="head_img" src="https://avatar.csdn.net/E/D/6/1_sadlay.jpg?1539142599"/>
+                </dt>
+                <dd>
+                </dd>
+            </dl>
+            <dl class="person_wrap">
+                <dt>
+                    <h4 class="person_t">
+                        Sadlay            </h4>
+                </dt>
+                <dd>
+                </dd>
+                <dd>
+                    <a id="att_btn" data-user="Sadlay" class="add_attention" href="javascript:;">关注</a>
+                </dd>
+                <dd class="person_b">
+                    <ul>
+                        <li>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#csdnc-m-add"></use>
+                            </svg>
+                            <span >
+                                中国                            </span>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="my_fans js_fans_att clearfix">
+            <ul class="my_fans_bar">
+                <li class="tab_item cur">
+                    <span>粉丝</span>
+                    <em>0</em>
+                </li>
+                <li class="tab_item">
+                    <span>关注</span>
+                    <em>0</em>
+                </li>
+            </ul>
+            <div class="fan_att_con">
+                <ul class="tab_page clearfix" style="display:block;">
+                    <svg class="icon blank_svg fan_svg" aria-hidden="true">
+                        <use xlink:href="#csdnc-monkey-pixel"></use>
+                    </svg>
+                    <p class="blank_text">空空如也</p>
+                </ul>
+                <ul class="tab_page">
+                    <svg class="icon blank_svg fan_svg" aria-hidden="true">
+                        <use xlink:href="#csdnc-monkey-pixel"></use>
+                    </svg>
+                    <p class="blank_text">空空如也</p>
+                </ul>
+            </div>
+        </div>        <!--footer-->
+        <div class="fixed_footer">
+            <div class="public_pc_right_footer2018"></div>
+        </div>
+    </div>
 </div>
-
-<script type="text/javascript">
-
-</script>
+<!--<script src="https://g.csdnimg.cn/??lib/jquery/1.12.4/jquery.min.js,track/1.0.1/track.js" charset="utf-8"></script>-->
+<!--[if lt IE 8]>
+<script>window.location.href="https://g.csdnimg.cn/browser_upgrade/1.0.0/index.html";</script>
+<![endif]-->
+<!--[if gte IE 8]>
+<script src="https://g.csdnimg.cn/browser_upgrade/1.0.0/browser_upgrade.js"></script>
+<![endif]-->
+<script src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript"></script>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" type="text/javascript"  data-isfootertrack="false"></script>
+<script src="https://csdnimg.cn/release/me/pc/js/apps/home-a26c28c768.js" ></script>
 </body>
 </html>
