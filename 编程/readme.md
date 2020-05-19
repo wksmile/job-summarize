@@ -1,7 +1,6 @@
 ### 收藏（有空自己实现一遍）
 [打造自己的JavaScript武器库](https://segmentfault.com/a/1190000011966867)
 
-
 ##### fetch的实现？
 [fetch的实现原理解析](https://blog.csdn.net/mapbar_front/article/details/79775185)
 
@@ -27,6 +26,8 @@
 
 ##### 实现转盘抽奖？
 [HTML5 Canvas实现转盘抽奖](https://www.cnblogs.com/givebest/p/5296335.html)
+
+获取dom里面所有的图片，包括背景和iframe [链接](https://blog.crimx.com/2017/03/09/get-all-images-in-dom-including-background/)
 
 
 

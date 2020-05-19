@@ -4,7 +4,7 @@
 2. 标准模型和IE模型的区别？ 计算宽度和高度的不同。怎么计算？
 3. css如何设置获取这两种模型的宽和高？
 4. js如何设置获取盒模型对应的宽和高
-5.  实例题（根据盒模型解释边距重叠）
+5. 实例题（根据盒模型解释边距重叠）
 6. BFC（边距重叠解决方案，还有IFC），要引出这个概念
 
 ### 回答
@@ -12,15 +12,14 @@
  1. 标准模型的宽和高就是content，IE模型宽和高还包括padding和border。
  2. box-sizing:content-box/border-box   content-box指标准模型，border-box指IE模型
  4. （1）dom.style.width/height 只能取到内联样式的宽和高，style标签和外链的样式取不到
-      （2）dom.currentStyle.width/height 取到的是最终渲染后的宽和高，只有IE支持
-      （3）window.getComputedStyle(dom).width/height  同（2）但是多浏览器支持
-      （4）dom.getBoundingClientRect().width/height同（3），除此可以取到相对于视窗的上下左右的距离
+     （2）dom.currentStyle.width/height 取到的是最终渲染后的宽和高，只有IE支持
+     （3）window.getComputedStyle(dom).width/height  同（2）但是多浏览器支持
+     （4）dom.getBoundingClientRect().width/height同（3），除此可以取到相对于视窗的上下左右的距离
  5. 根据盒模型解释边距重叠
     例如boxModel.html中id为sec的示例中，父元素的高度是多少。100px，这里是100px，但是给sec加上overflow:hidden后父元素的高度变成110px，这是因为给父级元素创建了BFC。
     
     
 ### 知识点补充
-
 
 ##### 边距重叠
 两个上下方向相邻的元素框垂直相遇时，外边距会合并，合并后的外边距的高度等于两个发生合并的外边距中较高的那个边距值，需要注意的是：只有普通文档流中块框的**垂直**外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。

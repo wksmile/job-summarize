@@ -13,6 +13,26 @@
 ```
 注意值除了new Function()返回'function'外，其他的通过构造函数构造函数String，Number,Boolean,Date,Error,Array,RegExp,Object等new出来的值typeof都是object。注意Symbol不是构造函数，不能用new运算符
 
+##### null和undefined的区别
+[null和undefined的区别](https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html)
+
+null表示”没有对象“，即该出不应该有值；undefined 表示“缺少值”，此处应该有一个值但是还没有定义
+
+相同点：
+- if语句中会被自动转化为false
+- ==运算符比较是相等
+
+不同点：
+null:
+- 作为函数的参数，表示该函数的参数不是对象
+- 作为对象原型链的终点
+
+undefined:
+- 变量被声明了但是没有赋值
+- 调用函数时应该提供的参数没有提供
+- 对象没有赋值的属性
+- 函数没有返回值
+
 ##### 可能发生值类型转换？
 + 字符串拼接
 + ==运算符
@@ -202,3 +222,5 @@ settimeout中回调函数中的this指向window,在严格模式下指向undefine
 - for-in，循环"enumerable"对象，包括原型，for-in更适合遍历对象
 - for-of,遍历可迭代的对象的元素值
 
+### naturalWidth和naturalHeight
+naturalWidth和naturalHeight是html5新增的属性，它们可以直接获取图片的原始宽高。而且这在Fixefox/Chrome/Safari/Opera/IE9里已经实现。

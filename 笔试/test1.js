@@ -1,26 +1,50 @@
-var compose = function (funcs) {
-    var len = funcs.length,
-        index = len;
-    while(index--){
-        if(typeof funcs[index] !== "function") throw new Error("the arguments is not a function");
-    }
-    return function (...args){
-        var index = 0;
-        var result = len ? funcs[index].call(this,args) : args[0];
-        while (++index < len) {
-            result = funcs[index].call(this,result);
+function spawn(genF) {
+    return new Promise(function(resolve, reject) {
+      const gen = genF();
+      function step(nextF) {
+        let next;
+        try {
+          next = nextF();
+        } catch(e) {
+          return reject(e);
         }
-        return result;
-    }
-}
+        if(next.done) {
+          return resolve(next.value);
+        }
+        Promise.resolve(next.value).then(function(v) {
+          step(function() { return gen.next(v); });
+        }, function(e) {
+          step(function() { return gen.throw(e); });
+        });
+      }
+      step(function() { return gen.next(undefined); });
+    });
+  }
 
 
-int countNum(int n){
-    int count=0;
-    while(n){
-        ++count;
-        n = (n-1) & n;
-    }
-    return count;
-}
-
+  function spawn(genF){
+    return new Promise(function(resolve, reject){
+        let gen = genF()
+        function step(nextF){
+            let next;
+            try {
+                next = genF.next()
+            } catch(e) {
+                return reject(e)
+            }
+            if(next.done) {
+                return resolve(next.value)
+            }
+            Promise.resolve(next.value).then(function(v){
+                step(function() {
+                    return gen.next(v)
+                }), step(function() {
+                    return gen.throw(e)
+                })
+            })
+        }
+        step(function() {
+            return gen.next()
+        })
+    })
+  }

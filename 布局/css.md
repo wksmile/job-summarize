@@ -1,4 +1,4 @@
-##### css隐藏页面元素常用方法？
+#### css隐藏页面元素常用方法？
 
 [参考](http://www.divcss5.com/rumen/r18099.shtml)
 [参考](http://www.zhangxinxu.com/wordpress/2012/02/css-overflow-hidden-visibility-hidden-disabled-use/)

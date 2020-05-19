@@ -27,7 +27,7 @@
 
 ##### ajax跨域怎么做？
 1. jsonp
-2. CORS
+2. [CORS](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 3. 代理，请求本地，本地在请求跨域
 
 ##### js底层怎么实现的知道吗？
@@ -42,6 +42,12 @@
 2. 使用指定的参数调用构造函数 Foo ，并将 this 绑定到新创建的对象。
 3. 由构造函数返回的对象就是 new 表达式的结果。如果构造函数没有显式返回一个对象，则使用步骤1创建的对象。（一般情况下，构造函数不返回值，但是用户可以选择主动返回对象，来覆盖正常的对象创建步骤）
 
+
+
 ##### 谈谈this指针的指向问题？
 [javascript的this指针](http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html)
 
+
+##### JSON.stringify()过滤
+- [参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+- 

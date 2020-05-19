@@ -63,10 +63,5 @@ serialize()      输出序列化表单的值
 ##### javascript中sleep方法的实现
 [es5、promise、async以及generator中实现sleep的方法](https://blog.csdn.net/liwusen/article/details/78489442)
 
-##### 简单的实现一个promise
-[实现一个完美符合Promise/A+规范的Promise](https://github.com/forthealllight/blog/issues/4)
-
-[手把手教你实现一个完整的 Promise](https://www.cnblogs.com/huansky/p/6064402.html)
-
 
 
