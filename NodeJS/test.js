@@ -1,7 +1,7 @@
 
 setTimeout(()=>{
   console.log(1)
-},13);
+},0);
 
 setImmediate(()=>{
   console.log(2)
@@ -44,5 +44,32 @@ process.nextTick(()=>{
  */
 
 //  2 3 5 4 1
+
+var canPermutePalindrome = function(s) {
+  if(!s) return false
+  let len = s.length
+  if(len <= 1 ) return true
+  let sArr = s.split('').sort(),
+  isRu=false,
+  current=[], 
+  initalIndex = 0
+  for(let i=0; i<len; i++){
+      if(sArr[i]!==sArr[i+1]) {
+          current = sArr.slice(initalIndex, i+1)
+          initalIndex = i+1
+          if(!(current.length%2===0)) {
+              if(!isRu) {
+                  isRu = true
+              } else {
+                  return false
+              }
+          }
+      }
+  }
+  return true
+};
+
+console.log('canPermutePalindrome', canPermutePalindrome('baa'))
+
 
 

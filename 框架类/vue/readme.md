@@ -1,3 +1,11 @@
+#### vue面试题：
+- [30 道 Vue 面试题，内含详细讲解（涵盖入门到精通，自测 Vue 掌握程度）](https://juejin.im/post/5d59f2a451882549be53b170)
+
+11题待看
+
+#### v-show,v-if区别
+[参考](https://cn.vuejs.org/v2/guide/conditional.html#%E7%94%A8-key-%E7%AE%A1%E7%90%86%E5%8F%AF%E5%A4%8D%E7%94%A8%E7%9A%84%E5%85%83%E7%B4%A0)
+
 ##### vue.js组件间通信
 **父子组件间通信**
 1. 使用`props`，父组件可以使用props向子组件通信

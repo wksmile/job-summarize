@@ -63,3 +63,8 @@
 
 ##### 如何判断两个链表是否相交并求出相交点
 [如何判断两个链表是否相交并求出相交点](https://blog.csdn.net/dawn_after_dark/article/details/73864643)
+
+##### 算法心得
+字符串题目： 对于成对出现的可以通过Set来实现，Set.delete, Set.add， Set.has来实现操作，如果没有Set.has就增加,否则删除Set.delete
+
+矩阵题目啊： 可以从逆转举证考虑，[参考](https://leetcode-cn.com/problems/rotate-matrix-lcci/)

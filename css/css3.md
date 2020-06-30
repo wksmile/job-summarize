@@ -4,7 +4,6 @@ css动画：transform/transitions/animation
 
 [参考:张鑫旭博客](http://www.zhangxinxu.com/wordpress/2010/11/css3-transitions-transforms-animation-introduction/)
 [参考css vs js动画](http://zencode.in/19.CSS-vs-JS%E5%8A%A8%E7%94%BB%EF%BC%9A%E8%B0%81%E6%9B%B4%E5%BF%AB%EF%BC%9F.html)
-[更好的逐帧动画函数-requestAnimationFrame简介](http://www.cnblogs.com/zichi/p/5208171.html)
 
 requestAnimationFrame:
 1. requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
@@ -114,9 +113,12 @@ transitions功能通过将元素的某个属性值从一个属性值在指定的
 
 
 ##### js引擎怎么实现Class关键字？
-   
-   
-##### 用过哪些预处理器，scss？那scss有存在什么缺点吗？
+
+#### less和scss的区别？
+[less和scss的区别](https://www.cnblogs.com/wangpenghui522/p/5467560.html)
+
+less存在的缺点： https://m.html.cn/qa/css3/13421.html
+scss存在的缺点：
 
 ##### 百分比单位的分析
 1. 子元素的height或width中使用百分比，是相对于子元素的直接父元素，width相对于父元素的width，height相对于父元素的height。

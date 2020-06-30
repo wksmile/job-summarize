@@ -90,5 +90,6 @@ app.use注册的中间件，如果path参数为空，则默认为"/"，而path�
 [参考](https://segmentfault.com/a/1190000013981513)
 [理解 Koa 的中间件机制](https://cnodejs.org/topic/5aac7608f5dfc27d7ad988bd)
 
-
-
+#### 服务端旋绕SSR
+[服务端渲染](https://juejin.im/post/5c068fd8f265da61524d2abc)
+[如何搭建一个高可用的服务端渲染工程](https://tech.youzan.com/server-side-render/)

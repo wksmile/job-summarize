@@ -16,7 +16,7 @@
 ##### null和undefined的区别
 [null和undefined的区别](https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html)
 
-null表示”没有对象“，即该出不应该有值；undefined 表示“缺少值”，此处应该有一个值但是还没有定义
+null表示”没有对象“，即该处不应该有值；undefined 表示“缺少值”，此处应该有一个值但是还没有定义
 
 相同点：
 - if语句中会被自动转化为false
@@ -104,6 +104,9 @@ Object, Array, Boolean, Number, String, Function, Date, RegExp, Error
 
 ##### jwt-token优点和缺点？
 [JWT](https://www.cnblogs.com/yan7/p/7857833.html)
+
+#### let和var的区别
+
 
 ##### 回调函数，Promise,Generator,async/await三者的区别，以及为什么用Promise，然后又变成了async/await？
 

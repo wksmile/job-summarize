@@ -1,3 +1,5 @@
+// 根据前序遍历和后续遍历重建二叉树
+
 function reconstructTree(pre, mid) {
     if(pre.length == 0 || mid.length == 0) return null;
     var root = pre[0];
@@ -13,5 +15,3 @@ function reconstructTree(pre, mid) {
 
 var pre = [10,6,4,8,14,12,16];
 var mid = [4,6,8,10,12,14,16];
-
-console.log(reconstructTree(pre,mid));

@@ -25,10 +25,10 @@ scroll事件节流,聊天请求数据事件节流。使用debouncing事件，[de
 
 
 ##### 流量台项目介绍
-**难点，创新**：怎么让提交的代码执行并且改变页面的数字，而且页面不刷新。
+**难点，创新**：怎么让提交的代码执行并且改变页面的数字，而且页面不刷新
 
 1. 浏览器在textarea中输入脚本后点击提交代码
-2. 在javascript回调函数中处理代码。处理如下。
+2. 在javascript回调函数中处理代码。处理如下
     - 将代码经过安全检验，将"<,>,\,/，document,src,iframe,href"等换为空格。
     - 将代码经过编码后通过ajax的post提交到服务器
     - 服务器收到提交的代码后保存提交的代码在一个变量中，返回成功标志
@@ -54,10 +54,39 @@ scroll事件节流,聊天请求数据事件节流。使用debouncing事件，[de
 es6模块import
 
 ##### 问题集锦
-- 介绍项目中用到的主要技术
+- 介绍项目中用到的主要技术，有哪些比较厉害的技术
 
 http://kain.site/
 
 ## 问题
 - isNaN
+
+
+#### 实现iframe页面
+[iframe框架](https://cloud.tencent.com/developer/article/1193409)
+
+
+### 点评管家iframe
+[基于iframe的跨域与更新父窗体地址栏的解决方案](https://cloud.tencent.com/developer/article/1193409)
+
+#### 疫情期间到店安心码项目：
+上传有图片和视屏两种：
+亮点： 
+1. canvas实现图片压缩
+    参考[用 Canvas 技术压缩要上传的图片](https://juejin.im/entry/560a726960b2ad8a22a538fc)
+2. 大文件视屏上传
+    参考[大文件上传](https://juejin.im/post/5dff8a26e51d4558105420ed)
+
+### 点评管家用户反馈评分
+1. touch和click事件,[参考](https://www.jianshu.com/p/b950ef9b5056)
+    - 正确的触发方式是： touchstar->touchmove->touchend,  touchstart->touchend->click
+
+    - 点击穿透问题：
+        + fastClick库可以解决。
+        + 延迟一定时间（300ms）来处理
+    
+    - user-select:none;  禁止选择事件
+
+#### 在美团最牛逼的事情，最厉害的技术是什么？
+
 

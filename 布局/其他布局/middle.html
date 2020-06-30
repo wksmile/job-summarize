@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
 <style>
-    #floater {
-        float: left;
-        height: 50%;
-        margin-bottom: -120px;
+    #block {
+        display: flex;
     }
 
-    #content {
-        clear: both;
-        height: 240px;
-        position: relative;
+    .left {
+        width: 60px;
+        height: 60px;
+        background: red;
+    }
+
+    .right {
+        flex: 1;
+        white-space: nowrap;  
+        text-overflow:ellipsis; 
+        overflow:hidden;
     }
 </style>
 </head>
 <body>
-<div id="floater">
+<div id="block">
+    <span class="left"></span>
+    <p class="right">旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发旧家具ID你发</p>
 </div>
-<div id="content">Content here</div>
 </body>
 </html>

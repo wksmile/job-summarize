@@ -50,4 +50,18 @@
 
 ##### JSON.stringify()过滤
 - [参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
-- 
+
+
+### typescript和javascript的区别？
+TypeScript 增加了静态类型、类、模块、接口和类型注解
+TypeScript 可用于开发大型的应用
+
+### interface和type的区别？
+- 相同点：
+    + 都可以描述一个对象或者函数
+    + 都允许扩展
+
+- 不同点：
+    + type 可以声明基本类型别名，联合类型，元组等类型
+    + type 语句中还可以使用 typeof 获取实例的 类型进行赋值
+    + interface 能够声明合并

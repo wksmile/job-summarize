@@ -19,8 +19,20 @@
  compose(arr)({index: 0}); 
   
  // out: 2
-  
  **/
+
+var compose = function() {
+    var args = Array.prototype.slice.call(arguments);
+    return function(x) {
+     if (args.length >= 2) {
+        return args.reverse().reduce((p, c) => {
+          return p = c(p)
+       }, x)
+     } else {
+         return args[1] && args[1](x);
+     }
+    }
+  }
 
 var compose = function(...args) {
     var len = args.length

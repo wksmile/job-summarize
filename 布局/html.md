@@ -9,48 +9,7 @@
 7. border-image
 8. 动画:animation,transition,transform等。
 
-
-##### html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？
-**新特性**：
-1. 拖拽释放(Drag and drop) API
-2. 语义化更好的内容标签（header,nav,footer,aside,article,section）
-3. 音频、视频API(audio,video)
-4. 画布(Canvas) API
-5. 地理(Geolocation) API
-6. 本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
-7. sessionStorage 的数据在浏览器关闭后自动删除
-8. 表单控件，calendar、date、time、email、url、search  
-9. 新的技术webworker, websocket, Geolocation
-
-**移除的元素**：
-1. 纯表现的元素：basefont，big，center，font, s，strike，tt，u；
-2. 对可用性产生负面影响的元素：frame，frameset，noframes；
-
-**支持HTML5新标签**：
-IE8/IE7/IE6支持通过 document.createElement 方法产生的标签，可以利用这一特性让这些浏览器支持 HTML5 新标签，浏览器支持新标签后，还需要添加标签默认的样式（当然最好的方式是直接使用成熟的框架、使用最多的是html5shim框架）：
-
-<!--[if lt IE 9]>
-<script> src="http://html5shim.googlecode.com/svn/trunk/html5.js"</script>
-<![endif]-->
-
-
-##### 问题:对HTML5标签语义化的理解
-
-1. 去掉或者丢失样式的时候能够让页面呈现出清晰的结构
-2. 有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；
-3. 方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；
-4. 便于团队开发和维护，语义化更具可读性，是下一步网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。
-
-[参考2](https://www.cnblogs.com/freeyiyi1993/p/3615179.html)
-[参考3](http://www.html5jscss.com/html5-semantics-section.html)
-
-
-##### canvas切图的原理
-裁切的原理是通过 canvas A 的 getImageData 方法取出图片中指定区域的像素数据，再用 canvas B 的 putImageData 方法将像素数据绘制到 canvas B 中，并保持 canvas B 的尺寸与取出区域的尺寸一致。canvas B 中的图片就是裁切得到的图片区域块。
-
-[参考1](http://leonshi.com/2015/10/31/html5-canvas-image-compress-crop/)
-
-##### 怎样计算白屏首屏时间？
+##### 怎样计算白屏、首屏时间？
 [如何计算白屏和首屏时间](http://www.cnblogs.com/longm/p/7382163.html)
 
 **白屏时间**: 地址栏输入网址点击回车 => 浏览器出现第一个字符或者元素
@@ -64,14 +23,19 @@ IE8/IE7/IE6支持通过 document.createElement 方法产生的标签，可以利
 计算首屏时间方法：
 - 首屏模块标签标记法。html的body末尾中使用内联的script标签标记当前时间。window.firstScreen = Date.now()。首屏时间： firstScreen - performance.timing.navigationStart;
 - 统计首屏内加载最慢的图片时间。此时首屏时间等于 加载最慢的图片的时间点 - performance.timing.navigationStart;
+- 如果页面首屏没有图片，首屏时间 = performance.timing.domContentLoadedEventStart - performance.timing.navigationStart
 - 自定义首屏内容计算法。
 
-首屏时间优化： [浅谈自己知道的首屏加载时间的优化策略](https://blog.csdn.net/clark_fitz817/article/details/79513046)
+首屏时间优化： [浅谈自己知道的首屏加载时间的优化策略](https://blog.csdn.net/clark_fitz817/article/details/79513046)， [前端如何优化首屏加载速度](https://juejin.im/post/5de4fd9c518825434771d163)
+- 缩小webpack或者其他打包工具生成的包大小,[Webpack如何打包才能尽可能的缩小体积](https://blog.csdn.net/js_admin/article/details/76824004)
+- 使用服务端渲染
+- 使用预渲染的方式，预渲染适用于简单的静态页面，服务端渲染适用于复杂、较大型、与服务端交互频繁的功能型网站[预渲染](https://juejin.im/post/5b8ba25751882542f25a6cc8)
+- 使用gzip压缩减小文件传输的大小，[gzip压缩初探](https://juejin.im/post/5d27dd2de51d454f6f16ec89)
+- 使用页面或者组件分块懒加载，[Vue组件代码分块和懒加载](https://blog.csdn.net/u010730126/article/details/103703940)
 
 ##### 编写html5需要注意什么？
 [HTML及H5代码编写规范及注意要点](https://blog.csdn.net/sinat_34719507/article/details/53891959)
 [移动端H5页面注意事项](https://segmentfault.com/a/1190000012156216)
 
-##### canvas实现拖拽？
 
 

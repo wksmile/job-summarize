@@ -1,24 +1,54 @@
+let data = {
+    name: 'ewrf'
+}
 
+function observe(data) {
+    if (!data || typeof data !== 'object') return
+    Object.keys(data).forEach(function(key) {
+        defineReavtive(data, key, data[key])
+    })
+}
 
-setTimeout(()=>{
-  console.log(1)
-});
+function defineReavtive(data, key, val) {
+    var dep = new Dep()
+    observe(val)
+    Object.defineProperty(data, key, {
+        set: function(newVal) {
+            if (newVal === val) return
+            val = newVal
+            dep.notify()
+        },
+        get: function() {
+            Dep.target && dep.addSub(Dep.target)
+            return val
+        }
+    })
+}
 
-setImmediate(()=>{
-  console.log(2)
-});
+function Dep() {
+    this.subs = []
+}
 
-Promise.resolve().then(()=>{
-  console.log(4)
-});
+Dep.prototype = {
+    notify() {
+        this.subs.forEach(function(sub) {
+            sub.update()
+        })
+    }
+}
 
-process.nextTick(()=>{
-  console.log(3)
-});
+Watcher.prototype = {
+    get: function(key) {
+        Dep.target = this
+        this.value = data[key]
+        Dep.target = null
+    }
+}
 
-(()=>{
-  console.log(5)
-})();
-
-// 5 3 4 1 2
-
+function pressImage(img, toWidth, toHeight) {
+    let canvas = document.createElement('canvas')
+    canvas.width = toWidth
+    canvas.height = toHeight
+    canvas.getContext('2d').drawImage(img)
+    let compressImg = canvas.toDataURL('image/jpeg', 0.7)
+}

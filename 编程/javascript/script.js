@@ -83,3 +83,15 @@ function fnc3() {
 fnc3()  // 输出2，let不允许在*相同*作用域内，重复声明同一个变量。
 
 
+//  实现字符串重复的repeat函数 -----------------------
+function repeat(src, n) {
+  return (new Array(n + 1)).join(src);
+}
+
+repeat("abc",4)   //abcabcabcabc
+
+// 
+function canvasToLower(img) {
+  
+}
+

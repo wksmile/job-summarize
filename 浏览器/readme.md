@@ -42,7 +42,12 @@ Bom是浏览器对象。常用的Bom属性
 [前后端到底怎么分？（一段代码逻辑到底该放在前端还是后台？）](https://blog.csdn.net/qq_35120986/article/details/80947175)
 
 ##### localStorage的使用以及同源策略？
+- localStorage受同源策略限制，iframe同源页面也可以互相访问，可以通过postMessage跨域通信解决跨域问题
+- localStorage拓展了cookies的大小限制，可以达到5M，cookies一般为4k左右
+- 所有浏览器会把localStorage限定为String类型，这个对于我们日常的类型需要一些装换，通过JSON.parse实现转换
+
 [localStorage使用总结](https://www.cnblogs.com/st-leslie/p/5617130.html)
+[localStorage跨域存储方式](https://www.jianshu.com/p/e86d92aeae69)
 
 [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 

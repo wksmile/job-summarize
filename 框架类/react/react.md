@@ -90,6 +90,12 @@ react在每个组件生命周期更新的时候都会调用一个`shouldComponen
 
 #### diff算法的时间复杂度？
 
+### react新生命周期和hooks的变化？
+[react新生命周期](https://juejin.im/post/5c7e24b26fb9a049f746f084)
+
+### 函数式组件与类组件有何不同？
+[函数式组件与类组件有何不同](https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/)
+
 
 
 

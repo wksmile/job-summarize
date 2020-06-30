@@ -29,6 +29,10 @@
 
 获取dom里面所有的图片，包括背景和iframe [链接](https://blog.crimx.com/2017/03/09/get-all-images-in-dom-including-background/)
 
+##### 实现一个对请求函数做并发限制的类或者高阶函数。
+详见手写promise.js函数
+[对请求并发数做限制的通用RequestDecorator](https://juejin.im/post/5b99ceb25188255c5e66ceea)
 
-
-
+##### 实现一个并发数限制的函数
+详见手写promise.js函数
+[实现一个带并发数限制的fetch请求函数](https://juejin.im/post/5c89d447f265da2dd37c604c)
